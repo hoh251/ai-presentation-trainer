@@ -1,8 +1,8 @@
 # AI Presentation Trainer — ชุดเอกสารส่งต่อ
 
-เอกสารชุดนี้ใช้แบ่งงานสองคนและประกอบระบบตามสัญญากลาง v1 สถานะปัจจุบันเป็น **แผนและสัญญา**; แอป prototype ยังไม่ได้รองรับ v1 ครบและยังไม่มีผลยืนยันการเทรนโมเดลจริง
+เอกสารชุดนี้ใช้แบ่งงานสองคนและประกอบระบบตามสัญญากลาง v1 ขณะนี้มี Frontend v1 กับ mock API สำหรับทดสอบตามสัญญาแล้ว แต่ Backend จริงและโมเดลที่ fine-tune ยังไม่รวมเข้ามา
 
-Repository ระยะแรกนี้เก็บ **เอกสารแผนและสัญญากลางเท่านั้น** โค้ด Frontend/Backend จะเพิ่มเมื่อเริ่มพัฒนาตามแผน
+โค้ด Frontend อยู่ใน `frontend/`; ข้อมูลติดป้ายตั้งต้นและกติกาการฝึกอยู่ใน `training/`
 
 ## ลำดับอ่าน
 
@@ -25,3 +25,5 @@ python -m unittest discover -s contracts/v1 -p test_contract.py -q
 ```
 
 `central-contract-v1.zip` เป็นสำเนาสัญญากลางสำหรับส่งแยก หากส่งทั้งโฟลเดอร์นี้อยู่แล้ว ใช้ `contracts/v1/` โดยตรงได้
+
+ทดสอบ Frontend พร้อม mock API ได้ด้วย `cd frontend; npm ci; npm run test:smoke` โดยยังไม่ต้องรอ Backend จริง รายละเอียดอยู่ใน [frontend/README.md](frontend/README.md)

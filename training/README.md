@@ -33,3 +33,7 @@ python training/split_data.py
 แบ่ง train/validation/test ตาม `deck_id` ก่อนสร้างคู่คำตอบ เพื่อไม่ให้คำถามและถ้อยคำจากสไลด์เดียวกันรั่วข้ามชุด ใช้ validation เลือก checkpoint และ threshold แล้วเปิด test เพียงครั้งเดียว รายงาน precision/recall/F1 ราย class, macro F1, off-topic F1, confusion matrix และ false praise rate โดยเทียบ baseline กับโมเดลที่เทรนต่อบน test เดียวกัน
 
 ก่อน M2 ต้องมี PDF หลายเรื่องและตัวอย่างเพียงพอในทุก label รวมคำตอบสั้น แสลง คำมั่ว คำถามเจาะ และคำสั่งหลอก ต้องตรวจจำนวนและความสมดุลของแต่ละ class จริงก่อนสรุปว่าพอหรือไม่ PDF C07 ที่ผู้ใช้ส่งมาถูกเก็บเป็นไฟล์ภายนอก repo สำหรับการประเมินบนเอกสารจริงและไม่ได้เผยแพร่ใน repo สาธารณะ เครื่องที่ตรวจล่าสุดมี RTX 3050 Laptop GPU 4 GB และพื้นที่ C ว่างราว 14.6 GB; ยังไม่มี PyTorch/Transformers/PEFT ใน Python runtime ที่ใช้ จึงยังไม่ได้เริ่ม fine-tune
+
+## สิทธิ์ดาวน์โหลด EmbeddingGemma
+
+`google/embeddinggemma-300m` ต้องให้เจ้าของบัญชี Hugging Face ยอมรับเงื่อนไขบนหน้าโมเดลก่อนดาวน์โหลดไฟล์ สร้าง `training/.env` ที่มีบรรทัด `HF_TOKEN=...` หรือกำหนดตัวแปร environment `HF_TOKEN` แล้วรัน `python training/model_access.py` สคริปต์จะแสดงเฉพาะผล HTTP และไม่พิมพ์ token ไฟล์ `.env` ถูก Git ignore อยู่แล้ว ห้าม commit token หรือ checkpoint ลง repo สาธารณะ

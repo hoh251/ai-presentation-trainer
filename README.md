@@ -4,7 +4,7 @@
 
 Repository ระยะแรกนี้เก็บ **เอกสารแผนและสัญญากลางเท่านั้น** โค้ด Frontend/Backend จะเพิ่มเมื่อเริ่มพัฒนาตามแผน
 
-ขั้นรวมงานของทีมอยู่ใน [CONTRIBUTING.md](CONTRIBUTING.md): ทำงานบน branch แยก → เปิด PR เข้า `dev` → เจ้าของ repo คอมเมนต์และ merge → เปิด PR จาก `dev` เข้า `main` เมื่อผ่านการทดสอบร่วม
+ขั้นรวมงานของทีมอยู่ใน [CONTRIBUTING.md](CONTRIBUTING.md): ทำงานบน branch แยก → เปิด PR เข้า `dev` → เจ้าของ repo คอมเมนต์และ merge → **เฉพาะ `hoh251` เปิดและ merge `dev` เข้า `main` เอง** เมื่อผ่านการทดสอบร่วม
 
 ## ลำดับอ่าน
 

@@ -25,10 +25,10 @@ Commit เฉพาะงานที่เกี่ยวข้อง ตรว
 
 ## 3. รวม `dev` เข้า `main`
 
-เปิด PR โดยตั้ง **base = `main`, compare = `dev`** พร้อมสรุปผล end-to-end: PDF ใหม่, probe/retry, incomplete, report, refresh, error 409/413/429/503, restart และเปิดผ่าน tunnel จากเครื่องอื่น `hoh251` คอมเมนต์ผลตรวจและเป็นผู้กด merge เมื่อพร้อมสาธิต จากนั้นสร้าง tag รุ่นสาธิตหากต้องการ
+**เฉพาะ `hoh251` เป็นผู้ตัดสินใจ เปิด PR และกด merge จาก `dev` เข้า `main` ด้วยตนเอง** คนอื่นและระบบอัตโนมัติไม่เปิดหรือ merge PR เส้นนี้ เมื่อพร้อมให้ `hoh251` ตั้ง **base = `main`, compare = `dev`** พร้อมสรุปผล end-to-end: PDF ใหม่, probe/retry, incomplete, report, refresh, error 409/413/429/503, restart และเปิดผ่าน tunnel จากเครื่องอื่น แล้วคอมเมนต์ผลตรวจและกด merge เอง จากนั้นสร้าง tag รุ่นสาธิตหากต้องการ
 
 หากพบข้อผิดพลาดหลัง merge ให้เปิด `fix/<ชื่องาน>` จาก `dev` แล้วทำ PR ตามทางเดิม อย่าแก้ `main` ตรง ๆ
 
 ## 4. กฎที่ตรวจด้วยคนในตอนนี้
 
-Repo นี้เป็น **Private** และ GitHub แจ้งว่าบัญชีปัจจุบันต้องใช้ GitHub Pro หรือเปิด repo เป็น Public จึงใช้ branch protection/rulesets ได้ ([เอกสาร GitHub](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches)) ดังนั้นขั้นตอน PR, คอมเมนต์ และการให้ `hoh251` กด merge เป็น **ข้อตกลงของทีมที่ยังไม่ถูก GitHub บังคับอัตโนมัติ** ห้ามเข้าใจผิดว่าระบบบล็อก direct push ได้แล้ว หากอัปเกรดแพ็กเกจภายหลังจึงตั้ง required PR review, conversation resolution และ status checks บน `dev`/`main` ได้
+Repo นี้เป็น **Private** และ GitHub แจ้งว่าบัญชีปัจจุบันต้องใช้ GitHub Pro หรือเปิด repo เป็น Public จึงใช้ branch protection/rulesets ได้ ([เอกสาร GitHub](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches)) ดังนั้นขั้นตอน PR, คอมเมนต์ และข้อกำหนดให้ **เฉพาะ `hoh251` merge `dev` เข้า `main`** เป็น **ข้อตกลงของทีมที่ยังไม่ถูก GitHub บังคับอัตโนมัติ** ห้ามเข้าใจผิดว่าระบบบล็อก direct push/merge ของผู้อื่นได้แล้ว หากอัปเกรดแพ็กเกจภายหลังจึงตั้ง required PR review, conversation resolution และข้อจำกัด branch บน `dev`/`main` ได้

@@ -2,6 +2,7 @@
 
 - งานนี้เปลี่ยนอะไร:
 - Base branch: `dev` / `main` (เลือกให้ตรงกับขั้นรวมงาน)
+- ถ้า base เป็น `main`: PR นี้ต้องเปิดและ merge โดย `hoh251` เท่านั้น
 - เจ้าของส่วนงาน: Frontend + model / Backend + RAG/Agent
 
 ## จุดต่อและผลกระทบ

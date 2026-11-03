@@ -1,0 +1,10 @@
+**/.env
+**/.env.*
+**/__pycache__/
+*.pyc
+*.pyo
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.log

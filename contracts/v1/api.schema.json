@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "api.schema.json",
+  "title": "AI Presentation Trainer API v1",
+  "$defs": {
+    "deck_upload": {
+      "type": "object",
+      "required": ["status", "contract_version", "deck_id", "filename", "page_count"],
+      "properties": {
+        "status": {"const": "ok"},
+        "contract_version": {"const": 1},
+        "deck_id": {"type": "string", "minLength": 1},
+        "filename": {"type": "string", "minLength": 1},
+        "page_count": {"type": "integer", "minimum": 1, "maximum": 10}
+      }
+    },
+    "session_start_request": {
+      "type": "object",
+      "required": ["deck_id", "difficulty"],
+      "properties": {
+        "deck_id": {"type": "string", "minLength": 1},
+        "difficulty": {"enum": ["basic", "standard", "challenge"]}
+      }
+    },
+    "readiness": {
+      "type": "object",
+      "required": ["status", "contract_version", "database_ready", "model_ready", "question_service_ready", "model_source"],
+      "properties": {
+        "status": {"enum": ["ok", "unavailable"]},
+        "contract_version": {"const": 1},
+        "database_ready": {"type": "boolean"},
+        "model_ready": {"type": "boolean"},
+        "question_service_ready": {"type": "boolean"},
+        "model_source": {"enum": ["local_finetuned", "test_fake"]},
+        "model_version": {"type": ["string", "null"]}
+      }
+    },
+    "criterion": {
+      "type": "object",
+      "required": ["id", "text", "source_page", "evidence_quote"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "text": {"type": "string", "minLength": 1},
+        "source_page": {"type": "integer", "minimum": 1},
+        "evidence_quote": {"type": "string", "minLength": 1}
+      }
+    },
+    "question": {
+      "type": "object",
+      "required": ["id", "text", "source_pages", "topic", "judge_role", "criteria"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "text": {"type": "string", "minLength": 1},
+        "source_pages": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 1}},
+        "topic": {"type": "string"},
+        "judge_role": {"enum": ["concept", "technical"]},
+        "decision_reason": {"type": "string"},
+        "criteria": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"$ref": "#/$defs/criterion"}}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": ["criterion_id", "status", "confidence"],
+      "properties": {
+        "criterion_id": {"type": "string"},
+        "status": {"enum": ["covered", "partial", "missing"]},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "required": ["relevance", "strengths", "improvements", "source_pages"],
+      "properties": {
+        "relevance": {"enum": ["relevant", "partial", "unrelated"]},
+        "strengths": {"type": "array", "items": {"type": "string"}},
+        "improvements": {"type": "array", "items": {"type": "string"}},
+        "source_pages": {"type": "array", "items": {"type": "integer", "minimum": 1}}
+      }
+    },
+    "attempt": {
+      "type": "object",
+      "required": ["attempt_id", "prompt_at_attempt", "answer", "agent_action"],
+      "properties": {
+        "attempt_id": {"type": "string", "minLength": 1},
+        "prompt_at_attempt": {"type": "string"},
+        "answer": {"type": "string"},
+        "agent_action": {"enum": ["probe", "retry", "clarify", "next", "finish"]}
+      }
+    },
+    "closed_round": {
+      "type": "object",
+      "required": ["round", "question", "outcome", "attempts", "answer", "coverage", "feedback", "source_pages"],
+      "properties": {
+        "round": {"type": "integer", "minimum": 1, "maximum": 3},
+        "question": {"$ref": "#/$defs/question"},
+        "outcome": {"enum": ["complete", "incomplete"]},
+        "attempts": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"$ref": "#/$defs/attempt"}},
+        "answer": {"type": "string"},
+        "coverage": {"type": "array", "items": {"$ref": "#/$defs/coverage"}},
+        "feedback": {"$ref": "#/$defs/feedback"},
+        "source_pages": {"type": "array", "items": {"type": "integer", "minimum": 1}}
+      }
+    },
+    "error": {
+      "type": "object",
+      "required": ["status", "error"],
+      "properties": {
+        "status": {"const": "error"},
+        "error": {
+          "type": "object",
+          "required": ["code", "message"],
+          "properties": {"code": {"type": "string"}, "message": {"type": "string"}}
+        }
+      }
+    },
+    "session_start": {
+      "type": "object",
+      "required": ["status", "contract_version", "session_id", "round", "question", "current_prompt", "state_version", "model_source", "test_mode"],
+      "properties": {
+        "status": {"const": "ok"},
+        "contract_version": {"const": 1},
+        "session_id": {"type": "string"},
+        "round": {"const": 1},
+        "question": {"$ref": "#/$defs/question"},
+        "current_prompt": {"type": "string"},
+        "state_version": {"const": 0},
+        "model_source": {"enum": ["local_finetuned", "test_fake"]},
+        "test_mode": {"type": "boolean"}
+      }
+    },
+    "session_state": {
+      "type": "object",
+      "required": ["status", "contract_version", "deck_id", "filename", "page_count", "difficulty", "round", "question", "current_prompt", "attempts", "history", "coverage", "state_version", "completed", "model_source", "test_mode"],
+      "properties": {
+        "status": {"const": "ok"},
+        "contract_version": {"const": 1},
+        "deck_id": {"type": "string"},
+        "filename": {"type": "string"},
+        "page_count": {"type": "integer", "minimum": 1, "maximum": 10},
+        "difficulty": {"enum": ["basic", "standard", "challenge"]},
+        "round": {"type": "integer", "minimum": 1, "maximum": 3},
+        "question": {"anyOf": [{"$ref": "#/$defs/question"}, {"type": "null"}]},
+        "current_prompt": {"type": ["string", "null"]},
+        "attempts": {"type": "array", "items": {"$ref": "#/$defs/attempt"}},
+        "history": {"type": "array", "maxItems": 3, "items": {"$ref": "#/$defs/closed_round"}},
+        "coverage": {"type": "array", "items": {"$ref": "#/$defs/coverage"}},
+        "state_version": {"type": "integer", "minimum": 0},
+        "completed": {"type": "boolean"},
+        "model_source": {"enum": ["local_finetuned", "test_fake"]},
+        "test_mode": {"type": "boolean"}
+      }
+    },
+    "answer_request": {
+      "type": "object",
+      "required": ["question_id", "attempt_id", "state_version", "answer"],
+      "properties": {
+        "question_id": {"type": "string", "minLength": 1},
+        "attempt_id": {"type": "string", "format": "uuid"},
+        "state_version": {"type": "integer", "minimum": 0},
+        "answer": {"type": "string", "minLength": 1}
+      }
+    },
+    "answer_response": {
+      "type": "object",
+      "required": ["status", "contract_version", "state_version", "round", "next_question", "current_prompt", "attempts", "history", "coverage", "model_version", "model_source", "off_topic", "agent_action", "agent_reason", "counted_round", "feedback", "completed", "test_mode"],
+      "properties": {
+        "status": {"const": "ok"},
+        "contract_version": {"const": 1},
+        "state_version": {"type": "integer", "minimum": 1},
+        "round": {"type": "integer", "minimum": 1, "maximum": 3},
+        "next_question": {"anyOf": [{"$ref": "#/$defs/question"}, {"type": "null"}]},
+        "current_prompt": {"type": ["string", "null"]},
+        "attempts": {"type": "array", "items": {"$ref": "#/$defs/attempt"}},
+        "history": {"type": "array", "maxItems": 3, "items": {"$ref": "#/$defs/closed_round"}},
+        "coverage": {"type": "array", "items": {"$ref": "#/$defs/coverage"}},
+        "model_version": {"type": "string"},
+        "model_source": {"enum": ["local_finetuned", "test_fake"]},
+        "off_topic": {"type": "object", "required": ["value", "confidence"], "properties": {"value": {"type": "boolean"}, "confidence": {"type": "number", "minimum": 0, "maximum": 1}}},
+        "agent_action": {"enum": ["probe", "retry", "clarify", "next", "finish"]},
+        "agent_reason": {"type": "string"},
+        "counted_round": {"type": "boolean"},
+        "feedback": {"$ref": "#/$defs/feedback"},
+        "completed": {"type": "boolean"},
+        "test_mode": {"type": "boolean"}
+      }
+    },
+    "report": {
+      "type": "object",
+      "required": ["status", "contract_version", "overall", "rounds", "model_source", "test_mode"],
+      "properties": {
+        "status": {"const": "ok"},
+        "contract_version": {"const": 1},
+        "model_source": {"enum": ["local_finetuned", "test_fake"]},
+        "test_mode": {"type": "boolean"},
+        "overall": {"type": "object", "required": ["summary", "strengths", "improvements"], "properties": {"summary": {"type": "string"}, "strengths": {"type": "array", "items": {"type": "string"}}, "improvements": {"type": "array", "items": {"type": "string"}}}},
+        "rounds": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/closed_round"}}
+      }
+    }
+  }
+}

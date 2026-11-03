@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "model.schema.json",
+  "title": "Model package v1",
+  "$defs": {
+    "input": {
+      "type": "object",
+      "required": ["question", "current_prompt", "criteria", "answer"],
+      "properties": {
+        "question": {"$ref": "api.schema.json#/$defs/question"},
+        "current_prompt": {"type": "string", "minLength": 1},
+        "criteria": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"$ref": "api.schema.json#/$defs/criterion"}},
+        "answer": {"type": "string", "minLength": 1}
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": ["model_version", "off_topic", "criteria"],
+      "properties": {
+        "model_version": {"type": "string", "minLength": 1},
+        "off_topic": {"type": "object", "required": ["value", "confidence"], "properties": {"value": {"type": "boolean"}, "confidence": {"type": "number", "minimum": 0, "maximum": 1}}},
+        "criteria": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"type": "object", "required": ["id", "status", "confidence"], "properties": {"id": {"type": "string"}, "status": {"enum": ["covered", "partial", "missing"]}, "confidence": {"type": "number", "minimum": 0, "maximum": 1}}}}
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "required": ["contract_version", "model_version", "base_model", "fine_tuned", "checkpoint_sha256", "max_input_tokens"],
+      "properties": {
+        "contract_version": {"const": 1},
+        "model_version": {"type": "string"},
+        "base_model": {"const": "google/embeddinggemma-300m"},
+        "fine_tuned": {"const": true},
+        "checkpoint_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "max_input_tokens": {"const": 512}
+      }
+    }
+  }
+}

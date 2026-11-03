@@ -1,0 +1,1562 @@
+{
+  "deck_upload": {
+    "status": "ok",
+    "contract_version": 1,
+    "deck_id": "deck_fixture",
+    "filename": "cats.pdf",
+    "page_count": 6
+  },
+  "deck_pages": [
+    "บทนำเรื่องแมว",
+    "จัดมุมเงียบให้แมว และมีที่หลบให้แมว",
+    "มีน้ำสะอาดให้แมว",
+    "แมวใช้หางสื่อสาร",
+    "สรุป",
+    "ขอบคุณ"
+  ],
+  "session_start_request": {
+    "deck_id": "deck_fixture",
+    "difficulty": "standard"
+  },
+  "readiness": {
+    "status": "ok",
+    "contract_version": 1,
+    "database_ready": true,
+    "model_ready": true,
+    "question_service_ready": true,
+    "model_source": "local_finetuned",
+    "model_version": "embeddinggemma-coverage-v1"
+  },
+  "questions": {
+    "q1": {
+      "id": "q_cat_home",
+      "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+      "source_pages": [
+        2
+      ],
+      "topic": "สภาพแวดล้อมแมว",
+      "judge_role": "concept",
+      "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+      "criteria": [
+        {
+          "id": "quiet",
+          "text": "จัดมุมเงียบ",
+          "source_page": 2,
+          "evidence_quote": "จัดมุมเงียบให้แมว"
+        },
+        {
+          "id": "hide",
+          "text": "จัดที่หลบ",
+          "source_page": 2,
+          "evidence_quote": "มีที่หลบให้แมว"
+        }
+      ]
+    },
+    "q2": {
+      "id": "q_water",
+      "text": "ควรเตรียมน้ำให้แมวอย่างไร?",
+      "source_pages": [
+        3
+      ],
+      "topic": "การดูแล",
+      "judge_role": "concept",
+      "decision_reason": "ถามจากสไลด์หน้า 3",
+      "criteria": [
+        {
+          "id": "water",
+          "text": "น้ำสะอาด",
+          "source_page": 3,
+          "evidence_quote": "มีน้ำสะอาดให้แมว"
+        }
+      ]
+    },
+    "q3": {
+      "id": "q_behavior",
+      "text": "แมวสื่อสารด้วยวิธีใด?",
+      "source_pages": [
+        4
+      ],
+      "topic": "พฤติกรรม",
+      "judge_role": "concept",
+      "decision_reason": "ถามจากสไลด์หน้า 4",
+      "criteria": [
+        {
+          "id": "tail",
+          "text": "ภาษาหาง",
+          "source_page": 4,
+          "evidence_quote": "แมวใช้หางสื่อสาร"
+        }
+      ]
+    }
+  },
+  "session_start": {
+    "status": "ok",
+    "contract_version": 1,
+    "session_id": "ses_fixture",
+    "round": 1,
+    "question": {
+      "id": "q_cat_home",
+      "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+      "source_pages": [
+        2
+      ],
+      "topic": "สภาพแวดล้อมแมว",
+      "judge_role": "concept",
+      "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+      "criteria": [
+        {
+          "id": "quiet",
+          "text": "จัดมุมเงียบ",
+          "source_page": 2,
+          "evidence_quote": "จัดมุมเงียบให้แมว"
+        },
+        {
+          "id": "hide",
+          "text": "จัดที่หลบ",
+          "source_page": 2,
+          "evidence_quote": "มีที่หลบให้แมว"
+        }
+      ]
+    },
+    "current_prompt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+    "state_version": 0,
+    "model_source": "local_finetuned",
+    "test_mode": false
+  },
+  "model_input": {
+    "question": {
+      "id": "q_cat_home",
+      "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+      "source_pages": [
+        2
+      ],
+      "topic": "สภาพแวดล้อมแมว",
+      "judge_role": "concept",
+      "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+      "criteria": [
+        {
+          "id": "quiet",
+          "text": "จัดมุมเงียบ",
+          "source_page": 2,
+          "evidence_quote": "จัดมุมเงียบให้แมว"
+        },
+        {
+          "id": "hide",
+          "text": "จัดที่หลบ",
+          "source_page": 2,
+          "evidence_quote": "มีที่หลบให้แมว"
+        }
+      ]
+    },
+    "current_prompt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+    "criteria": [
+      {
+        "id": "quiet",
+        "text": "จัดมุมเงียบ",
+        "source_page": 2,
+        "evidence_quote": "จัดมุมเงียบให้แมว"
+      },
+      {
+        "id": "hide",
+        "text": "จัดที่หลบ",
+        "source_page": 2,
+        "evidence_quote": "มีที่หลบให้แมว"
+      }
+    ],
+    "answer": "จัดมุมเงียบ ๆ ให้"
+  },
+  "model_output": {
+    "model_version": "embeddinggemma-coverage-v1",
+    "off_topic": {
+      "value": false,
+      "confidence": 0.94
+    },
+    "criteria": [
+      {
+        "id": "quiet",
+        "status": "covered",
+        "confidence": 0.91
+      },
+      {
+        "id": "hide",
+        "status": "missing",
+        "confidence": 0.86
+      }
+    ]
+  },
+  "manifest_example": {
+    "contract_version": 1,
+    "model_version": "embeddinggemma-coverage-v1",
+    "base_model": "google/embeddinggemma-300m",
+    "fine_tuned": true,
+    "checkpoint_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "max_input_tokens": 512,
+    "example_only": true
+  },
+  "answer_requests": {
+    "first": {
+      "question_id": "q_cat_home",
+      "attempt_id": "00000000-0000-4000-8000-000000000001",
+      "state_version": 0,
+      "answer": "จัดมุมเงียบ ๆ ให้"
+    },
+    "follow_up": {
+      "question_id": "q_cat_home",
+      "attempt_id": "00000000-0000-4000-8000-000000000002",
+      "state_version": 1,
+      "answer": "จัดบ้านแมวให้เข้าไปหลบ"
+    },
+    "third": {
+      "question_id": "q_water",
+      "attempt_id": "00000000-0000-4000-8000-000000000003",
+      "state_version": 2,
+      "answer": "ถุงเท้า"
+    },
+    "fourth": {
+      "question_id": "q_water",
+      "attempt_id": "00000000-0000-4000-8000-000000000004",
+      "state_version": 3,
+      "answer": "ไม่รู้"
+    },
+    "fifth": {
+      "question_id": "q_water",
+      "attempt_id": "00000000-0000-4000-8000-000000000005",
+      "state_version": 4,
+      "answer": "แมวชอบปลาทู"
+    },
+    "sixth": {
+      "question_id": "q_behavior",
+      "attempt_id": "00000000-0000-4000-8000-000000000006",
+      "state_version": 5,
+      "answer": "แมวใช้หางสื่อสาร"
+    }
+  },
+  "responses": {
+    "probe": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 1,
+      "round": 1,
+      "next_question": {
+        "id": "q_cat_home",
+        "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+        "source_pages": [
+          2
+        ],
+        "topic": "สภาพแวดล้อมแมว",
+        "judge_role": "concept",
+        "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+        "criteria": [
+          {
+            "id": "quiet",
+            "text": "จัดมุมเงียบ",
+            "source_page": 2,
+            "evidence_quote": "จัดมุมเงียบให้แมว"
+          },
+          {
+            "id": "hide",
+            "text": "จัดที่หลบ",
+            "source_page": 2,
+            "evidence_quote": "มีที่หลบให้แมว"
+          }
+        ]
+      },
+      "current_prompt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+      "attempts": [
+        {
+          "attempt_id": "00000000-0000-4000-8000-000000000001",
+          "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+          "answer": "จัดมุมเงียบ ๆ ให้",
+          "agent_action": "probe"
+        }
+      ],
+      "history": [],
+      "coverage": [
+        {
+          "criterion_id": "quiet",
+          "status": "covered",
+          "confidence": 0.91
+        },
+        {
+          "criterion_id": "hide",
+          "status": "missing",
+          "confidence": 0.86
+        }
+      ],
+      "model_version": "embeddinggemma-coverage-v1",
+      "model_source": "local_finetuned",
+      "off_topic": {
+        "value": false,
+        "confidence": 0.93
+      },
+      "agent_action": "probe",
+      "agent_reason": "ยังขาดที่หลบ",
+      "counted_round": false,
+      "feedback": {
+        "relevance": "partial",
+        "strengths": [
+          "กล่าวถึงมุมเงียบ"
+        ],
+        "improvements": [
+          "เพิ่มที่หลบให้แมว"
+        ],
+        "source_pages": [
+          2
+        ]
+      },
+      "completed": false,
+      "test_mode": false
+    },
+    "next": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 2,
+      "round": 2,
+      "next_question": {
+        "id": "q_water",
+        "text": "ควรเตรียมน้ำให้แมวอย่างไร?",
+        "source_pages": [
+          3
+        ],
+        "topic": "การดูแล",
+        "judge_role": "concept",
+        "decision_reason": "ถามจากสไลด์หน้า 3",
+        "criteria": [
+          {
+            "id": "water",
+            "text": "น้ำสะอาด",
+            "source_page": 3,
+            "evidence_quote": "มีน้ำสะอาดให้แมว"
+          }
+        ]
+      },
+      "current_prompt": "ควรเตรียมน้ำให้แมวอย่างไร?",
+      "attempts": [],
+      "history": [
+        {
+          "round": 1,
+          "question": {
+            "id": "q_cat_home",
+            "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+            "source_pages": [
+              2
+            ],
+            "topic": "สภาพแวดล้อมแมว",
+            "judge_role": "concept",
+            "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+            "criteria": [
+              {
+                "id": "quiet",
+                "text": "จัดมุมเงียบ",
+                "source_page": 2,
+                "evidence_quote": "จัดมุมเงียบให้แมว"
+              },
+              {
+                "id": "hide",
+                "text": "จัดที่หลบ",
+                "source_page": 2,
+                "evidence_quote": "มีที่หลบให้แมว"
+              }
+            ]
+          },
+          "outcome": "complete",
+          "attempts": [
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000001",
+              "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+              "answer": "จัดมุมเงียบ ๆ ให้",
+              "agent_action": "probe"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000002",
+              "prompt_at_attempt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+              "answer": "จัดบ้านแมวให้เข้าไปหลบ",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "จัดมุมเงียบ ๆ ให้ / จัดบ้านแมวให้เข้าไปหลบ",
+          "coverage": [
+            {
+              "criterion_id": "quiet",
+              "status": "covered",
+              "confidence": 0.91
+            },
+            {
+              "criterion_id": "hide",
+              "status": "covered",
+              "confidence": 0.88
+            }
+          ],
+          "feedback": {
+            "relevance": "relevant",
+            "strengths": [
+              "กล่าวถึงมุมเงียบและที่หลบ"
+            ],
+            "improvements": [],
+            "source_pages": [
+              2
+            ]
+          },
+          "source_pages": [
+            2
+          ]
+        }
+      ],
+      "coverage": [],
+      "model_version": "embeddinggemma-coverage-v1",
+      "model_source": "local_finetuned",
+      "off_topic": {
+        "value": false,
+        "confidence": 0.93
+      },
+      "agent_action": "next",
+      "agent_reason": "ครอบคลุมทั้งสองประเด็น",
+      "counted_round": true,
+      "feedback": {
+        "relevance": "relevant",
+        "strengths": [
+          "กล่าวถึงมุมเงียบและที่หลบ"
+        ],
+        "improvements": [],
+        "source_pages": [
+          2
+        ]
+      },
+      "completed": false,
+      "test_mode": false
+    },
+    "retry": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 3,
+      "round": 2,
+      "next_question": {
+        "id": "q_water",
+        "text": "ควรเตรียมน้ำให้แมวอย่างไร?",
+        "source_pages": [
+          3
+        ],
+        "topic": "การดูแล",
+        "judge_role": "concept",
+        "decision_reason": "ถามจากสไลด์หน้า 3",
+        "criteria": [
+          {
+            "id": "water",
+            "text": "น้ำสะอาด",
+            "source_page": 3,
+            "evidence_quote": "มีน้ำสะอาดให้แมว"
+          }
+        ]
+      },
+      "current_prompt": "ลองตอบเรื่องน้ำของแมวอีกครั้ง",
+      "attempts": [
+        {
+          "attempt_id": "00000000-0000-4000-8000-000000000003",
+          "prompt_at_attempt": "ควรเตรียมน้ำให้แมวอย่างไร?",
+          "answer": "ถุงเท้า",
+          "agent_action": "retry"
+        }
+      ],
+      "history": [
+        {
+          "round": 1,
+          "question": {
+            "id": "q_cat_home",
+            "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+            "source_pages": [
+              2
+            ],
+            "topic": "สภาพแวดล้อมแมว",
+            "judge_role": "concept",
+            "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+            "criteria": [
+              {
+                "id": "quiet",
+                "text": "จัดมุมเงียบ",
+                "source_page": 2,
+                "evidence_quote": "จัดมุมเงียบให้แมว"
+              },
+              {
+                "id": "hide",
+                "text": "จัดที่หลบ",
+                "source_page": 2,
+                "evidence_quote": "มีที่หลบให้แมว"
+              }
+            ]
+          },
+          "outcome": "complete",
+          "attempts": [
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000001",
+              "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+              "answer": "จัดมุมเงียบ ๆ ให้",
+              "agent_action": "probe"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000002",
+              "prompt_at_attempt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+              "answer": "จัดบ้านแมวให้เข้าไปหลบ",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "จัดมุมเงียบ ๆ ให้ / จัดบ้านแมวให้เข้าไปหลบ",
+          "coverage": [
+            {
+              "criterion_id": "quiet",
+              "status": "covered",
+              "confidence": 0.91
+            },
+            {
+              "criterion_id": "hide",
+              "status": "covered",
+              "confidence": 0.88
+            }
+          ],
+          "feedback": {
+            "relevance": "relevant",
+            "strengths": [
+              "กล่าวถึงมุมเงียบและที่หลบ"
+            ],
+            "improvements": [],
+            "source_pages": [
+              2
+            ]
+          },
+          "source_pages": [
+            2
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "criterion_id": "water",
+          "status": "missing",
+          "confidence": 0.95
+        }
+      ],
+      "model_version": "embeddinggemma-coverage-v1",
+      "model_source": "local_finetuned",
+      "off_topic": {
+        "value": true,
+        "confidence": 0.93
+      },
+      "agent_action": "retry",
+      "agent_reason": "คำตอบนอกเรื่อง",
+      "counted_round": false,
+      "feedback": {
+        "relevance": "unrelated",
+        "strengths": [],
+        "improvements": [
+          "คำตอบยังไม่เกี่ยวกับการให้น้ำ"
+        ],
+        "source_pages": [
+          3
+        ]
+      },
+      "completed": false,
+      "test_mode": false
+    },
+    "retry_again": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 4,
+      "round": 2,
+      "next_question": {
+        "id": "q_water",
+        "text": "ควรเตรียมน้ำให้แมวอย่างไร?",
+        "source_pages": [
+          3
+        ],
+        "topic": "การดูแล",
+        "judge_role": "concept",
+        "decision_reason": "ถามจากสไลด์หน้า 3",
+        "criteria": [
+          {
+            "id": "water",
+            "text": "น้ำสะอาด",
+            "source_page": 3,
+            "evidence_quote": "มีน้ำสะอาดให้แมว"
+          }
+        ]
+      },
+      "current_prompt": "ควรให้น้ำลักษณะใด?",
+      "attempts": [
+        {
+          "attempt_id": "00000000-0000-4000-8000-000000000003",
+          "prompt_at_attempt": "ควรเตรียมน้ำให้แมวอย่างไร?",
+          "answer": "ถุงเท้า",
+          "agent_action": "retry"
+        },
+        {
+          "attempt_id": "00000000-0000-4000-8000-000000000004",
+          "prompt_at_attempt": "ลองตอบเรื่องน้ำของแมวอีกครั้ง",
+          "answer": "ไม่รู้",
+          "agent_action": "retry"
+        }
+      ],
+      "history": [
+        {
+          "round": 1,
+          "question": {
+            "id": "q_cat_home",
+            "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+            "source_pages": [
+              2
+            ],
+            "topic": "สภาพแวดล้อมแมว",
+            "judge_role": "concept",
+            "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+            "criteria": [
+              {
+                "id": "quiet",
+                "text": "จัดมุมเงียบ",
+                "source_page": 2,
+                "evidence_quote": "จัดมุมเงียบให้แมว"
+              },
+              {
+                "id": "hide",
+                "text": "จัดที่หลบ",
+                "source_page": 2,
+                "evidence_quote": "มีที่หลบให้แมว"
+              }
+            ]
+          },
+          "outcome": "complete",
+          "attempts": [
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000001",
+              "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+              "answer": "จัดมุมเงียบ ๆ ให้",
+              "agent_action": "probe"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000002",
+              "prompt_at_attempt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+              "answer": "จัดบ้านแมวให้เข้าไปหลบ",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "จัดมุมเงียบ ๆ ให้ / จัดบ้านแมวให้เข้าไปหลบ",
+          "coverage": [
+            {
+              "criterion_id": "quiet",
+              "status": "covered",
+              "confidence": 0.91
+            },
+            {
+              "criterion_id": "hide",
+              "status": "covered",
+              "confidence": 0.88
+            }
+          ],
+          "feedback": {
+            "relevance": "relevant",
+            "strengths": [
+              "กล่าวถึงมุมเงียบและที่หลบ"
+            ],
+            "improvements": [],
+            "source_pages": [
+              2
+            ]
+          },
+          "source_pages": [
+            2
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "criterion_id": "water",
+          "status": "missing",
+          "confidence": 0.95
+        }
+      ],
+      "model_version": "embeddinggemma-coverage-v1",
+      "model_source": "local_finetuned",
+      "off_topic": {
+        "value": false,
+        "confidence": 0.93
+      },
+      "agent_action": "retry",
+      "agent_reason": "คำตอบยังไม่ครบ",
+      "counted_round": false,
+      "feedback": {
+        "relevance": "partial",
+        "strengths": [],
+        "improvements": [
+          "ยังไม่ได้ตอบเรื่องน้ำสะอาด"
+        ],
+        "source_pages": [
+          3
+        ]
+      },
+      "completed": false,
+      "test_mode": false
+    },
+    "incomplete": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 5,
+      "round": 3,
+      "next_question": {
+        "id": "q_behavior",
+        "text": "แมวสื่อสารด้วยวิธีใด?",
+        "source_pages": [
+          4
+        ],
+        "topic": "พฤติกรรม",
+        "judge_role": "concept",
+        "decision_reason": "ถามจากสไลด์หน้า 4",
+        "criteria": [
+          {
+            "id": "tail",
+            "text": "ภาษาหาง",
+            "source_page": 4,
+            "evidence_quote": "แมวใช้หางสื่อสาร"
+          }
+        ]
+      },
+      "current_prompt": "แมวสื่อสารด้วยวิธีใด?",
+      "attempts": [],
+      "history": [
+        {
+          "round": 1,
+          "question": {
+            "id": "q_cat_home",
+            "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+            "source_pages": [
+              2
+            ],
+            "topic": "สภาพแวดล้อมแมว",
+            "judge_role": "concept",
+            "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+            "criteria": [
+              {
+                "id": "quiet",
+                "text": "จัดมุมเงียบ",
+                "source_page": 2,
+                "evidence_quote": "จัดมุมเงียบให้แมว"
+              },
+              {
+                "id": "hide",
+                "text": "จัดที่หลบ",
+                "source_page": 2,
+                "evidence_quote": "มีที่หลบให้แมว"
+              }
+            ]
+          },
+          "outcome": "complete",
+          "attempts": [
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000001",
+              "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+              "answer": "จัดมุมเงียบ ๆ ให้",
+              "agent_action": "probe"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000002",
+              "prompt_at_attempt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+              "answer": "จัดบ้านแมวให้เข้าไปหลบ",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "จัดมุมเงียบ ๆ ให้ / จัดบ้านแมวให้เข้าไปหลบ",
+          "coverage": [
+            {
+              "criterion_id": "quiet",
+              "status": "covered",
+              "confidence": 0.91
+            },
+            {
+              "criterion_id": "hide",
+              "status": "covered",
+              "confidence": 0.88
+            }
+          ],
+          "feedback": {
+            "relevance": "relevant",
+            "strengths": [
+              "กล่าวถึงมุมเงียบและที่หลบ"
+            ],
+            "improvements": [],
+            "source_pages": [
+              2
+            ]
+          },
+          "source_pages": [
+            2
+          ]
+        },
+        {
+          "round": 2,
+          "question": {
+            "id": "q_water",
+            "text": "ควรเตรียมน้ำให้แมวอย่างไร?",
+            "source_pages": [
+              3
+            ],
+            "topic": "การดูแล",
+            "judge_role": "concept",
+            "decision_reason": "ถามจากสไลด์หน้า 3",
+            "criteria": [
+              {
+                "id": "water",
+                "text": "น้ำสะอาด",
+                "source_page": 3,
+                "evidence_quote": "มีน้ำสะอาดให้แมว"
+              }
+            ]
+          },
+          "outcome": "incomplete",
+          "attempts": [
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000003",
+              "prompt_at_attempt": "ควรเตรียมน้ำให้แมวอย่างไร?",
+              "answer": "ถุงเท้า",
+              "agent_action": "retry"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000004",
+              "prompt_at_attempt": "ลองตอบเรื่องน้ำของแมวอีกครั้ง",
+              "answer": "ไม่รู้",
+              "agent_action": "retry"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000005",
+              "prompt_at_attempt": "ควรให้น้ำลักษณะใด?",
+              "answer": "แมวชอบปลาทู",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "ถุงเท้า / ไม่รู้ / แมวชอบปลาทู",
+          "coverage": [
+            {
+              "criterion_id": "water",
+              "status": "missing",
+              "confidence": 0.95
+            }
+          ],
+          "feedback": {
+            "relevance": "unrelated",
+            "strengths": [],
+            "improvements": [
+              "ยังไม่ได้กล่าวถึงน้ำสะอาด"
+            ],
+            "source_pages": [
+              3
+            ]
+          },
+          "source_pages": [
+            3
+          ]
+        }
+      ],
+      "coverage": [],
+      "model_version": "embeddinggemma-coverage-v1",
+      "model_source": "local_finetuned",
+      "off_topic": {
+        "value": true,
+        "confidence": 0.93
+      },
+      "agent_action": "next",
+      "agent_reason": "ครบสามครั้งแล้วยังไม่ครอบคลุม",
+      "counted_round": true,
+      "feedback": {
+        "relevance": "unrelated",
+        "strengths": [],
+        "improvements": [
+          "ยังไม่ได้กล่าวถึงน้ำสะอาด"
+        ],
+        "source_pages": [
+          3
+        ]
+      },
+      "completed": false,
+      "test_mode": false
+    },
+    "finish": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 6,
+      "round": 3,
+      "next_question": null,
+      "current_prompt": null,
+      "attempts": [],
+      "history": [
+        {
+          "round": 1,
+          "question": {
+            "id": "q_cat_home",
+            "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+            "source_pages": [
+              2
+            ],
+            "topic": "สภาพแวดล้อมแมว",
+            "judge_role": "concept",
+            "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+            "criteria": [
+              {
+                "id": "quiet",
+                "text": "จัดมุมเงียบ",
+                "source_page": 2,
+                "evidence_quote": "จัดมุมเงียบให้แมว"
+              },
+              {
+                "id": "hide",
+                "text": "จัดที่หลบ",
+                "source_page": 2,
+                "evidence_quote": "มีที่หลบให้แมว"
+              }
+            ]
+          },
+          "outcome": "complete",
+          "attempts": [
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000001",
+              "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+              "answer": "จัดมุมเงียบ ๆ ให้",
+              "agent_action": "probe"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000002",
+              "prompt_at_attempt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+              "answer": "จัดบ้านแมวให้เข้าไปหลบ",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "จัดมุมเงียบ ๆ ให้ / จัดบ้านแมวให้เข้าไปหลบ",
+          "coverage": [
+            {
+              "criterion_id": "quiet",
+              "status": "covered",
+              "confidence": 0.91
+            },
+            {
+              "criterion_id": "hide",
+              "status": "covered",
+              "confidence": 0.88
+            }
+          ],
+          "feedback": {
+            "relevance": "relevant",
+            "strengths": [
+              "กล่าวถึงมุมเงียบและที่หลบ"
+            ],
+            "improvements": [],
+            "source_pages": [
+              2
+            ]
+          },
+          "source_pages": [
+            2
+          ]
+        },
+        {
+          "round": 2,
+          "question": {
+            "id": "q_water",
+            "text": "ควรเตรียมน้ำให้แมวอย่างไร?",
+            "source_pages": [
+              3
+            ],
+            "topic": "การดูแล",
+            "judge_role": "concept",
+            "decision_reason": "ถามจากสไลด์หน้า 3",
+            "criteria": [
+              {
+                "id": "water",
+                "text": "น้ำสะอาด",
+                "source_page": 3,
+                "evidence_quote": "มีน้ำสะอาดให้แมว"
+              }
+            ]
+          },
+          "outcome": "incomplete",
+          "attempts": [
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000003",
+              "prompt_at_attempt": "ควรเตรียมน้ำให้แมวอย่างไร?",
+              "answer": "ถุงเท้า",
+              "agent_action": "retry"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000004",
+              "prompt_at_attempt": "ลองตอบเรื่องน้ำของแมวอีกครั้ง",
+              "answer": "ไม่รู้",
+              "agent_action": "retry"
+            },
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000005",
+              "prompt_at_attempt": "ควรให้น้ำลักษณะใด?",
+              "answer": "แมวชอบปลาทู",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "ถุงเท้า / ไม่รู้ / แมวชอบปลาทู",
+          "coverage": [
+            {
+              "criterion_id": "water",
+              "status": "missing",
+              "confidence": 0.95
+            }
+          ],
+          "feedback": {
+            "relevance": "unrelated",
+            "strengths": [],
+            "improvements": [
+              "ยังไม่ได้กล่าวถึงน้ำสะอาด"
+            ],
+            "source_pages": [
+              3
+            ]
+          },
+          "source_pages": [
+            3
+          ]
+        },
+        {
+          "round": 3,
+          "question": {
+            "id": "q_behavior",
+            "text": "แมวสื่อสารด้วยวิธีใด?",
+            "source_pages": [
+              4
+            ],
+            "topic": "พฤติกรรม",
+            "judge_role": "concept",
+            "decision_reason": "ถามจากสไลด์หน้า 4",
+            "criteria": [
+              {
+                "id": "tail",
+                "text": "ภาษาหาง",
+                "source_page": 4,
+                "evidence_quote": "แมวใช้หางสื่อสาร"
+              }
+            ]
+          },
+          "outcome": "complete",
+          "attempts": [
+            {
+              "attempt_id": "00000000-0000-4000-8000-000000000006",
+              "prompt_at_attempt": "แมวสื่อสารด้วยวิธีใด?",
+              "answer": "แมวใช้หางสื่อสาร",
+              "agent_action": "finish"
+            }
+          ],
+          "answer": "แมวใช้หางสื่อสาร",
+          "coverage": [
+            {
+              "criterion_id": "tail",
+              "status": "covered",
+              "confidence": 0.92
+            }
+          ],
+          "feedback": {
+            "relevance": "relevant",
+            "strengths": [
+              "อธิบายการสื่อสารด้วยหาง"
+            ],
+            "improvements": [],
+            "source_pages": [
+              4
+            ]
+          },
+          "source_pages": [
+            4
+          ]
+        }
+      ],
+      "coverage": [],
+      "model_version": "embeddinggemma-coverage-v1",
+      "model_source": "local_finetuned",
+      "off_topic": {
+        "value": false,
+        "confidence": 0.93
+      },
+      "agent_action": "finish",
+      "agent_reason": "ปิดครบสามรอบ",
+      "counted_round": true,
+      "feedback": {
+        "relevance": "relevant",
+        "strengths": [
+          "อธิบายการสื่อสารด้วยหาง"
+        ],
+        "improvements": [],
+        "source_pages": [
+          4
+        ]
+      },
+      "completed": true,
+      "test_mode": false
+    }
+  },
+  "session_state_after_probe": {
+    "status": "ok",
+    "contract_version": 1,
+    "deck_id": "deck_fixture",
+    "filename": "cats.pdf",
+    "page_count": 6,
+    "difficulty": "standard",
+    "round": 1,
+    "question": {
+      "id": "q_cat_home",
+      "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+      "source_pages": [
+        2
+      ],
+      "topic": "สภาพแวดล้อมแมว",
+      "judge_role": "concept",
+      "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+      "criteria": [
+        {
+          "id": "quiet",
+          "text": "จัดมุมเงียบ",
+          "source_page": 2,
+          "evidence_quote": "จัดมุมเงียบให้แมว"
+        },
+        {
+          "id": "hide",
+          "text": "จัดที่หลบ",
+          "source_page": 2,
+          "evidence_quote": "มีที่หลบให้แมว"
+        }
+      ]
+    },
+    "current_prompt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+    "attempts": [
+      {
+        "attempt_id": "00000000-0000-4000-8000-000000000001",
+        "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+        "answer": "จัดมุมเงียบ ๆ ให้",
+        "agent_action": "probe"
+      }
+    ],
+    "history": [],
+    "coverage": [
+      {
+        "criterion_id": "quiet",
+        "status": "covered",
+        "confidence": 0.91
+      },
+      {
+        "criterion_id": "hide",
+        "status": "missing",
+        "confidence": 0.86
+      }
+    ],
+    "state_version": 1,
+    "completed": false,
+    "model_source": "local_finetuned",
+    "test_mode": false
+  },
+  "report": {
+    "status": "ok",
+    "contract_version": 1,
+    "model_source": "local_finetuned",
+    "test_mode": false,
+    "overall": {
+      "summary": "จบสามรอบ โดยรอบที่สองยังตอบไม่ครบ",
+      "strengths": [
+        "อธิบายมุมเงียบและที่หลบ"
+      ],
+      "improvements": [
+        "อธิบายเรื่องน้ำสะอาด"
+      ]
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "question": {
+          "id": "q_cat_home",
+          "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+          "source_pages": [
+            2
+          ],
+          "topic": "สภาพแวดล้อมแมว",
+          "judge_role": "concept",
+          "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+          "criteria": [
+            {
+              "id": "quiet",
+              "text": "จัดมุมเงียบ",
+              "source_page": 2,
+              "evidence_quote": "จัดมุมเงียบให้แมว"
+            },
+            {
+              "id": "hide",
+              "text": "จัดที่หลบ",
+              "source_page": 2,
+              "evidence_quote": "มีที่หลบให้แมว"
+            }
+          ]
+        },
+        "outcome": "complete",
+        "attempts": [
+          {
+            "attempt_id": "00000000-0000-4000-8000-000000000001",
+            "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+            "answer": "จัดมุมเงียบ ๆ ให้",
+            "agent_action": "probe"
+          },
+          {
+            "attempt_id": "00000000-0000-4000-8000-000000000002",
+            "prompt_at_attempt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+            "answer": "จัดบ้านแมวให้เข้าไปหลบ",
+            "agent_action": "next"
+          }
+        ],
+        "answer": "จัดมุมเงียบ ๆ ให้ / จัดบ้านแมวให้เข้าไปหลบ",
+        "coverage": [
+          {
+            "criterion_id": "quiet",
+            "status": "covered",
+            "confidence": 0.91
+          },
+          {
+            "criterion_id": "hide",
+            "status": "covered",
+            "confidence": 0.88
+          }
+        ],
+        "feedback": {
+          "relevance": "relevant",
+          "strengths": [
+            "กล่าวถึงมุมเงียบและที่หลบ"
+          ],
+          "improvements": [],
+          "source_pages": [
+            2
+          ]
+        },
+        "source_pages": [
+          2
+        ]
+      },
+      {
+        "round": 2,
+        "question": {
+          "id": "q_water",
+          "text": "ควรเตรียมน้ำให้แมวอย่างไร?",
+          "source_pages": [
+            3
+          ],
+          "topic": "การดูแล",
+          "judge_role": "concept",
+          "decision_reason": "ถามจากสไลด์หน้า 3",
+          "criteria": [
+            {
+              "id": "water",
+              "text": "น้ำสะอาด",
+              "source_page": 3,
+              "evidence_quote": "มีน้ำสะอาดให้แมว"
+            }
+          ]
+        },
+        "outcome": "incomplete",
+        "attempts": [
+          {
+            "attempt_id": "00000000-0000-4000-8000-000000000003",
+            "prompt_at_attempt": "ควรเตรียมน้ำให้แมวอย่างไร?",
+            "answer": "ถุงเท้า",
+            "agent_action": "retry"
+          },
+          {
+            "attempt_id": "00000000-0000-4000-8000-000000000004",
+            "prompt_at_attempt": "ลองตอบเรื่องน้ำของแมวอีกครั้ง",
+            "answer": "ไม่รู้",
+            "agent_action": "retry"
+          },
+          {
+            "attempt_id": "00000000-0000-4000-8000-000000000005",
+            "prompt_at_attempt": "ควรให้น้ำลักษณะใด?",
+            "answer": "แมวชอบปลาทู",
+            "agent_action": "next"
+          }
+        ],
+        "answer": "ถุงเท้า / ไม่รู้ / แมวชอบปลาทู",
+        "coverage": [
+          {
+            "criterion_id": "water",
+            "status": "missing",
+            "confidence": 0.95
+          }
+        ],
+        "feedback": {
+          "relevance": "unrelated",
+          "strengths": [],
+          "improvements": [
+            "ยังไม่ได้กล่าวถึงน้ำสะอาด"
+          ],
+          "source_pages": [
+            3
+          ]
+        },
+        "source_pages": [
+          3
+        ]
+      },
+      {
+        "round": 3,
+        "question": {
+          "id": "q_behavior",
+          "text": "แมวสื่อสารด้วยวิธีใด?",
+          "source_pages": [
+            4
+          ],
+          "topic": "พฤติกรรม",
+          "judge_role": "concept",
+          "decision_reason": "ถามจากสไลด์หน้า 4",
+          "criteria": [
+            {
+              "id": "tail",
+              "text": "ภาษาหาง",
+              "source_page": 4,
+              "evidence_quote": "แมวใช้หางสื่อสาร"
+            }
+          ]
+        },
+        "outcome": "complete",
+        "attempts": [
+          {
+            "attempt_id": "00000000-0000-4000-8000-000000000006",
+            "prompt_at_attempt": "แมวสื่อสารด้วยวิธีใด?",
+            "answer": "แมวใช้หางสื่อสาร",
+            "agent_action": "finish"
+          }
+        ],
+        "answer": "แมวใช้หางสื่อสาร",
+        "coverage": [
+          {
+            "criterion_id": "tail",
+            "status": "covered",
+            "confidence": 0.92
+          }
+        ],
+        "feedback": {
+          "relevance": "relevant",
+          "strengths": [
+            "อธิบายการสื่อสารด้วยหาง"
+          ],
+          "improvements": [],
+          "source_pages": [
+            4
+          ]
+        },
+        "source_pages": [
+          4
+        ]
+      }
+    ]
+  },
+  "errors": {
+    "conflict": {
+      "http_status": 409,
+      "body": {
+        "status": "error",
+        "error": {
+          "code": "STATE_CONFLICT",
+          "message": "สถานะรอบซ้อมเปลี่ยนไป กรุณาโหลดใหม่"
+        }
+      }
+    },
+    "too_long": {
+      "http_status": 413,
+      "body": {
+        "status": "error",
+        "error": {
+          "code": "ANSWER_TOO_LONG",
+          "message": "กรุณาย่อคำตอบแล้วลองใหม่"
+        }
+      }
+    },
+    "rate_limit": {
+      "http_status": 429,
+      "body": {
+        "status": "error",
+        "error": {
+          "code": "AI_RATE_LIMIT",
+          "message": "กรุณารอสักครู่แล้วลองใหม่"
+        }
+      }
+    },
+    "unavailable": {
+      "http_status": 503,
+      "body": {
+        "status": "error",
+        "error": {
+          "code": "MODEL_UNAVAILABLE",
+          "message": "โมเดลยังไม่พร้อมใช้งาน"
+        }
+      }
+    }
+  },
+  "idempotent_replay": {
+    "status": "ok",
+    "contract_version": 1,
+    "state_version": 1,
+    "round": 1,
+    "next_question": {
+      "id": "q_cat_home",
+      "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+      "source_pages": [
+        2
+      ],
+      "topic": "สภาพแวดล้อมแมว",
+      "judge_role": "concept",
+      "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+      "criteria": [
+        {
+          "id": "quiet",
+          "text": "จัดมุมเงียบ",
+          "source_page": 2,
+          "evidence_quote": "จัดมุมเงียบให้แมว"
+        },
+        {
+          "id": "hide",
+          "text": "จัดที่หลบ",
+          "source_page": 2,
+          "evidence_quote": "มีที่หลบให้แมว"
+        }
+      ]
+    },
+    "current_prompt": "ในมุมเงียบนั้นจะเพิ่มอะไรให้แมวหลบได้?",
+    "attempts": [
+      {
+        "attempt_id": "00000000-0000-4000-8000-000000000001",
+        "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+        "answer": "จัดมุมเงียบ ๆ ให้",
+        "agent_action": "probe"
+      }
+    ],
+    "history": [],
+    "coverage": [
+      {
+        "criterion_id": "quiet",
+        "status": "covered",
+        "confidence": 0.91
+      },
+      {
+        "criterion_id": "hide",
+        "status": "missing",
+        "confidence": 0.86
+      }
+    ],
+    "model_version": "embeddinggemma-coverage-v1",
+    "model_source": "local_finetuned",
+    "off_topic": {
+      "value": false,
+      "confidence": 0.93
+    },
+    "agent_action": "probe",
+    "agent_reason": "ยังขาดที่หลบ",
+    "counted_round": false,
+    "feedback": {
+      "relevance": "partial",
+      "strengths": [
+        "กล่าวถึงมุมเงียบ"
+      ],
+      "improvements": [
+        "เพิ่มที่หลบให้แมว"
+      ],
+      "source_pages": [
+        2
+      ]
+    },
+    "completed": false,
+    "test_mode": false
+  },
+  "edge_cases": {
+    "conflicting_model_output": {
+      "model_version": "embeddinggemma-coverage-v1",
+      "off_topic": {
+        "value": true,
+        "confidence": 0.91
+      },
+      "criteria": [
+        {
+          "id": "quiet",
+          "status": "covered",
+          "confidence": 0.75
+        },
+        {
+          "id": "hide",
+          "status": "missing",
+          "confidence": 0.81
+        }
+      ]
+    },
+    "clarify_response": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 1,
+      "round": 1,
+      "next_question": {
+        "id": "q_cat_home",
+        "text": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+        "source_pages": [
+          2
+        ],
+        "topic": "สภาพแวดล้อมแมว",
+        "judge_role": "concept",
+        "decision_reason": "ถามจากเนื้อหาสไลด์หน้า 2",
+        "criteria": [
+          {
+            "id": "quiet",
+            "text": "จัดมุมเงียบ",
+            "source_page": 2,
+            "evidence_quote": "จัดมุมเงียบให้แมว"
+          },
+          {
+            "id": "hide",
+            "text": "จัดที่หลบ",
+            "source_page": 2,
+            "evidence_quote": "มีที่หลบให้แมว"
+          }
+        ]
+      },
+      "current_prompt": "ช่วยอธิบายว่าคำตอบนี้เกี่ยวกับการจัดมุมให้แมวอย่างไร?",
+      "attempts": [
+        {
+          "attempt_id": "00000000-0000-4000-8000-000000000001",
+          "prompt_at_attempt": "จะจัดบ้านให้แมวรู้สึกปลอดภัยอย่างไร?",
+          "answer": "จัดมุมเงียบ ๆ ให้",
+          "agent_action": "probe"
+        }
+      ],
+      "history": [],
+      "coverage": [
+        {
+          "criterion_id": "quiet",
+          "status": "missing",
+          "confidence": 0.75
+        },
+        {
+          "criterion_id": "hide",
+          "status": "missing",
+          "confidence": 0.81
+        }
+      ],
+      "model_version": "embeddinggemma-coverage-v1",
+      "model_source": "local_finetuned",
+      "off_topic": {
+        "value": true,
+        "confidence": 0.93
+      },
+      "agent_action": "clarify",
+      "agent_reason": "โมเดลให้ผล off-topic และ covered ขัดกัน",
+      "counted_round": false,
+      "feedback": {
+        "relevance": "unrelated",
+        "strengths": [],
+        "improvements": [
+          "กรุณาอธิบายให้ตรงกับคำถาม"
+        ],
+        "source_pages": [
+          2
+        ]
+      },
+      "completed": false,
+      "test_mode": false
+    }
+  }
+}

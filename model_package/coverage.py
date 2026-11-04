@@ -13,7 +13,7 @@ import torch.nn.functional as F
 from safetensors.torch import load_file
 from sentence_transformers import SentenceTransformer
 
-MODEL_VERSION = "embeddinggemma-coverage-lora-v1"
+MODEL_VERSION = "embeddinggemma-coverage-lora-v2"
 MAX_INPUT_TOKENS = 512
 
 

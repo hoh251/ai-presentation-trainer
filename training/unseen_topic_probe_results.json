@@ -5,6 +5,7 @@
   "threshold_selection": "synthetic validation deck only; no tuning on this probe",
   "rows": 24,
   "base": {"macro_f1": 0.670, "off_topic_f1": 0.737, "false_praise_rate": 0.062},
-  "finetuned": {"macro_f1": 0.670, "off_topic_f1": 0.778, "false_praise_rate": 0.062},
-  "interpretation": "LoRA improved off-topic detection slightly on this tiny probe but did not improve coverage macro F1; collect independently labeled answers from more real presentations before a general accuracy claim."
+  "finetuned_v1": {"macro_f1": 0.670, "off_topic_f1": 0.778, "false_praise_rate": 0.062},
+  "finetuned_v2": {"macro_f1": 0.706, "off_topic_f1": 0.778, "false_praise_rate": 0.062},
+  "interpretation": "The v2 checkpoint improved coverage on this small manually authored probe but not off-topic or false praise. Collect independently labeled answers from more real presentations before a general accuracy claim."
 }

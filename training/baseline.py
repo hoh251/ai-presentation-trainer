@@ -32,6 +32,11 @@ def read_augmented_rows(name: str) -> list[dict]:
         decks = {row["deck_id"] for row in rows}
         edges = [json.loads(line) for line in edge_path.read_text(encoding="utf-8").splitlines()]
         rows.extend(row for row in edges if row["deck_id"] in decks)
+    if name == "validation":
+        hard_path = ROOT / "hard_cases.jsonl"
+        if hard_path.exists():
+            hard = [json.loads(line) for line in hard_path.read_text(encoding="utf-8").splitlines()]
+            rows.extend(row for row in hard if row["deck_id"] in decks)
     return rows
 
 

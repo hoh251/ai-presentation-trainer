@@ -1,6 +1,6 @@
 # Model package: EmbeddingGemma coverage scorer
 
-This is Person A's Backend handoff for contract v1. The actual model is `google/embeddinggemma-300m` fine-tuned locally with LoRA on `q_proj`/`v_proj`, plus the two Sentence Transformers Dense modules. The package returns one `covered`/`partial`/`missing` decision per criterion and a separate `off_topic` decision. It does not generate praise, choose a new question, access the database, or call Gemini; the Backend Agent owns those actions.
+This is Person A's Backend handoff for contract v1. Model package version `embeddinggemma-coverage-lora-v2` uses `google/embeddinggemma-300m` fine-tuned locally with LoRA on `q_proj`/`v_proj`, plus the two Sentence Transformers Dense modules. It adds 30 hard answer examples to training. The package returns one `covered`/`partial`/`missing` decision per criterion and a separate `off_topic` decision. It does not generate praise, choose a new question, access the database, or call Gemini; the Backend Agent owns those actions.
 
 ## Files and handoff
 
@@ -41,4 +41,4 @@ The smoke test validates the manifest and output against `contracts/v1/model.sch
 
 ## Evaluation limit
 
-`training/experiment_results.json` compares an untrained EmbeddingGemma scorer and this fine-tuned scorer on a held-out **synthetic** deck, including 10 stress answers. `training/baseline_results.json` is a character-bigram rule baseline on the same deck. The sample is small; it does not establish accuracy on arbitrary PDF slides. A real evaluation needs human-reviewed answers from multiple new presentations, especially ambiguous, short, and adversarial Thai responses.
+`training/experiment_results.json` compares an untrained EmbeddingGemma scorer and this fine-tuned scorer on a fixed **synthetic** deck, including 10 stress answers. `training/improvement_experiments.json` compares v1/v2 and rejected training alternatives. The sample is small; it does not establish accuracy on arbitrary PDF slides. v2 improves coverage macro F1 but lowers off-topic F1 on the synthetic test. A real evaluation needs human-reviewed answers from multiple new presentations, especially ambiguous, short, and adversarial Thai responses.

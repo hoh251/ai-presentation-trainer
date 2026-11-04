@@ -1,6 +1,6 @@
 # ข้อมูลและการฝึกโมเดล coverage
 
-สถานะ: ฝึก LoRA และสร้าง model package จริงแล้ว (`model_package/`) แต่ยังทดสอบกับสไลด์จริงหลายหัวข้อและต่อ Backend จริงไม่ครบ จึงยังไม่ควรประกาศว่า production ready หรือสรุปความแม่นยำทั่วไปจากตัวเลขนี้
+สถานะ: ฝึก LoRA และสร้าง model package v2 จริงแล้ว (`model_package/`) แต่ยังทดสอบกับคำตอบนักศึกษาจริงหลายหัวข้อและต่อ Backend จริงไม่ครบ จึงยังไม่ควรประกาศว่า production ready หรือสรุปความแม่นยำทั่วไปจากตัวเลขนี้ ดูแผนและผลการปรับรุ่นใน `MODEL_IMPROVEMENT_PLAN.md`, `improvement_experiments.json` และงานวิจัยที่เกี่ยวข้องใน `RELATED_RESEARCH.md`
 
 ## เป้าหมาย
 
@@ -34,20 +34,24 @@ python training/split_data.py
 
 แบ่ง train/validation/test ตาม `deck_id` ก่อนสร้างคู่คำตอบ เพื่อไม่ให้คำถามและถ้อยคำจากสไลด์เดียวกันรั่วข้ามชุด ใช้ validation เลือก checkpoint และ threshold แล้วเปิด test เพียงครั้งเดียว รายงาน precision/recall/F1 ราย class, macro F1, off-topic F1, confusion matrix และ false praise rate โดยเทียบ baseline กับโมเดลที่เทรนต่อบน test เดียวกัน
 
-การฝึกจริง: ดาวน์โหลด `google/embeddinggemma-300m` ไปไว้ใน `work/models/` ภายนอก Git, ใช้ PyTorch 2.11.0+cu128 บน RTX 3050 Laptop 4 GB, `bfloat16`, LoRA rank 4 บน `q_proj`/`v_proj`, batch 4, 3 epochs และความยาวสูงสุด 512 tokens VRAM สูงสุดที่วัดได้ประมาณ 963 MB ตัวอย่างฝึก 107 แถว (รวม stress 30), validation 42, test อีกหัวข้อ 42 เลือก threshold เฉพาะจาก validation เท่านั้น แล้วบันทึก checkpoint ใน `work/experiments/embeddinggemma-lora-v2/checkpoint/` ภายนอก repo สาธารณะ
+การฝึกจริง: ดาวน์โหลด `google/embeddinggemma-300m` ไปไว้ใน `work/models/` ภายนอก Git, ใช้ PyTorch 2.11.0+cu128 บน RTX 3050 Laptop 4 GB, `bfloat16`, LoRA rank 4 บน `q_proj`/`v_proj`, batch 4, 3 epochs และความยาวสูงสุด 512 tokens รุ่น v2 เพิ่ม hard cases เป็น train 137 แถว, validation 54, test อีกหัวข้อ 42 เลือก threshold เฉพาะจาก validation เท่านั้น แล้วบันทึก checkpoint ใน `work/experiments/improve-mse-hard/checkpoint/` ภายนอก repo สาธารณะ
 
-บน test สังเคราะห์ 42 แถว โมเดลก่อน fine-tune ได้ macro F1 0.634, off-topic F1 0.947, false praise 0.059; หลัง fine-tune ได้ 0.648, 0.947, 0.029 ตามลำดับ รายละเอียดอยู่ใน `experiment_results.json` โมเดลที่เทรนแล้วทำได้ดีกว่า baseline และโมเดลก่อนเทรนบนชุดนี้เล็กน้อย แต่ตัวอย่างมีน้อยและสร้างจาก pattern เดียวกันมาก จึงยังสรุปไม่ได้ว่าจะดีขึ้นกับ PDF ของคนอื่น
+บน test สังเคราะห์ 42 แถว v2 ได้ macro F1 0.687, off-topic F1 0.923, false praise 0.029 เทียบ v1 ที่ 0.648, 0.947, 0.029 ตามลำดับ นั่นคือ coverage ดีขึ้นแต่ off-topic ลดลงเล็กน้อย รายละเอียด v2 อยู่ใน `experiment_results.json` และตารางเทียบรุ่นใน `improvement_experiments.json` ตัวอย่างมีน้อยและสร้างจาก pattern เดียวกันมาก จึงยังสรุปความแม่นยำกับ PDF ของคนอื่นไม่ได้
 
 PDF C07 ที่ผู้ใช้ส่งมาถูกเก็บภายนอก repo สำหรับประเมินเอกสารจริงและไม่ได้เผยแพร่ใน repo สาธารณะ ต้องเพิ่มตัวอย่างที่คนตรวจ label จากสไลด์จริงหลายหัวข้อก่อนอ้างความแม่นยำ งานด้าน Backend ยังต้องทดสอบ package ใน environment ใหม่พร้อม API/DB/Agent จริง
 
-การลองกับหัวข้อที่ไม่เคยฝึกจาก PDF จริง 24 คำตอบที่ผู้พัฒนาร่างและติดป้ายเอง โดยใช้ threshold เดิมจาก validation: macro F1 ของ base และ fine-tuned เท่ากันที่ 0.670, off-topic F1 จาก 0.737 เป็น 0.778 และ false praise เท่ากันที่ 0.062 (`unseen_topic_probe_results.json`) ผลนี้ชี้ว่าต้องหาข้อมูลคำตอบจริงหลายเรื่องเพิ่มก่อนสรุปประโยชน์ของการ fine-tune ต่อความแม่นยำทั่วไป ตัวอย่างและ PDF ต้นฉบับไม่อยู่ใน repo
+การลองกับหัวข้อ C07 จาก PDF จริง 24 คำตอบที่ผู้พัฒนาร่างและติดป้ายเอง โดยใช้ threshold จาก validation: v2 macro F1 0.706 เทียบ v1 0.670, off-topic F1 และ false praise เท่ากันที่ 0.778 และ 0.062 (`unseen_topic_probe_results.json`) ชุดนี้เคยดูผล v1 มาก่อนและมีขนาดเล็ก จึงเป็น probe ไม่ใช่ benchmark อิสระ ตัวอย่างและ PDF ต้นฉบับไม่อยู่ใน repo
 
 ## วิธีฝึกและตรวจซ้ำ
 
+ติดตั้ง `training/requirements.txt` ใน Python environment แยก; บนเครื่อง NVIDIA ให้ติดตั้ง PyTorch CUDA wheel ที่ตรงกับ driver ก่อนใช้ requirements นี้
+
 ```powershell
 python training/generate_edge_cases.py
+python training/generate_hard_cases.py
 python training/baseline.py
-python training/train_embeddinggemma.py --model-path <local-base-model-dir> --output-dir <private-experiment-dir> --epochs 3 --batch-size 4 --max-length 512
+python training/train_embeddinggemma.py --model-path <local-base-model-dir> --output-dir <private-experiment-dir> --epochs 3 --batch-size 4 --max-length 512 --include-hard --validation-only
+python training/evaluate_selected.py --base-model <local-base-model-dir> --experiment-dir <private-experiment-dir>
 python training/export_model_manifest.py --experiment-dir <private-experiment-dir> --manifest model_package/manifest.json --public-results training/experiment_results.json
 python training/smoke_model_package.py --base-model <local-base-model-dir> --checkpoint <private-experiment-dir>/checkpoint
 ```

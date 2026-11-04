@@ -24,7 +24,7 @@ def main() -> None:
     checkpoint = args.experiment_dir / "checkpoint"
     manifest = {
         "contract_version": 1,
-        "model_version": "embeddinggemma-coverage-lora-v1",
+        "model_version": "embeddinggemma-coverage-lora-v2",
         "base_model": "google/embeddinggemma-300m",
         "fine_tuned": True,
         "checkpoint_sha256": sha256(checkpoint / "adapter_model.safetensors"),

@@ -28,6 +28,14 @@ class TrainingDataChecks(unittest.TestCase):
             for other in deck_groups[index + 1:]:
                 self.assertFalse(group & other)
 
+    def test_hard_cases_do_not_touch_test_deck(self):
+        rows = [json.loads(line) for line in (ROOT / "hard_cases.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual(len(rows), 42)
+        self.assertEqual({row["deck_id"] for row in rows},
+                         {"cats_demo", "phishing", "urban_garden", "waste_sorting"})
+        self.assertTrue(all(row["status"] in {"covered", "partial", "missing"} and
+                            row["off_topic"] is False for row in rows))
+
 
 if __name__ == "__main__":
     unittest.main()

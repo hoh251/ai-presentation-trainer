@@ -1,66 +1,75 @@
 {
   "model": "google/embeddinggemma-300m",
-  "method": "LoRA q_proj/v_proj + cosine MSE",
+  "method": "LoRA q_proj/v_proj + cosine MSE + optional ranking",
   "synthetic_data_only": true,
   "split_by_deck": true,
-  "train_rows": 107,
-  "validation_rows": 42,
+  "train_rows": 137,
+  "validation_rows": 54,
   "test_rows": 42,
   "stress_answer_rows": {
     "train": 30,
     "validation": 10,
     "test": 10
   },
+  "hard_answer_rows": {
+    "train": 30,
+    "validation": 12
+  },
   "epochs": 3,
   "batch_size": 4,
   "max_length_tokens": 512,
   "learning_rate": 0.0001,
+  "ranking_weight": 0.0,
+  "ranking_margin": 0.15,
+  "ranking_triplets": 32,
   "train_loss_by_epoch": [
-    0.05338,
-    0.03648,
-    0.02942
+    0.06171,
+    0.04484,
+    0.03564
   ],
   "base": {
     "validation_thresholds": [
-      0.70423,
-      0.75585,
-      0.56263
+      0.69615,
+      0.75564,
+      0.56287
     ],
     "validation": {
-      "rows": 42,
-      "macro_f1": 0.7,
+      "rows": 54,
+      "macro_f1": 0.725,
       "per_class": {
         "covered": {
-          "precision": 0.8,
-          "recall": 0.5,
-          "f1": 0.615
+          "precision": 0.667,
+          "recall": 0.667,
+          "f1": 0.667
         },
         "partial": {
-          "precision": 0.667,
-          "recall": 0.5,
-          "f1": 0.571
+          "precision": 0.636,
+          "recall": 0.636,
+          "f1": 0.636
         },
         "missing": {
-          "precision": 0.839,
-          "recall": 1.0,
-          "f1": 0.912
+          "precision": 0.871,
+          "recall": 0.871,
+          "f1": 0.871
         }
       },
       "off_topic_f1": 0.944,
-      "false_praise_rate": 0.029,
+      "false_praise_rate": 0.095,
       "confusion": {
-        "covered->covered": 4,
-        "partial->partial": 4,
-        "missing->missing": 26,
+        "covered->covered": 8,
+        "partial->partial": 7,
+        "missing->missing": 27,
         "partial->missing": 3,
-        "covered->partial": 2,
-        "covered->missing": 2,
-        "partial->covered": 1
+        "covered->partial": 3,
+        "covered->missing": 1,
+        "partial->covered": 1,
+        "missing->covered": 3,
+        "missing->partial": 1
       }
     },
     "test_synthetic": {
       "rows": 42,
-      "macro_f1": 0.634,
+      "macro_f1": 0.664,
       "per_class": {
         "covered": {
           "precision": 0.714,
@@ -68,14 +77,14 @@
           "f1": 0.667
         },
         "partial": {
-          "precision": 0.4,
-          "recall": 0.25,
-          "f1": 0.308
+          "precision": 0.429,
+          "recall": 0.375,
+          "f1": 0.4
         },
         "missing": {
-          "precision": 0.867,
-          "recall": 1.0,
-          "f1": 0.929
+          "precision": 0.893,
+          "recall": 0.962,
+          "f1": 0.926
         }
       },
       "off_topic_f1": 0.947,
@@ -83,79 +92,81 @@
       "confusion": {
         "covered->partial": 3,
         "partial->covered": 2,
-        "missing->missing": 26,
+        "missing->partial": 1,
+        "missing->missing": 25,
         "covered->covered": 5,
-        "partial->partial": 2,
-        "partial->missing": 4
+        "partial->partial": 3,
+        "partial->missing": 3
       }
     }
   },
   "finetuned": {
     "validation_thresholds": [
-      0.6037,
-      0.70046,
-      0.30697
+      0.5145,
+      0.70459,
+      0.30743
     ],
     "validation": {
-      "rows": 42,
-      "macro_f1": 0.772,
+      "rows": 54,
+      "macro_f1": 0.762,
       "per_class": {
         "covered": {
-          "precision": 1.0,
-          "recall": 0.5,
-          "f1": 0.667
+          "precision": 0.889,
+          "recall": 0.667,
+          "f1": 0.762
         },
         "partial": {
-          "precision": 1.0,
-          "recall": 0.625,
-          "f1": 0.769
+          "precision": 0.529,
+          "recall": 0.818,
+          "f1": 0.643
         },
         "missing": {
-          "precision": 0.788,
-          "recall": 1.0,
+          "precision": 0.929,
+          "recall": 0.839,
           "f1": 0.881
         }
       },
-      "off_topic_f1": 0.944,
-      "false_praise_rate": 0.0,
+      "off_topic_f1": 0.919,
+      "false_praise_rate": 0.024,
       "confusion": {
-        "covered->covered": 4,
-        "partial->partial": 5,
+        "covered->covered": 8,
+        "partial->partial": 9,
         "missing->missing": 26,
-        "partial->missing": 3,
-        "covered->missing": 4
+        "partial->missing": 2,
+        "covered->partial": 4,
+        "missing->partial": 4,
+        "missing->covered": 1
       }
     },
     "test_synthetic": {
       "rows": 42,
-      "macro_f1": 0.648,
+      "macro_f1": 0.687,
       "per_class": {
         "covered": {
-          "precision": 0.833,
-          "recall": 0.625,
-          "f1": 0.714
+          "precision": 0.8,
+          "recall": 0.5,
+          "f1": 0.615
         },
         "partial": {
           "precision": 0.5,
-          "recall": 0.25,
-          "f1": 0.333
+          "recall": 0.5,
+          "f1": 0.5
         },
         "missing": {
-          "precision": 0.812,
+          "precision": 0.897,
           "recall": 1.0,
-          "f1": 0.897
+          "f1": 0.945
         }
       },
-      "off_topic_f1": 0.947,
+      "off_topic_f1": 0.923,
       "false_praise_rate": 0.029,
       "confusion": {
-        "covered->partial": 2,
-        "partial->partial": 2,
+        "covered->partial": 4,
+        "partial->partial": 4,
         "missing->missing": 26,
-        "covered->covered": 5,
+        "covered->covered": 4,
         "partial->covered": 1,
-        "covered->missing": 1,
-        "partial->missing": 5
+        "partial->missing": 3
       }
     }
   }

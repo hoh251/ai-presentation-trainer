@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PdfPreview from './PdfPreview.jsx'
+import { inspectSlideFile, MAX_SLIDE_PAGES } from './slideCheck.js'
 import {
   answerQuestion,
   deckFileUrl,
@@ -74,17 +75,40 @@ function Header({ mode, testMode, view, round, onHome }) {
 
 function UploadView({ file, setFile, difficulty, setDifficulty, busy, onStartReal, onStartDemo, error, setError }) {
   const inputRef = useRef(null)
+  const checkVersion = useRef(0)
   const [dragging, setDragging] = useState(false)
+  const [checking, setChecking] = useState(false)
 
-  function selectFile(candidate) {
+  async function selectFile(candidate) {
+    const version = ++checkVersion.current
     setError('')
+    setFile(null)
+    setChecking(false)
     if (!candidate) return
     if (candidate.type !== 'application/pdf' && !candidate.name.toLowerCase().endsWith('.pdf')) {
-      setFile(null)
       setError('กรุณาเลือกไฟล์ PDF')
       return
     }
-    setFile(candidate)
+    setChecking(true)
+    try {
+      const result = await inspectSlideFile(candidate)
+      if (version !== checkVersion.current) return
+      if (result.kind === 'too_large') {
+        setError('PDF ต้องมีขนาดไม่เกิน 15 MB')
+      } else if (result.kind === 'unreadable') {
+        setError('PDF นี้มีข้อความที่อ่านได้ไม่เพียงพอ กรุณาส่งออกสไลด์แบบที่เลือกข้อความได้')
+      } else if (result.kind === 'document') {
+        setError('ไฟล์นี้ดูเป็นเอกสาร PDF ทั่วไป กรุณาส่งออกสไลด์จากโปรแกรมนำเสนอเป็น PDF')
+      } else if (result.pageCount > MAX_SLIDE_PAGES) {
+        setError(`ตรวจพบสไลด์ ${result.pageCount} หน้า แต่ระบบรองรับ 1–${MAX_SLIDE_PAGES} หน้า กรุณาแบ่งไฟล์เป็นชุดละไม่เกิน ${MAX_SLIDE_PAGES} หน้า`)
+      } else {
+        setFile(candidate)
+      }
+    } catch {
+      if (version === checkVersion.current) setError('เปิด PDF นี้ไม่ได้ กรุณาตรวจว่าไฟล์ไม่เสียหรือถูกล็อกด้วยรหัสผ่าน')
+    } finally {
+      if (version === checkVersion.current) setChecking(false)
+    }
   }
 
   return (
@@ -104,7 +128,7 @@ function UploadView({ file, setFile, difficulty, setDifficulty, busy, onStartRea
         <section className="upload-card">
           <div className="section-heading">
             <h2>อัปโหลดสไลด์</h2>
-            <span>PDF 1–10 หน้า</span>
+            <span>PDF สไลด์แนวนอน 1–10 หน้า</span>
           </div>
           <label className="difficulty-control" htmlFor="difficulty-select">
             <span>ระดับคำถาม</span>
@@ -132,14 +156,15 @@ function UploadView({ file, setFile, difficulty, setDifficulty, busy, onStartRea
               type="file"
               accept="application/pdf,.pdf"
               hidden
-              onChange={(event) => selectFile(event.target.files[0])}
+              onChange={(event) => { selectFile(event.target.files[0]); event.target.value = '' }}
             />
-            <button type="button" className="secondary-button" onClick={() => inputRef.current?.click()}>
+            <button type="button" className="secondary-button" onClick={() => inputRef.current?.click()} disabled={busy}>
               เลือกไฟล์
             </button>
           </div>
+          {checking && <LoadingStatus label="กำลังตรวจว่า PDF เป็นสไลด์และมีข้อความให้อ่าน..." />}
           <ErrorNotice message={error} onClose={() => setError('')} />
-          <button type="button" className="primary-button wide" onClick={onStartReal} disabled={!file || busy}>
+          <button type="button" className="primary-button wide" onClick={onStartReal} disabled={!file || busy || checking}>
             {busy ? 'กำลังอ่านสไลด์...' : 'เริ่มซ้อมกับ AI'}
           </button>
           <p className="upload-hint">โหมดนี้เชื่อม Backend และเรียก AI API จริง</p>

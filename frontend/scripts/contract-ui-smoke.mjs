@@ -21,6 +21,7 @@ page.on('request', (request) => { if (request.url().includes('localhost:8000')) 
 try {
   await page.goto('http://127.0.0.1:5175/', { waitUntil: 'networkidle' })
   await page.locator('input[type=file]').setInputFiles(resolve('public/cats-demo.pdf'))
+  await page.waitForFunction(() => !document.querySelector('button.primary-button.wide')?.disabled)
   await page.getByRole('button', { name: 'เริ่มซ้อมกับ AI' }).click()
   await page.getByText('คำถามจาก Backend ทดสอบ').waitFor()
   if (!(await page.getByText('รอบซ้อม 1 / 3').count())) throw new Error('Round 1 missing')

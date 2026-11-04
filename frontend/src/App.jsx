@@ -567,8 +567,10 @@ export default function App() {
           else { sessionStorage.removeItem(PENDING_KEY); setError('คำถามเปลี่ยนไปแล้ว ตรวจคำถามล่าสุดก่อนส่งอีกครั้ง') }
         } catch { setError('สถานะการซ้อมเปลี่ยนไป แต่โหลดสถานะล่าสุดไม่ได้ กรุณาลองรีเฟรช') }
       } else {
-        setError(caught.httpStatus === 413 ? 'คำตอบยาวเกินขีดจำกัด กรุณาย่อคำตอบแล้วส่งใหม่' : caught.httpStatus === 429 ? 'ระบบรับคำขอมากเกินไป รอสักครู่แล้วกดส่งอีกครั้ง' : caught.message)
-        if (caught.httpStatus === 413 || caught.httpStatus === 503) sessionStorage.removeItem(PENDING_KEY)
+        setError(caught.httpStatus === 413 ? 'คำตอบยาวเกินขีดจำกัด กรุณาย่อคำตอบแล้วส่งใหม่' : caught.httpStatus === 429 ? 'โควตา AI เต็ม กรุณารอให้โควตากลับมาแล้วกดส่งอีกครั้ง' : caught.message)
+        // A 503 may arrive after the Backend started processing. Reuse this
+        // attempt_id when the user retries so the Backend can replay safely.
+        if (caught.httpStatus === 413) sessionStorage.removeItem(PENDING_KEY)
       }
     } finally {
       setBusy(false)

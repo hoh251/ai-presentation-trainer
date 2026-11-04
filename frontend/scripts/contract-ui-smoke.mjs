@@ -29,6 +29,8 @@ try {
   let failureCount = 0
   let rateLimitAttempt = ''
   let retryAttempt = ''
+  let unavailableAttempt = ''
+  let retryUnavailableAttempt = ''
   await page.route('**/api/sessions/ses_fixture/answers', async (route) => {
     const body = JSON.parse(route.request().postData())
     if (failureCount === 0) {
@@ -40,7 +42,13 @@ try {
       rateLimitAttempt = body.attempt_id
       return route.fulfill({ status: 429, json: { status: 'error', error: { code: 'AI_RATE_LIMIT', message: 'รอก่อน' } } })
     }
-    if (failureCount === 2) { failureCount += 1; retryAttempt = body.attempt_id }
+    if (failureCount === 2) {
+      failureCount += 1
+      retryAttempt = body.attempt_id
+      unavailableAttempt = body.attempt_id
+      return route.fulfill({ status: 503, json: { status: 'error', error: { code: 'MODEL_BUSY', message: 'โมเดลกำลังทำงาน กรุณาลองใหม่' } } })
+    }
+    if (failureCount === 3) { failureCount += 1; retryUnavailableAttempt = body.attempt_id }
     return route.continue()
   })
   await page.locator('#answer-input').fill('คำตอบที่ต้องแก้')
@@ -49,7 +57,9 @@ try {
   if ((await page.locator('#answer-input').inputValue()) !== 'คำตอบที่ต้องแก้') throw new Error('413 cleared typed answer')
   await page.locator('#answer-input').fill('จัดมุมเงียบ ๆ ให้')
   await page.getByRole('button', { name: 'ส่งคำตอบ' }).click()
-  await page.getByText('ระบบรับคำขอมากเกินไป').waitFor()
+  await page.getByText('โควตา AI เต็ม').waitFor()
+  await page.getByRole('button', { name: 'ส่งคำตอบ' }).click()
+  await page.getByText('โมเดลกำลังทำงาน').waitFor()
 
   const answers = ['จัดมุมเงียบ ๆ ให้', 'จัดบ้านแมวให้เข้าไปหลบ', 'ถุงเท้า', 'ไม่รู้', 'แมวชอบปลาทู', 'แมวใช้หางสื่อสาร']
   for (let i = 0; i < answers.length; i += 1) {
@@ -66,6 +76,7 @@ try {
     if (i === 1 && !(await page.getByText('รอบซ้อม 2 / 3').count())) throw new Error('Round 2 missing')
   }
   if (!rateLimitAttempt || rateLimitAttempt !== retryAttempt) throw new Error('429 retry changed attempt ID')
+  if (!unavailableAttempt || unavailableAttempt !== retryUnavailableAttempt) throw new Error('503 retry changed attempt ID')
   await page.getByRole('button', { name: 'ดูรายงานผล' }).click()
   await page.getByText('ซ้อมครบ 3 รอบแล้ว').waitFor()
   await page.getByText('ผลรอบนี้: ยังตอบไม่ครบ').waitFor()

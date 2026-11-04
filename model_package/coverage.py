@@ -36,6 +36,8 @@ def _anchor(prompt: str, criterion: dict) -> str:
 
 
 class CoverageModel:
+    model_version = MODEL_VERSION
+
     def __init__(self, base_model_path: str | Path, checkpoint_dir: str | Path,
                  manifest_path: str | Path, device: str | None = None):
         self.checkpoint_dir = Path(checkpoint_dir)

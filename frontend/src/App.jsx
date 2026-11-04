@@ -13,6 +13,7 @@ import {
 import { demoDeck, demoFeedback, demoQuestions, demoReport } from './demo'
 
 const SESSION_KEY = 'apt_session_id'
+const LOCAL_MOCK_BACKEND = import.meta.env.VITE_TEST_BACKEND === '1'
 const PENDING_KEY = 'apt_pending_answer'
 const roleLabel = { concept: 'ด้านแนวคิด', technical: 'ด้านเทคนิค' }
 const relevanceLabel = { relevant: 'ตรงประเด็น', partial: 'ตรงบางส่วน', unrelated: 'ไม่ตรงคำถาม' }
@@ -167,7 +168,9 @@ function UploadView({ file, setFile, difficulty, setDifficulty, busy, onStartRea
           <button type="button" className="primary-button wide" onClick={onStartReal} disabled={!file || busy || checking}>
             {busy ? 'กำลังอ่านสไลด์...' : 'เริ่มซ้อมกับ AI'}
           </button>
-          <p className="upload-hint">โหมดนี้เชื่อม Backend และเรียก AI API จริง</p>
+          <p className="upload-hint">{LOCAL_MOCK_BACKEND
+            ? 'กำลังใช้ Backend จำลองเพื่อทดสอบหน้าเว็บ คำถามยังไม่สร้างจาก PDF ที่เลือก'
+            : 'โหมดนี้เชื่อม Backend และเรียก AI API จริง'}</p>
         </section>
 
         <section className="sample-card">

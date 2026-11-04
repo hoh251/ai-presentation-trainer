@@ -1,0 +1,5 @@
+-r ../model_package/requirements.txt
+huggingface-hub==2.4.0
+scikit-learn==1.9.1
+pypdf==6.21.4
+reportlab>=4.2,<5

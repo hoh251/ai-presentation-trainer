@@ -1,0 +1,377 @@
+{
+  "method": "answer similarity minus anchor-to-criterion self-reference similarity",
+  "status": "exploratory; no production change",
+  "selection": "thresholds calibrated on validation only; existing test and Deadlocks already opened",
+  "deployed_v2_thresholds": [
+    0.5145,
+    0.70459,
+    0.30743
+  ],
+  "raw_recalibrated_thresholds": [
+    0.51374,
+    0.70459
+  ],
+  "normalized_thresholds": [
+    -0.22232,
+    -0.01291
+  ],
+  "datasets": {
+    "validation": {
+      "deployed_v2": {
+        "cases": 98,
+        "exact_status_correct": 73,
+        "coverage_macro_f1": 0.69,
+        "per_class": {
+          "covered": {
+            "precision": 0.944,
+            "recall": 0.567,
+            "f1": 0.708,
+            "support": 30
+          },
+          "partial": {
+            "precision": 0.367,
+            "recall": 0.733,
+            "f1": 0.489,
+            "support": 15
+          },
+          "missing": {
+            "precision": 0.9,
+            "recall": 0.849,
+            "f1": 0.874,
+            "support": 53
+          }
+        },
+        "off_topic": {
+          "correct": 93,
+          "precision": 0.889,
+          "recall": 0.923,
+          "f1": 0.906,
+          "tp": 24,
+          "fp": 3,
+          "fn": 2
+        },
+        "false_covered": {
+          "count": 1,
+          "denominator": 68,
+          "rate": 0.015
+        }
+      },
+      "raw_recalibrated": {
+        "cases": 98,
+        "exact_status_correct": 73,
+        "coverage_macro_f1": 0.69,
+        "per_class": {
+          "covered": {
+            "precision": 0.944,
+            "recall": 0.567,
+            "f1": 0.708,
+            "support": 30
+          },
+          "partial": {
+            "precision": 0.367,
+            "recall": 0.733,
+            "f1": 0.489,
+            "support": 15
+          },
+          "missing": {
+            "precision": 0.9,
+            "recall": 0.849,
+            "f1": 0.874,
+            "support": 53
+          }
+        },
+        "off_topic": {
+          "correct": 93,
+          "precision": 0.889,
+          "recall": 0.923,
+          "f1": 0.906,
+          "tp": 24,
+          "fp": 3,
+          "fn": 2
+        },
+        "false_covered": {
+          "count": 1,
+          "denominator": 68,
+          "rate": 0.015
+        }
+      },
+      "normalized": {
+        "cases": 98,
+        "exact_status_correct": 68,
+        "coverage_macro_f1": 0.623,
+        "per_class": {
+          "covered": {
+            "precision": 0.867,
+            "recall": 0.433,
+            "f1": 0.578,
+            "support": 30
+          },
+          "partial": {
+            "precision": 0.303,
+            "recall": 0.667,
+            "f1": 0.417,
+            "support": 15
+          },
+          "missing": {
+            "precision": 0.9,
+            "recall": 0.849,
+            "f1": 0.874,
+            "support": 53
+          }
+        },
+        "off_topic": {
+          "correct": 93,
+          "precision": 0.889,
+          "recall": 0.923,
+          "f1": 0.906,
+          "tp": 24,
+          "fp": 3,
+          "fn": 2
+        },
+        "false_covered": {
+          "count": 2,
+          "denominator": 68,
+          "rate": 0.029
+        }
+      }
+    },
+    "previously_opened_synthetic_test": {
+      "deployed_v2": {
+        "cases": 86,
+        "exact_status_correct": 65,
+        "coverage_macro_f1": 0.659,
+        "per_class": {
+          "covered": {
+            "precision": 0.929,
+            "recall": 0.5,
+            "f1": 0.65,
+            "support": 26
+          },
+          "partial": {
+            "precision": 0.304,
+            "recall": 0.583,
+            "f1": 0.4,
+            "support": 12
+          },
+          "missing": {
+            "precision": 0.918,
+            "recall": 0.938,
+            "f1": 0.928,
+            "support": 48
+          }
+        },
+        "off_topic": {
+          "correct": 83,
+          "precision": 0.897,
+          "recall": 1.0,
+          "f1": 0.945,
+          "tp": 26,
+          "fp": 3,
+          "fn": 0
+        },
+        "false_covered": {
+          "count": 1,
+          "denominator": 60,
+          "rate": 0.017
+        }
+      },
+      "raw_recalibrated": {
+        "cases": 86,
+        "exact_status_correct": 65,
+        "coverage_macro_f1": 0.659,
+        "per_class": {
+          "covered": {
+            "precision": 0.929,
+            "recall": 0.5,
+            "f1": 0.65,
+            "support": 26
+          },
+          "partial": {
+            "precision": 0.304,
+            "recall": 0.583,
+            "f1": 0.4,
+            "support": 12
+          },
+          "missing": {
+            "precision": 0.918,
+            "recall": 0.938,
+            "f1": 0.928,
+            "support": 48
+          }
+        },
+        "off_topic": {
+          "correct": 83,
+          "precision": 0.897,
+          "recall": 1.0,
+          "f1": 0.945,
+          "tp": 26,
+          "fp": 3,
+          "fn": 0
+        },
+        "false_covered": {
+          "count": 1,
+          "denominator": 60,
+          "rate": 0.017
+        }
+      },
+      "normalized": {
+        "cases": 86,
+        "exact_status_correct": 64,
+        "coverage_macro_f1": 0.638,
+        "per_class": {
+          "covered": {
+            "precision": 0.846,
+            "recall": 0.423,
+            "f1": 0.564,
+            "support": 26
+          },
+          "partial": {
+            "precision": 0.35,
+            "recall": 0.583,
+            "f1": 0.438,
+            "support": 12
+          },
+          "missing": {
+            "precision": 0.868,
+            "recall": 0.958,
+            "f1": 0.911,
+            "support": 48
+          }
+        },
+        "off_topic": {
+          "correct": 83,
+          "precision": 0.897,
+          "recall": 1.0,
+          "f1": 0.945,
+          "tp": 26,
+          "fp": 3,
+          "fn": 0
+        },
+        "false_covered": {
+          "count": 2,
+          "denominator": 60,
+          "rate": 0.033
+        }
+      }
+    },
+    "previously_opened_deadlocks_diagnostic": {
+      "deployed_v2": {
+        "cases": 100,
+        "exact_status_correct": 52,
+        "coverage_macro_f1": 0.517,
+        "per_class": {
+          "covered": {
+            "precision": 0.889,
+            "recall": 0.4,
+            "f1": 0.552,
+            "support": 40
+          },
+          "partial": {
+            "precision": 0.255,
+            "recall": 0.6,
+            "f1": 0.358,
+            "support": 20
+          },
+          "missing": {
+            "precision": 0.686,
+            "recall": 0.6,
+            "f1": 0.64,
+            "support": 40
+          }
+        },
+        "off_topic": {
+          "correct": 96,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.889,
+          "tp": 16,
+          "fp": 0,
+          "fn": 4
+        },
+        "false_covered": {
+          "count": 2,
+          "denominator": 60,
+          "rate": 0.033
+        }
+      },
+      "raw_recalibrated": {
+        "cases": 100,
+        "exact_status_correct": 53,
+        "coverage_macro_f1": 0.528,
+        "per_class": {
+          "covered": {
+            "precision": 0.889,
+            "recall": 0.4,
+            "f1": 0.552,
+            "support": 40
+          },
+          "partial": {
+            "precision": 0.271,
+            "recall": 0.65,
+            "f1": 0.382,
+            "support": 20
+          },
+          "missing": {
+            "precision": 0.706,
+            "recall": 0.6,
+            "f1": 0.649,
+            "support": 40
+          }
+        },
+        "off_topic": {
+          "correct": 96,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.889,
+          "tp": 16,
+          "fp": 0,
+          "fn": 4
+        },
+        "false_covered": {
+          "count": 2,
+          "denominator": 60,
+          "rate": 0.033
+        }
+      },
+      "normalized": {
+        "cases": 100,
+        "exact_status_correct": 52,
+        "coverage_macro_f1": 0.515,
+        "per_class": {
+          "covered": {
+            "precision": 0.778,
+            "recall": 0.35,
+            "f1": 0.483,
+            "support": 40
+          },
+          "partial": {
+            "precision": 0.265,
+            "recall": 0.65,
+            "f1": 0.377,
+            "support": 20
+          },
+          "missing": {
+            "precision": 0.758,
+            "recall": 0.625,
+            "f1": 0.685,
+            "support": 40
+          }
+        },
+        "off_topic": {
+          "correct": 96,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.889,
+          "tp": 16,
+          "fp": 0,
+          "fn": 4
+        },
+        "false_covered": {
+          "count": 4,
+          "denominator": 60,
+          "rate": 0.067
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "selection": "Previously fixed validation thresholds; no threshold fitted to test or old 50",
+  "thresholds": {
+    "v2": [
+      0.51374,
+      0.70459,
+      0.30767
+    ],
+    "v4": [
+      0.50645,
+      0.73443,
+      0.22878
+    ]
+  },
+  "results": {
+    "v2_coverage__v2_off_topic": {
+      "validation": {
+        "rows": 98,
+        "cases": 63,
+        "coverage_macro_f1": 0.69,
+        "off_topic_case_f1": 0.941,
+        "off_topic_row_f1": 0.939,
+        "false_covered_rate": 0.015,
+        "confusion": {
+          "covered->covered": 17,
+          "partial->partial": 11,
+          "missing->missing": 45,
+          "partial->missing": 4,
+          "covered->partial": 12,
+          "missing->partial": 7,
+          "missing->covered": 1,
+          "covered->missing": 1
+        }
+      },
+      "synthetic_test": {
+        "rows": 86,
+        "cases": 52,
+        "coverage_macro_f1": 0.659,
+        "off_topic_case_f1": 1.0,
+        "off_topic_row_f1": 1.0,
+        "false_covered_rate": 0.017,
+        "confusion": {
+          "covered->partial": 13,
+          "partial->partial": 7,
+          "missing->missing": 45,
+          "covered->covered": 13,
+          "partial->covered": 1,
+          "partial->missing": 4,
+          "missing->partial": 3
+        }
+      },
+      "old_50_diagnostic": {
+        "rows": 100,
+        "cases": 50,
+        "coverage_macro_f1": 0.42,
+        "off_topic_case_f1": 0.947,
+        "off_topic_row_f1": 0.947,
+        "false_covered_rate": 0.0,
+        "confusion": {
+          "covered->covered": 8,
+          "missing->missing": 40,
+          "covered->partial": 26,
+          "partial->partial": 4,
+          "covered->missing": 13,
+          "missing->partial": 6,
+          "partial->missing": 3
+        }
+      }
+    },
+    "v4_coverage__v4_off_topic": {
+      "validation": {
+        "rows": 98,
+        "cases": 63,
+        "coverage_macro_f1": 0.732,
+        "off_topic_case_f1": 0.875,
+        "off_topic_row_f1": 0.87,
+        "false_covered_rate": 0.0,
+        "confusion": {
+          "covered->covered": 19,
+          "partial->partial": 11,
+          "missing->missing": 47,
+          "partial->missing": 4,
+          "covered->partial": 10,
+          "missing->partial": 6,
+          "covered->missing": 1
+        }
+      },
+      "synthetic_test": {
+        "rows": 86,
+        "cases": 52,
+        "coverage_macro_f1": 0.705,
+        "off_topic_case_f1": 0.882,
+        "off_topic_row_f1": 0.857,
+        "false_covered_rate": 0.033,
+        "confusion": {
+          "covered->partial": 11,
+          "partial->partial": 8,
+          "missing->missing": 45,
+          "covered->covered": 15,
+          "partial->covered": 2,
+          "partial->missing": 2,
+          "missing->partial": 3
+        }
+      },
+      "old_50_diagnostic": {
+        "rows": 100,
+        "cases": 50,
+        "coverage_macro_f1": 0.485,
+        "off_topic_case_f1": 0.706,
+        "off_topic_row_f1": 0.706,
+        "false_covered_rate": 0.019,
+        "confusion": {
+          "covered->covered": 15,
+          "missing->missing": 40,
+          "covered->partial": 25,
+          "partial->partial": 3,
+          "covered->missing": 7,
+          "missing->partial": 6,
+          "partial->missing": 3,
+          "partial->covered": 1
+        }
+      }
+    },
+    "v4_coverage__v2_off_topic": {
+      "validation": {
+        "rows": 98,
+        "cases": 63,
+        "coverage_macro_f1": 0.732,
+        "off_topic_case_f1": 0.941,
+        "off_topic_row_f1": 0.939,
+        "false_covered_rate": 0.0,
+        "confusion": {
+          "covered->covered": 19,
+          "partial->partial": 11,
+          "missing->missing": 47,
+          "partial->missing": 4,
+          "covered->partial": 10,
+          "missing->partial": 6,
+          "covered->missing": 1
+        }
+      },
+      "synthetic_test": {
+        "rows": 86,
+        "cases": 52,
+        "coverage_macro_f1": 0.705,
+        "off_topic_case_f1": 1.0,
+        "off_topic_row_f1": 1.0,
+        "false_covered_rate": 0.033,
+        "confusion": {
+          "covered->partial": 11,
+          "partial->partial": 8,
+          "missing->missing": 45,
+          "covered->covered": 15,
+          "partial->covered": 2,
+          "partial->missing": 2,
+          "missing->partial": 3
+        }
+      },
+      "old_50_diagnostic": {
+        "rows": 100,
+        "cases": 50,
+        "coverage_macro_f1": 0.485,
+        "off_topic_case_f1": 0.947,
+        "off_topic_row_f1": 0.947,
+        "false_covered_rate": 0.019,
+        "confusion": {
+          "covered->covered": 15,
+          "missing->missing": 40,
+          "covered->partial": 25,
+          "partial->partial": 3,
+          "covered->missing": 7,
+          "missing->partial": 6,
+          "partial->missing": 3,
+          "partial->covered": 1
+        }
+      }
+    },
+    "v2_coverage__v4_off_topic": {
+      "validation": {
+        "rows": 98,
+        "cases": 63,
+        "coverage_macro_f1": 0.69,
+        "off_topic_case_f1": 0.875,
+        "off_topic_row_f1": 0.87,
+        "false_covered_rate": 0.015,
+        "confusion": {
+          "covered->covered": 17,
+          "partial->partial": 11,
+          "missing->missing": 45,
+          "partial->missing": 4,
+          "covered->partial": 12,
+          "missing->partial": 7,
+          "missing->covered": 1,
+          "covered->missing": 1
+        }
+      },
+      "synthetic_test": {
+        "rows": 86,
+        "cases": 52,
+        "coverage_macro_f1": 0.659,
+        "off_topic_case_f1": 0.882,
+        "off_topic_row_f1": 0.857,
+        "false_covered_rate": 0.017,
+        "confusion": {
+          "covered->partial": 13,
+          "partial->partial": 7,
+          "missing->missing": 45,
+          "covered->covered": 13,
+          "partial->covered": 1,
+          "partial->missing": 4,
+          "missing->partial": 3
+        }
+      },
+      "old_50_diagnostic": {
+        "rows": 100,
+        "cases": 50,
+        "coverage_macro_f1": 0.42,
+        "off_topic_case_f1": 0.706,
+        "off_topic_row_f1": 0.706,
+        "false_covered_rate": 0.0,
+        "confusion": {
+          "covered->covered": 8,
+          "missing->missing": 40,
+          "covered->partial": 26,
+          "partial->partial": 4,
+          "covered->missing": 13,
+          "missing->partial": 6,
+          "partial->missing": 3
+        }
+      }
+    },
+    "v4_coverage__v2_off_topic__v2_covered_consensus": {
+      "validation": {
+        "rows": 98,
+        "cases": 63,
+        "coverage_macro_f1": 0.693,
+        "off_topic_case_f1": 0.941,
+        "off_topic_row_f1": 0.939,
+        "false_covered_rate": 0.0,
+        "confusion": {
+          "covered->covered": 16,
+          "partial->partial": 11,
+          "missing->missing": 47,
+          "partial->missing": 4,
+          "covered->partial": 13,
+          "missing->partial": 6,
+          "covered->missing": 1
+        }
+      },
+      "synthetic_test": {
+        "rows": 86,
+        "cases": 52,
+        "coverage_macro_f1": 0.695,
+        "off_topic_case_f1": 1.0,
+        "off_topic_row_f1": 1.0,
+        "false_covered_rate": 0.017,
+        "confusion": {
+          "covered->partial": 13,
+          "partial->partial": 9,
+          "missing->missing": 45,
+          "covered->covered": 13,
+          "partial->covered": 1,
+          "partial->missing": 2,
+          "missing->partial": 3
+        }
+      },
+      "old_50_diagnostic": {
+        "rows": 100,
+        "cases": 50,
+        "coverage_macro_f1": 0.406,
+        "off_topic_case_f1": 0.947,
+        "off_topic_row_f1": 0.947,
+        "false_covered_rate": 0.0,
+        "confusion": {
+          "covered->covered": 6,
+          "missing->missing": 40,
+          "covered->partial": 34,
+          "partial->partial": 4,
+          "covered->missing": 7,
+          "missing->partial": 6,
+          "partial->missing": 3
+        }
+      }
+    }
+  }
+}

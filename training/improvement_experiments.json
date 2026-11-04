@@ -1,0 +1,23 @@
+{
+  "selection_rule": "Choose on validation before opening test: reduce false praise versus v1 while improving coverage macro F1; reject a separate off-topic head if its validation F1 is lower.",
+  "splits": {"train_decks": ["cats_demo", "phishing", "urban_garden"], "validation_deck": "waste_sorting", "synthetic_test_deck": "bike_care"},
+  "new_hard_cases": {"train": 30, "validation": 12, "test": 0},
+  "validation_54_rows": {
+    "v1_fixed_thresholds": {"macro_f1": 0.692, "off_topic_f1": 0.944, "false_praise_rate": 0.048},
+    "mse_plus_hard_cases": {"macro_f1": 0.762, "off_topic_f1": 0.919, "false_praise_rate": 0.024},
+    "ranking_weight_0_2": {"macro_f1": 0.766, "off_topic_f1": 0.919, "false_praise_rate": 0.048},
+    "ranking_weight_0_5": {"macro_f1": 0.778, "off_topic_f1": 0.919, "false_praise_rate": 0.048},
+    "separate_off_topic_head_on_ranking_model": {"best_off_topic_f1": 0.895, "accepted": false}
+  },
+  "selected": "mse_plus_hard_cases",
+  "selection_reason": "Ranking increased macro F1 slightly but caused twice as many false praises as the selected candidate on the validation set. The separate off-topic head performed worse than the cosine threshold.",
+  "synthetic_test_42_rows": {
+    "v1": {"macro_f1": 0.648, "off_topic_f1": 0.947, "false_praise_rate": 0.029},
+    "v2": {"macro_f1": 0.687, "off_topic_f1": 0.923, "false_praise_rate": 0.029}
+  },
+  "private_unseen_topic_probe_24_author_written_rows": {
+    "v1": {"macro_f1": 0.670, "off_topic_f1": 0.778, "false_praise_rate": 0.062},
+    "v2": {"macro_f1": 0.706, "off_topic_f1": 0.778, "false_praise_rate": 0.062}
+  },
+  "limits": "All training and synthetic test answers are developer-authored, and the private topic probe has only 24 developer-authored answers. v2 has lower off-topic F1 on synthetic test. Real user answers from multiple unseen presentations are required before claiming general reliability."
+}

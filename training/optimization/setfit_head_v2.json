@@ -1,0 +1,297 @@
+{
+  "train_rows": 137,
+  "validation_rows": 54,
+  "stress_50_rows": 100,
+  "validation_deck": "waste_sorting",
+  "stress_used_for_selection": false,
+  "features": [
+    "full_cos",
+    "criterion_cos",
+    "question_cos",
+    "answer_length",
+    "character_overlap",
+    "negation_present"
+  ],
+  "candidates": {
+    "C=0.03,weight=None": {
+      "covered_probability_gate": 0.57975,
+      "validation": {
+        "macro_f1": 0.696,
+        "per_class_f1": {
+          "covered": 0.471,
+          "partial": 0.8,
+          "missing": 0.817
+        },
+        "false_covered": 1,
+        "false_covered_rate": 0.024,
+        "covered_recall": 0.333
+      }
+    },
+    "C=0.3,weight=None": {
+      "covered_probability_gate": 0.78072,
+      "validation": {
+        "macro_f1": 0.753,
+        "per_class_f1": {
+          "covered": 0.632,
+          "partial": 0.769,
+          "missing": 0.857
+        },
+        "false_covered": 1,
+        "false_covered_rate": 0.024,
+        "covered_recall": 0.5
+      }
+    },
+    "C=3.0,weight=None": {
+      "covered_probability_gate": 0.92749,
+      "validation": {
+        "macro_f1": 0.803,
+        "per_class_f1": {
+          "covered": 0.762,
+          "partial": 0.733,
+          "missing": 0.912
+        },
+        "false_covered": 1,
+        "false_covered_rate": 0.024,
+        "covered_recall": 0.667
+      }
+    },
+    "C=0.03,weight=balanced": {
+      "covered_probability_gate": 0.73742,
+      "validation": {
+        "macro_f1": 0.666,
+        "per_class_f1": {
+          "covered": 0.5,
+          "partial": 0.71,
+          "missing": 0.787
+        },
+        "false_covered": 0,
+        "false_covered_rate": 0.0,
+        "covered_recall": 0.333
+      }
+    },
+    "C=0.3,weight=balanced": {
+      "covered_probability_gate": 0.83792,
+      "validation": {
+        "macro_f1": 0.72,
+        "per_class_f1": {
+          "covered": 0.632,
+          "partial": 0.688,
+          "missing": 0.842
+        },
+        "false_covered": 1,
+        "false_covered_rate": 0.024,
+        "covered_recall": 0.5
+      }
+    },
+    "C=3.0,weight=balanced": {
+      "covered_probability_gate": 0.94788,
+      "validation": {
+        "macro_f1": 0.788,
+        "per_class_f1": {
+          "covered": 0.762,
+          "partial": 0.71,
+          "missing": 0.893
+        },
+        "false_covered": 1,
+        "false_covered_rate": 0.024,
+        "covered_recall": 0.667
+      }
+    }
+  },
+  "selected_by_validation": "C=3.0,weight=None",
+  "stress_50": {
+    "macro_f1": 0.651,
+    "per_class_f1": {
+      "covered": 0.747,
+      "partial": 0.429,
+      "missing": 0.777
+    },
+    "false_covered": 5,
+    "false_covered_rate": 0.094,
+    "covered_recall": 0.66
+  },
+  "stress_errors": [
+    {
+      "case_id": "H08",
+      "criterion": "ตรวจพยากรณ์อากาศก่อนออกเดินทาง",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.45431
+    },
+    {
+      "case_id": "H08",
+      "criterion": "เตรียมน้ำดื่มให้เพียงพอ",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.48862
+    },
+    {
+      "case_id": "H09",
+      "criterion": "ตรวจพยากรณ์อากาศก่อนออกเดินทาง",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.3089
+    },
+    {
+      "case_id": "H10",
+      "criterion": "ตรวจพยากรณ์อากาศก่อนออกเดินทาง",
+      "expected": "missing",
+      "predicted": "covered",
+      "old_full_cos": 0.5988
+    },
+    {
+      "case_id": "L02",
+      "criterion": "ระบุตัวสมาชิกที่ยืมหนังสือ",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.42342
+    },
+    {
+      "case_id": "L02",
+      "criterion": "กำหนดวันครบกำหนดคืน",
+      "expected": "partial",
+      "predicted": "missing",
+      "old_full_cos": 0.44738
+    },
+    {
+      "case_id": "L09",
+      "criterion": "ระบุตัวสมาชิกที่ยืมหนังสือ",
+      "expected": "partial",
+      "predicted": "missing",
+      "old_full_cos": 0.46534
+    },
+    {
+      "case_id": "L10",
+      "criterion": "ระบุตัวสมาชิกที่ยืมหนังสือ",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.46284
+    },
+    {
+      "case_id": "L10",
+      "criterion": "กำหนดวันครบกำหนดคืน",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.55859
+    },
+    {
+      "case_id": "B02",
+      "criterion": "อุ่นเตาอบก่อนใส่ขนมปัง",
+      "expected": "covered",
+      "predicted": "partial",
+      "old_full_cos": 0.48153
+    },
+    {
+      "case_id": "B02",
+      "criterion": "กำหนดและจับเวลาอบ",
+      "expected": "missing",
+      "predicted": "partial",
+      "old_full_cos": 0.43157
+    },
+    {
+      "case_id": "B04",
+      "criterion": "อุ่นเตาอบก่อนใส่ขนมปัง",
+      "expected": "missing",
+      "predicted": "covered",
+      "old_full_cos": 0.58215
+    },
+    {
+      "case_id": "B10",
+      "criterion": "อุ่นเตาอบก่อนใส่ขนมปัง",
+      "expected": "partial",
+      "predicted": "covered",
+      "old_full_cos": 0.6875
+    },
+    {
+      "case_id": "B10",
+      "criterion": "กำหนดและจับเวลาอบ",
+      "expected": "partial",
+      "predicted": "covered",
+      "old_full_cos": 0.68235
+    },
+    {
+      "case_id": "E03",
+      "criterion": "ระบุทางออกฉุกเฉินให้เห็นชัด",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.4442
+    },
+    {
+      "case_id": "E04",
+      "criterion": "มีจุดลงทะเบียนผู้เข้าร่วม",
+      "expected": "missing",
+      "predicted": "partial",
+      "old_full_cos": 0.52522
+    },
+    {
+      "case_id": "E08",
+      "criterion": "มีจุดลงทะเบียนผู้เข้าร่วม",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.52813
+    },
+    {
+      "case_id": "E09",
+      "criterion": "มีจุดลงทะเบียนผู้เข้าร่วม",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.47233
+    },
+    {
+      "case_id": "E09",
+      "criterion": "ระบุทางออกฉุกเฉินให้เห็นชัด",
+      "expected": "missing",
+      "predicted": "covered",
+      "old_full_cos": 0.56557
+    },
+    {
+      "case_id": "E10",
+      "criterion": "มีจุดลงทะเบียนผู้เข้าร่วม",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.54727
+    },
+    {
+      "case_id": "E10",
+      "criterion": "ระบุทางออกฉุกเฉินให้เห็นชัด",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.49973
+    },
+    {
+      "case_id": "D02",
+      "criterion": "ทดลองกู้คืนข้อมูลจากสำเนา",
+      "expected": "missing",
+      "predicted": "partial",
+      "old_full_cos": 0.55315
+    },
+    {
+      "case_id": "D08",
+      "criterion": "เก็บสำเนาข้อมูลไว้อีกสถานที่หนึ่ง",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.33493
+    },
+    {
+      "case_id": "D09",
+      "criterion": "เก็บสำเนาข้อมูลไว้อีกสถานที่หนึ่ง",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.41432
+    },
+    {
+      "case_id": "D10",
+      "criterion": "เก็บสำเนาข้อมูลไว้อีกสถานที่หนึ่ง",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.38807
+    },
+    {
+      "case_id": "D10",
+      "criterion": "ทดลองกู้คืนข้อมูลจากสำเนา",
+      "expected": "covered",
+      "predicted": "missing",
+      "old_full_cos": 0.43795
+    }
+  ]
+}

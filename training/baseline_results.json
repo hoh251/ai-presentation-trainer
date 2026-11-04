@@ -1,0 +1,80 @@
+{
+  "method": "character_bigram_rule_baseline",
+  "synthetic_data_only": true,
+  "threshold_selection": "validation deck only",
+  "validation": {
+    "rows": 54,
+    "thresholds": {
+      "missing_below": 0.15,
+      "covered_from": 0.25,
+      "off_topic_below": 0.1
+    },
+    "macro_f1": 0.6,
+    "per_class": {
+      "covered": {
+        "precision": 0.529,
+        "recall": 0.75,
+        "f1": 0.621
+      },
+      "partial": {
+        "precision": 0.444,
+        "recall": 0.364,
+        "f1": 0.4
+      },
+      "missing": {
+        "precision": 0.821,
+        "recall": 0.742,
+        "f1": 0.78
+      }
+    },
+    "off_topic_f1": 0.708,
+    "false_praise_rate": 0.19,
+    "confusion": {
+      "covered->covered": 9,
+      "partial->covered": 3,
+      "missing->covered": 5,
+      "missing->missing": 23,
+      "partial->missing": 4,
+      "missing->partial": 3,
+      "covered->missing": 1,
+      "covered->partial": 2,
+      "partial->partial": 4
+    }
+  },
+  "test_synthetic": {
+    "rows": 42,
+    "thresholds": {
+      "missing_below": 0.15,
+      "covered_from": 0.25,
+      "off_topic_below": 0.1
+    },
+    "macro_f1": 0.589,
+    "per_class": {
+      "covered": {
+        "precision": 0.5,
+        "recall": 0.75,
+        "f1": 0.6
+      },
+      "partial": {
+        "precision": 0.25,
+        "recall": 0.25,
+        "f1": 0.25
+      },
+      "missing": {
+        "precision": 1.0,
+        "recall": 0.846,
+        "f1": 0.917
+      }
+    },
+    "off_topic_f1": 0.857,
+    "false_praise_rate": 0.176,
+    "confusion": {
+      "covered->covered": 6,
+      "partial->covered": 6,
+      "missing->missing": 22,
+      "covered->partial": 2,
+      "missing->partial": 4,
+      "partial->partial": 2
+    }
+  }
+}

@@ -13,7 +13,7 @@ def extract_pages(content: bytes):
         if reader.is_encrypted:
             raise APIError(422, "PDF_ENCRYPTED", "กรุณาใช้ PDF ที่ไม่มีรหัสผ่าน")
         if not 1 <= len(reader.pages) <= 10:
-            raise APIError(422, "PDF_PAGE_LIMIT", "รองรับ PDF 1–10 หน้า")
+            raise APIError(422, "PDF_PAGE_LIMIT", "รองรับ PDF 1–10 หน้า กรุณาเลือกช่วงสไลด์หรือแบ่งไฟล์เป็นชุดละไม่เกิน 10 หน้า")
         pages = [(p.extract_text() or "").strip() for p in reader.pages]
     except APIError:
         raise

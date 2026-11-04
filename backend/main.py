@@ -74,7 +74,7 @@ def create_app(settings=None, *, model=None, questions=None, provider_transport=
 
     @app.exception_handler(APIError)
     async def api_error(_, exc):
-        return JSONResponse(status_code=exc.status, content=dict(status="error", error=dict(code=exc.code, message=exc.message)))
+        return JSONResponse(status_code=exc.status, content=dict(status="error", error=dict(code=exc.code, message=exc.message)), headers=exc.headers)
 
     @app.exception_handler(RequestValidationError)
     async def invalid_request(_, exc):
@@ -105,7 +105,8 @@ def create_app(settings=None, *, model=None, questions=None, provider_transport=
                     model_ready=model_ready, question_service_ready=q_ready, model_source=coverage.source,
                     model_version=coverage.version)
         check(body, "readiness")
-        return JSONResponse(status_code=200 if ok else 503, content=body)
+        code = getattr(coverage, "load_error_code", None)
+        return JSONResponse(status_code=200 if ok else 503, content=body, headers={"X-Model-Error": code} if not model_ready and code else {})
 
     @app.post("/api/decks")
     async def upload(file: UploadFile = File(...)):

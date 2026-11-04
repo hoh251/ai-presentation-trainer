@@ -14,7 +14,7 @@ class SessionService:
         if not self.store.ready():
             raise unavailable("DATABASE_UNAVAILABLE", "ฐานข้อมูลยังไม่พร้อม")
         if not self.model.ready:
-            raise unavailable()
+            raise unavailable(getattr(self.model, "load_error_code", None) or "MODEL_UNAVAILABLE")
         if not self.questions.ready:
             raise unavailable("QUESTION_SERVICE_UNAVAILABLE", "บริการสร้างคำถามยังไม่พร้อม")
 

@@ -53,6 +53,8 @@ class Store:
                 CREATE TABLE IF NOT EXISTS trainer_retrieval_cache(
                     deck_id TEXT NOT NULL REFERENCES trainer_decks(id), index_version TEXT NOT NULL,
                     data TEXT NOT NULL, PRIMARY KEY(deck_id, index_version));
+                CREATE TABLE IF NOT EXISTS trainer_content_indexes(
+                    index_version TEXT PRIMARY KEY, data TEXT NOT NULL);
                 INSERT OR IGNORE INTO trainer_migrations VALUES (1);
             """)
 
@@ -125,3 +127,12 @@ class Store:
     def cache(self, deck_id, version, data):
         with self.connect() as con:
             con.execute("INSERT OR REPLACE INTO trainer_retrieval_cache VALUES (?,?,?)", (deck_id, version, dump(data)))
+
+    def content_cached(self, version):
+        with self.connect() as con:
+            row = con.execute("SELECT data FROM trainer_content_indexes WHERE index_version=?", (version,)).fetchone()
+        return json.loads(row["data"]) if row else None
+
+    def cache_content(self, version, data):
+        with self.connect() as con:
+            con.execute("INSERT OR REPLACE INTO trainer_content_indexes VALUES (?,?)", (version, dump(data)))

@@ -9,6 +9,7 @@ sys.path.insert(0, str(ROOT.parent))
 from backend.config import Settings
 from backend.main import create_app
 import uvicorn
+import logging
 
 
 if __name__ == "__main__":
@@ -18,6 +19,10 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--frontend-dist", type=Path)
     args = parser.parse_args()
+    provider_log = logging.getLogger("backend.provider")
+    provider_log.setLevel(logging.INFO)
+    provider_log.addHandler(logging.StreamHandler())
+    provider_log.propagate = False
     settings = Settings.from_env()
     if args.test_mode:
         from dataclasses import replace

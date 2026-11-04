@@ -1,0 +1,2138 @@
+{
+  "client_date": "2026-11-05",
+  "synthetic_inputs": true,
+  "model": "gemini-3.5-flash-lite",
+  "embedding": "gemini-embedding-001",
+  "tokenizer_budget_verified": false,
+  "trained_model_evaluated": false,
+  "human_quality_review_complete": false,
+  "questions": [
+    {
+      "file": "library_pilot.pdf",
+      "sample": 1,
+      "difficulty": "basic",
+      "question": {
+        "id": "713fe58a-ef89-4f2c-856b-7b36b8499615",
+        "text": "การยืมแล็ปท็อปมีกำหนดระยะเวลานานเท่าใด",
+        "source_pages": [
+          6
+        ],
+        "topic": "Device lending",
+        "judge_role": "technical",
+        "decision_reason": "Based on explicit text regarding laptop loan duration.",
+        "criteria": [
+          {
+            "id": "c_1",
+            "text": "ระบุระยะเวลาการยืมแล็ปท็อปสี่ชั่วโมงถูกต้อง",
+            "source_page": 6,
+            "evidence_quote": "A laptop loan lasts four hours."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 2,
+      "difficulty": "standard",
+      "question": {
+        "id": "97bca6a3-f78a-44ad-ac3d-611f6909ec0b",
+        "text": "ทีมงานมีการนำวิธีการนับจำนวนที่นั่งและการเก็บฟีดแบ็กมาประเมินผลการใช้งานอย่างไร",
+        "source_pages": [
+          10
+        ],
+        "topic": "Evaluation",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "อธิบายการนับจำนวนที่นั่งทุกชั่วโมง",
+            "source_page": 10,
+            "evidence_quote": "Evaluation The team counts occupied seats every hour."
+          },
+          {
+            "id": "c2",
+            "text": "อธิบายการเก็บฟีดแบ็กแยกจากบันทึกการจอง",
+            "source_page": 10,
+            "evidence_quote": "Reader feedback is collected separately from booking records."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 3,
+      "difficulty": "challenge",
+      "question": {
+        "id": "3d4e2e66-77cc-4f39-8162-3e17e03a0660",
+        "text": "การจัดเตรียมสิ่งอำนวยความสะดวกสำหรับการเข้าถึง (Accessibility) ในพื้นที่นำร่องมีมาตรการใดบ้าง",
+        "source_pages": [
+          7
+        ],
+        "topic": "Accessibility",
+        "judge_role": "concept",
+        "decision_reason": "เปรียบเทียบทางเลือกและอธิบายการตัดสินใจภายใต้เงื่อนไขการจัดพื้นที่จากหลักฐานหน้า 7",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุตำแหน่งหรืออุปกรณ์โต๊ะปรับระดับได้",
+            "source_page": 7,
+            "evidence_quote": "Accessibility The pilot keeps two adjustable desks near the entrance."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุบริการสำหรับผู้อ่านที่ต้องการตัวอักษรขนาดใหญ่",
+            "source_page": 7,
+            "evidence_quote": "Readers can request large-print instructions."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 4,
+      "difficulty": "basic",
+      "question": {
+        "id": "1595307d-355a-453c-bab1-fc892716a1bb",
+        "text": "ที่นั่งที่จองไว้จะถูกปล่อยเมื่อใดหากไม่มีการใช้งาน",
+        "source_pages": [
+          1
+        ],
+        "topic": "Seat Booking",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุระยะเวลา 10 นาที",
+            "source_page": 1,
+            "evidence_quote": "Unclaimed seats are released after 10 minutes."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 5,
+      "difficulty": "standard",
+      "question": {
+        "id": "8bedf94f-9012-4e5c-8274-53b4cdda9868",
+        "text": "เจ้าหน้าที่ในช่วง Outage มีวิธีการจัดการและตรวจสอบการกำหนดที่นั่งอย่างไร",
+        "source_pages": [
+          9
+        ],
+        "topic": "Outage Staff Management",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "อธิบายการบันทึกหมายเลขที่นั่งบนการ์ด",
+            "source_page": 9,
+            "evidence_quote": "Outage Staff record seat assignments on numbered cards during an outage."
+          },
+          {
+            "id": "c2",
+            "text": "อธิบายการตรวจสอบการ์ดก่อนกำหนดการออนไลน์จะเปิด",
+            "source_page": 9,
+            "evidence_quote": "Cards are reconciled before the online schedule reopens."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 6,
+      "difficulty": "challenge",
+      "question": {
+        "id": "7ee42fc1-856b-4658-aecc-824a044935c7",
+        "text": "การดำเนินการแก้ไขปัญหาเมื่อเครื่องอ่านรหัสขัดข้องและการจัดการพื้นที่ห้องเงียบมีแนวทางปฏิบัติอย่างไร",
+        "source_pages": [
+          2,
+          3
+        ],
+        "topic": "Operational Procedures and Zone Management",
+        "judge_role": "technical",
+        "decision_reason": "เลือกประเด็นการปฏิบัติงานช่วงระบบออฟไลน์และการแบ่งเขตพื้นที่ใช้งานเพื่อทดสอบความเข้าใจในการควบคุมหน้างานตามหลักฐาน",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุการใช้สมุดบันทึกกระดาษเมื่อเครื่องอ่านออฟไลน์",
+            "source_page": 2,
+            "evidence_quote": "Staff use a paper register when the reader is offline."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุการจำกัดพื้นที่การโทรให้อยู่นอกห้องเงียบ",
+            "source_page": 3,
+            "evidence_quote": "Quiet room Calls take place outside the quiet room."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 7,
+      "difficulty": "basic",
+      "question": {
+        "id": "8e869486-7653-4616-88d5-4053317ae593",
+        "text": "หนังสือที่ได้รับการคืนแล้วจะถูกจัดการอย่างไรก่อนที่จะนำกลับไปไว้บนชั้นวาง",
+        "source_pages": [
+          4
+        ],
+        "topic": "Book Returns",
+        "judge_role": "concept",
+        "decision_reason": "ถามเกี่ยวกับขั้นตอนการจัดการหนังสือคืนตามหลักฐานในหน้า 4",
+        "criteria": [
+          {
+            "id": "c_1",
+            "text": "ระบุว่าหนังสือคืนจะถูกแยกไว้ในถาดต่างหากและเจ้าหน้าที่ต้องสแกนก่อนเก็บ",
+            "source_page": 4,
+            "evidence_quote": "Returned books go into a separate tray. Staff scan each book before shelving it."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 8,
+      "difficulty": "standard",
+      "question": {
+        "id": "c15c5c2d-be8b-4cbf-9b3b-19c6c5f816b9",
+        "text": "ระบบมีการแจ้งเตือนและการจัดการข้อมูลความเป็นส่วนตัวอย่างไรเมื่อมีการเลยกำหนดและเข้าชม",
+        "source_pages": [
+          5,
+          8
+        ],
+        "topic": "Overdue and Privacy Management",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "อธิบายเงื่อนไขการส่งเตือนก่อนกำหนดและการบล็อกการต่ออายุตามหลักฐาน",
+            "source_page": 5,
+            "evidence_quote": "A reminder is sent two days before the due date. A renewal is blocked when another reader reserved the book."
+          },
+          {
+            "id": "c2",
+            "text": "อธิบายมาตรการเก็บข้อมูลการเข้าชมและการลบรายละเอียดการจอง",
+            "source_page": 8,
+            "evidence_quote": "Visit counts are stored without names. Booking details are removed after seven days."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 9,
+      "difficulty": "challenge",
+      "question": {
+        "id": "8d711a2f-0329-4640-8fab-61fb11f8663e",
+        "text": "เจ้าหน้าที่บันทึกสภาพอุปกรณ์อย่างไรเมื่อมีการยืมและคืนแล็ปท็อป",
+        "source_pages": [
+          6
+        ],
+        "topic": "Device lending",
+        "judge_role": "technical",
+        "decision_reason": "เลือกวิเคราะห์ขั้นตอนการตรวจสอบสภาพอุปกรณ์จากหลักฐานเพื่อทดสอบความเข้าใจในการปฏิบัติงานจริง",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุว่าเจ้าหน้าที่บันทึกสภาพอุปกรณ์ตอนยืมและคืน",
+            "source_page": 6,
+            "evidence_quote": "Staff record the device condition at checkout and return."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 1,
+      "difficulty": "basic",
+      "question": {
+        "id": "89cec4f7-7af4-485c-b2ca-5a32b8b50c32",
+        "text": "ผู้เข้าชมสามารถสังเกตการณ์การซ่อมแซมได้จากบริเวณใด",
+        "source_pages": [
+          8
+        ],
+        "topic": "Visitor learning",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุบริเวณที่ผู้เข้าชมสามารถสังเกตการณ์การซ่อมแซมได้ถูกต้อง",
+            "source_page": 8,
+            "evidence_quote": "Visitors may observe the repair from the marked area."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 2,
+      "difficulty": "standard",
+      "question": {
+        "id": "0c7561a2-dbdb-4852-891d-472ad5338ab7",
+        "text": "อธิบายเหตุผลที่อาสาสมัครต้องบันทึกข้อจำกัดของงานที่ร้องขอก่อนเริ่มซ่อมแซม พร้อมยกตัวอย่างเงื่อนไขจากหลักฐาน",
+        "source_pages": [
+          3
+        ],
+        "topic": "Consent and Repair Limits",
+        "judge_role": "concept",
+        "decision_reason": "ถามเกี่ยวกับการประยุกต์และเหตุผลตามหลักฐานหน้า 3 เลี่ยงคำถามนิยาม",
+        "criteria": [
+          {
+            "id": "c_1",
+            "text": "ระบุว่าผู้เข้าชมต้องอนุมัติการซ่อมแซมก่อนเริ่มงาน",
+            "source_page": 3,
+            "evidence_quote": "Visitors approve the proposed repair before work begins."
+          },
+          {
+            "id": "c_2",
+            "text": "ระบุว่าอาสาสมัครบันทึกข้อจำกัดของงานที่ร้องขอ",
+            "source_page": 3,
+            "evidence_quote": "A volunteer records any limits on the requested work."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 3,
+      "difficulty": "challenge",
+      "question": {
+        "id": "92fd8499-b749-44a9-88ec-f2e0b56eb873",
+        "text": "จงเปรียบเทียบการจัดการระหว่างรายการที่มีความเสียหายที่มองเห็นได้กับรายการที่มีสายไฟแตกหัก และอธิบายข้อจำกัดในการตัดสินใจคัดแยกตามหลักฐาน",
+        "source_pages": [
+          1,
+          2
+        ],
+        "topic": "Item Intake and Triage",
+        "judge_role": "technical",
+        "decision_reason": "เปรียบเทียบทางเลือกในการจัดการความเสียหายที่แตกต่างกันและวิเคราะห์ข้อจำกัดภายใต้เงื่อนไขจากหลักฐาน",
+        "criteria": [
+          {
+            "id": "C1",
+            "text": "ระบุการบันทึกประเภทและข้อมูลความเสียหายของอาสาสมัคร",
+            "source_page": 1,
+            "evidence_quote": "The intake volunteer records the item type and visible damage."
+          },
+          {
+            "id": "C2",
+            "text": "อธิบายเงื่อนไขการแยกรายการที่มีสายไฟแตกหักและขั้นตอนที่โต๊ะประเมิน",
+            "source_page": 2,
+            "evidence_quote": "Triage Items with cracked power cables are isolated. Volunteers discuss other faults at the assessment desk."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 4,
+      "difficulty": "basic",
+      "question": {
+        "id": "f5d055a6-5fb4-485a-a19b-eaf11425986b",
+        "text": "การตรวจสอบซ้ำ (Buddy checks) มีขั้นตอนปฏิบัติอย่างไรก่อนที่จะมีการคืนสินค้า",
+        "source_pages": [
+          6
+        ],
+        "topic": "Quality Control",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุว่าอาสาสมัครคนที่สองต้องตรวจสอบบันทึกการซ่อม",
+            "source_page": 6,
+            "evidence_quote": "A second volunteer checks the repair notes before the item is returned."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุว่าปัญหาที่ยังไม่ได้รับการแก้ไขจะถูกบันทึกไว้บนบัตรคืนสินค้า",
+            "source_page": 6,
+            "evidence_quote": "Unresolved issues are written on the return card."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 5,
+      "difficulty": "standard",
+      "question": {
+        "id": "df33e92f-c14c-4a41-a75e-8bcf3bf2da70",
+        "text": "อธิบายเหตุผลที่เวลาการรอคอยอะไหล่ถูกแยกออกจากการวัดเวลาซ่อมแซมจริง พร้อมยกตัวอย่างเงื่อนไขการจัดการชิ้นส่วนขนาดเล็กที่โต๊ะปฏิบัติงานตามหลักฐาน",
+        "source_pages": [
+          5,
+          10
+        ],
+        "topic": "Pilot Measurement and Workstations",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุเหตุผลการแยกเวลาการรอคอยอะไหล่ออกจากเวลาซ่อมแซมจริงได้ถูกต้อง",
+            "source_page": 10,
+            "evidence_quote": "Time spent waiting for parts is excluded from active repair time."
+          },
+          {
+            "id": "c2",
+            "text": "อธิบายเงื่อนไขการจัดการชิ้นส่วนขนาดเล็กที่โต๊ะปฏิบัติงานตามที่กำหนด",
+            "source_page": 5,
+            "evidence_quote": "Small loose parts stay in a numbered tray."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 6,
+      "difficulty": "challenge",
+      "question": {
+        "id": "4c04576e-5337-4d7e-ae8c-a6aec24fb55b",
+        "text": "จงเปรียบเทียบวิธีการจัดการและการตรวจสอบระหว่างเครื่องมือที่ใช้ร่วมกันกับอะไหล่สำรอง พร้อมวิเคราะห์ข้อจำกัดในการบันทึกข้อมูลตามเงื่อนไขจากหลักฐาน",
+        "source_pages": [
+          4,
+          7
+        ],
+        "topic": "Tool and Parts Management",
+        "judge_role": "technical",
+        "decision_reason": "เปรียบเทียบการจัดการระหว่างเครื่องมือที่มีป้ายหมายเลขกับการติดป้ายอะไหล่สำรองตามประเภท เพื่อวิเคราะห์ข้อจำกัดในการติดตามและบันทึกข้อมูลภายใต้เงื่อนไขที่กำหนด",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุวิธีการตรวจสอบเครื่องมือที่ใช้ร่วมกันโดยอาสาสมัคร",
+            "source_page": 7,
+            "evidence_quote": "Shared tools have numbered tags. A volunteer checks the tool board at the end of each session."
+          },
+          {
+            "id": "c2",
+            "text": "อธิบายเงื่อนไขการจัดการอะไหล่สำรองเมื่อไม่พร้อมใช้งาน",
+            "source_page": 4,
+            "evidence_quote": "Parts Spare parts are labeled by item type. An unavailable part is listed on a follow-up card."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 7,
+      "difficulty": "basic",
+      "question": {
+        "id": "c74b79ec-15ce-4bf3-b824-b722fbe8eb6f",
+        "text": "แบตเตอรี่ที่ถูกถอดออกจะต้องถูกนำไปจัดการอย่างไรตามหลักฐาน",
+        "source_pages": [
+          9
+        ],
+        "topic": "Waste separation",
+        "judge_role": "concept",
+        "decision_reason": "ถามความเข้าใจเกี่ยวกับกระบวนการจัดการขยะแบตเตอรี่ที่ถอดออกตามหลักฐานหน้า 9",
+        "criteria": [
+          {
+            "id": "c_1",
+            "text": "ระบุสถานที่จัดเก็บแบตเตอรี่ที่ถอดออกได้ถูกต้องตรงตามหลักฐาน",
+            "source_page": 9,
+            "evidence_quote": "Removed batteries go into a dedicated collection box."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 8,
+      "difficulty": "standard",
+      "question": {
+        "id": "4fe3ae5f-d51b-454d-89c9-0a597c536a10",
+        "text": "อาสาสมัครมีแนวทางอธิบายข้อผิดพลาดที่บันทึกไว้อย่างไรหลังจากงานซ่อมเสร็จสิ้น และผู้เข้าชมสามารถเรียนรู้ผ่านกระบวนการนี้ภายใต้เงื่อนไขใด",
+        "source_pages": [
+          8
+        ],
+        "topic": "Visitor learning",
+        "judge_role": "concept",
+        "decision_reason": "ถามเกี่ยวกับการอธิบายเหตุผลและกระบวนการเรียนรู้ตามหลักฐานโดยอิงเงื่อนไข",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "อธิบายการสังเกตการณ์จากพื้นที่ที่กำหนด",
+            "source_page": 8,
+            "evidence_quote": "Visitors may observe the repair from the marked area."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุการอธิบายข้อผิดพลาดหลังงานซ่อมเสร็จ",
+            "source_page": 8,
+            "evidence_quote": "Volunteers explain the recorded fault after the work is complete."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 9,
+      "difficulty": "challenge",
+      "question": {
+        "id": "a8d87297-9b47-4fee-bb98-1ad2403f3650",
+        "text": "จงเปรียบเทียบทางเลือกและอธิบายเงื่อนไขการให้ความยินยอมของผู้เข้าชมกับการเรียนรู้ของผู้เข้าชมในระหว่างขั้นตอนการซ่อมแซม",
+        "source_pages": [
+          3,
+          8
+        ],
+        "topic": "Visitor Consent and Learning",
+        "judge_role": "concept",
+        "decision_reason": "เปรียบเทียบทางเลือกการมีส่วนร่วมของผู้เข้าชมทั้งก่อนและหลังซ่อม พร้อมวิเคราะห์เงื่อนไขจากหลักฐาน",
+        "criteria": [
+          {
+            "id": "C1",
+            "text": "ผู้เข้าชมต้องอนุมัติการซ่อมแซมก่อนเริ่มงาน",
+            "source_page": 3,
+            "evidence_quote": "Consent Visitors approve the proposed repair before work begins."
+          },
+          {
+            "id": "C2",
+            "text": "ผู้เข้าชมสามารถสังเกตการณ์จากพื้นที่ที่ทำเครื่องหมายไว้",
+            "source_page": 8,
+            "evidence_quote": "Visitor learning Visitors may observe the repair from the marked area."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "sample": 10,
+      "difficulty": "basic",
+      "question": {
+        "id": "f49ea521-f295-40cd-9116-14904fa9a335",
+        "text": "ผู้เข้าชมต้องอนุมัติการซ่อมแซมที่เสนอก่อนเริ่มงานในขั้นตอนใด",
+        "source_pages": [
+          3
+        ],
+        "topic": "Consent",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุว่าผู้เข้าชมอนุมัติการซ่อมแซมก่อนเริ่มงาน",
+            "source_page": 3,
+            "evidence_quote": "Visitors approve the proposed repair before work begins."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 1,
+      "difficulty": "basic",
+      "question": {
+        "id": "5d434c35-7838-4b8b-b5b5-1c5c5418edb9",
+        "text": "การวางแผนเส้นทางในช่วงเช้าครอบคลุมพื้นที่ใดและมีการจัดการอย่างไรเมื่อเส้นทางปิด?",
+        "source_pages": [
+          3
+        ],
+        "topic": "Route planning",
+        "judge_role": "concept",
+        "decision_reason": "ถามความเข้าใจเกี่ยวกับเส้นทางตอนเช้าและการจัดการเส้นทางปิดจากหน้า 3",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุจำนวนโซนในมหาวิทยาลัยที่เข้าชมในช่วงเช้า",
+            "source_page": 3,
+            "evidence_quote": "The morning route visits three campus zones."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุการจัดการเมื่อเส้นทางถูกปิด",
+            "source_page": 3,
+            "evidence_quote": "A closed path is replaced by the signed accessible route."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 2,
+      "difficulty": "standard",
+      "question": {
+        "id": "87102710-caa3-4007-a10c-8e72c4e375a9",
+        "text": "ทีมนำเสนออธิบายเหตุผลอย่างไรในการจัดการเมื่อสภาพอากาศฝนตกหนักระหว่างการบินทดลองเส้นทาง และมีวิธีรายงานผลอย่างไร",
+        "source_pages": [
+          7,
+          10
+        ],
+        "topic": "Evaluation and Weather changes",
+        "judge_role": "concept",
+        "decision_reason": "ถามเกี่ยวกับการประยุกต์ใช้และคำอธิบายเหตุผลตามเงื่อนไขในหลักฐาน โดยหลีกเลี่ยงคำถามนิยาม",
+        "criteria": [
+          {
+            "id": "c_1",
+            "text": "ระบุการจัดการเมื่อฝนตกหนักและขั้นตอนการอัปเดตผู้รับก่อนเริ่มเส้นทางใหม่",
+            "source_page": 7,
+            "evidence_quote": "Weather changes Heavy rain pauses the pilot route. The desk updates recipients before the route restarts."
+          },
+          {
+            "id": "c_2",
+            "text": "ระบุวิธีการรายงานการเดินทางที่เสร็จสิ้นและการจัดเก็บบันทึกเวลาที่รอ ณ เส้นทางที่ปิด",
+            "source_page": 10,
+            "evidence_quote": "Evaluation The team reports completed trips and missed deliveries separately. Waiting time at a closed path is recorded as a route delay."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 3,
+      "difficulty": "challenge",
+      "question": {
+        "id": "f79eaafe-e7d1-4dd2-9757-70b994a76a16",
+        "text": "การกำหนดรอบเวลาการรับคำสั่งซื้อและการจำกัดจำนวนพัสดุต่อรอบช่วยในการตัดสินใจบริหารจัดการออร์เดอร์ส่วนเกินภายใต้ข้อจำกัดอย่างไร",
+        "source_pages": [
+          1,
+          8
+        ],
+        "topic": "Order windows and Capacity",
+        "judge_role": "technical",
+        "decision_reason": "เปรียบเทียบทางเลือกและวิเคราะห์ข้อจำกัดในการจัดการออร์เดอร์ที่เกินเวลาและพัสดุที่เกินความจุตามหลักฐาน",
+        "criteria": [
+          {
+            "id": "C1",
+            "text": "อธิบายการจัดการออร์เดอร์หลังเที่ยง",
+            "source_page": 1,
+            "evidence_quote": "Orders received later are assigned to the next working day."
+          },
+          {
+            "id": "C2",
+            "text": "อธิบายการจัดการพัสดุเกินความจุต่อรอบ",
+            "source_page": 8,
+            "evidence_quote": "Remaining parcels wait for the next scheduled trip."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 4,
+      "difficulty": "basic",
+      "question": {
+        "id": "224b13e8-9478-467e-acc0-ba0307e30ca1",
+        "text": "กรณีพัสดุมีความเสียหายที่บรรจุภัณฑ์ภายนอก จะมีการบันทึกและดำเนินการต่ออย่างไรก่อนการรับพัสดุ",
+        "source_pages": [
+          9
+        ],
+        "topic": "Damaged packaging handling",
+        "judge_role": "concept",
+        "decision_reason": "ถามความเข้าใจขั้นตอนการจัดการพัสดุเสียหายตามหลักฐานหน้าที่ 9",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุว่ามีการบันทึกความเสียหายที่บรรจุภัณฑ์ภายนอกก่อนการรับพัสดุ",
+            "source_page": 9,
+            "evidence_quote": "Damaged outer packaging is recorded before pickup."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุว่าโต๊ะบริการ (desk) จะทำการยืนยันว่าพัสดุควรดำเนินการต่อไปหรือไม่",
+            "source_page": 9,
+            "evidence_quote": "The desk confirms whether the parcel should continue."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 5,
+      "difficulty": "standard",
+      "question": {
+        "id": "a2910ed8-70b0-4669-aae2-ddd8e239aee0",
+        "text": "ทีมนำเสนอมีวิธีการอธิบายเหตุผลในการจัดการอย่างไรเมื่อเกิดกรณีพัสดุจัดส่งไม่สำเร็จและถูกส่งคืนโต๊ะบริการ พร้อมทั้งมีการกำหนดช่วงเวลารับพัสดุใหม่ให้ผู้รับอย่างไร",
+        "source_pages": [
+          6
+        ],
+        "topic": "Missed delivery management",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "อธิบายขั้นตอนการจัดการเมื่อพัสดุถูกส่งกลับไปยังโต๊ะบริการ",
+            "source_page": 6,
+            "evidence_quote": "A missed parcel returns to the service desk."
+          },
+          {
+            "id": "c2",
+            "text": "อธิบายวิธีการแจ้งช่วงเวลารับพัสดุใหม่ให้กับผู้รับตามเงื่อนไขที่กำหนด",
+            "source_page": 6,
+            "evidence_quote": "The recipient receives a new pickup window."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 6,
+      "difficulty": "challenge",
+      "question": {
+        "id": "5d6de75f-3a43-44d0-96de-45809ef3c64c",
+        "text": "ในการยืนยันการรับพัสดุและการส่งมอบ ทีมนำเสนอเปรียบเทียบทางเลือกและอธิบายการตัดสินใจอย่างไรเมื่อเผชิญกับปัญหาโค้ดอ่านไม่ออกและการส่งมอบโดยไม่มีการถ่ายภาพใบหน้าผู้รับ",
+        "source_pages": [
+          4,
+          5
+        ],
+        "topic": "Pickup and Handover Confirmation",
+        "judge_role": "technical",
+        "decision_reason": "วิเคราะห์กระบวนการตัดสินใจภายใต้เงื่อนไขทางเลือกในการจัดการกรณีโค้ดอ่านไม่ออกและวิธีบันทึกการส่งมอบตามหลักฐาน",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "อธิบายวิธีการจัดการกรณีโค้ดอ่านไม่ออก",
+            "source_page": 4,
+            "evidence_quote": "An unreadable code is entered manually with a second check."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุวิธีการบันทึกความสำเร็จเมื่อส่งมอบโดยไม่มีภาพถ่าย",
+            "source_page": 5,
+            "evidence_quote": "The rider records completion without taking a face photo."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 7,
+      "difficulty": "basic",
+      "question": {
+        "id": "7ad9ff45-ea00-4357-b405-244acb4d041d",
+        "text": "การกำหนดป้ายรับพัสดุมีรายละเอียดเกี่ยวกับโค้ดรับพัสดุและข้อมูลผู้รับบนป้ายอย่างไร",
+        "source_pages": [
+          2
+        ],
+        "topic": "Pickup labels",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "C_01",
+            "text": "ระบุว่าแต่ละพัสดุได้รับโค้ดรับพัสดุแบบสั้น",
+            "source_page": 2,
+            "evidence_quote": "Each parcel receives a short pickup code."
+          },
+          {
+            "id": "C_02",
+            "text": "ระบุว่าป้ายสาธารณะไม่แสดงหมายเลขโทรศัพท์ของผู้รับ",
+            "source_page": 2,
+            "evidence_quote": "The public label excludes the recipient phone number."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 9,
+      "difficulty": "challenge",
+      "question": {
+        "id": "ce29dce9-482b-42fe-99e4-eab5b42ed388",
+        "text": "ทีมนำเสนอเปรียบเทียบทางเลือกหรืออธิบายการตัดสินใจอย่างไรในการรายงานผลการจัดส่งและการบันทึกเวลาที่สูญเสียจากเส้นทางที่ปิด",
+        "source_pages": [
+          10
+        ],
+        "topic": "Evaluation and Route Delay",
+        "judge_role": "concept",
+        "decision_reason": "เปรียบเทียบการตัดสินใจจากหลักฐานหน้า 10 เพื่อให้ครอบคลุมการประเมินและการบันทึกความล่าช้า",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "อธิบายการรายงานรอบเที่ยวที่สำเร็จและพลาด",
+            "source_page": 10,
+            "evidence_quote": "The team reports completed trips and missed deliveries separately."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุวิธีบันทึกเวลารอคอยเมื่อเส้นทางปิด",
+            "source_page": 10,
+            "evidence_quote": "Waiting time at a closed path is recorded as a route delay."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "library_pilot.pdf",
+      "sample": 11,
+      "difficulty": "standard",
+      "question": {
+        "id": "c3c1be38-30f6-4e83-b00e-553bbac2987e",
+        "text": "เพราะเหตุใดทีมงานจึงต้องแยกการเก็บฟีดแบ็กจากผู้อ่านออกจากบันทึกการจอง และดำเนินการนับจำนวนที่นั่งที่ถูกใช้งานทุกชั่วโมงเพื่อประเมินผล",
+        "source_pages": [
+          10
+        ],
+        "topic": "Evaluation",
+        "judge_role": "concept",
+        "decision_reason": "ถามเหตุผลในการประเมินผลตามหลักฐานหน้า 10",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "อธิบายเหตุผลในการนับจำนวนที่นั่งทุกชั่วโมงและการเก็บฟีดแบ็กแยกจากการจองตามหลักฐาน",
+            "source_page": 10,
+            "evidence_quote": "Evaluation The team counts occupied seats every hour. Reader feedback is collected separately from booking records."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 13,
+      "difficulty": "basic",
+      "question": {
+        "id": "df835cd6-e564-41d7-8c58-c5a9d9a5261c",
+        "text": "การเปลี่ยนแปลงของสภาพอากาศส่งผลต่อเส้นทางบินทดลองอย่างไร และโต๊ะบริการมีขั้นตอนการดำเนินการอย่างไรก่อนที่เส้นทางจะเริ่มใหม่อีกครั้ง",
+        "source_pages": [
+          7
+        ],
+        "topic": "Weather changes and pilot route",
+        "judge_role": "concept",
+        "decision_reason": "ถามตามหลักฐานหน้า 7 เกี่ยวกับผลกระทบของฝนตกหนักต่อเส้นทางบินทดลองและการอัปเดตข้อมูลให้ผู้รับ",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุผลกระทบของฝนตกหนักต่อเส้นทางบินทดลองตามหลักฐานได้ถูกต้อง",
+            "source_page": 7,
+            "evidence_quote": "Weather changes Heavy rain pauses the pilot route."
+          },
+          {
+            "id": "c2",
+            "text": "ระบุการดำเนินการของโต๊ะบริการก่อนเส้นทางจะเริ่มใหม่ได้ถูกต้อง",
+            "source_page": 7,
+            "evidence_quote": "The desk updates recipients before the route restarts."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 16,
+      "difficulty": "basic",
+      "question": {
+        "id": "e59e72b7-94f4-43c4-8dff-44ef69219454",
+        "text": "ทีมนำเสนอมีวิธีการบันทึกผลการดำเนินงานอย่างไรเมื่อมีการจัดส่งสำเร็จแยกกับการจัดส่งที่ไม่สำเร็จ",
+        "source_pages": [
+          10
+        ],
+        "topic": "Completed and missed deliveries reporting",
+        "judge_role": "concept",
+        "decision_reason": "Based on evidence from page 10 regarding separate reporting of completed trips and missed deliveries.",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุว่าทีมรายงานการเดินทางที่เสร็จสิ้นและการจัดส่งที่ไม่สำเร็จแยกจากกัน",
+            "source_page": 10,
+            "evidence_quote": "The team reports completed trips and missed deliveries separately."
+          }
+        ]
+      },
+      "schema_and_quotes_valid": true,
+      "human_review": "pending"
+    }
+  ],
+  "failures": [
+    {
+      "file": "library_pilot.pdf",
+      "sample": 10,
+      "code": "QUESTION_INVALID"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 8,
+      "code": "QUESTION_INVALID"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 10,
+      "code": "QUESTION_INVALID"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 11,
+      "code": "QUESTION_INVALID",
+      "validation": "semantic_duplicate"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 12,
+      "code": "QUESTION_INVALID",
+      "validation": "semantic_duplicate"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 14,
+      "code": "QUESTION_INVALID",
+      "validation": "semantic_duplicate"
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "sample": 15,
+      "code": "QUESTION_INVALID",
+      "validation": "semantic_duplicate"
+    }
+  ],
+  "telemetry": [
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1485,
+      "retry_delay_seconds": null,
+      "request_count": 1
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 437,
+      "retry_delay_seconds": null,
+      "request_count": 2
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1500,
+      "retry_delay_seconds": null,
+      "request_count": 3
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 4
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 3703,
+      "retry_delay_seconds": null,
+      "request_count": 5
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 500,
+      "retry_delay_seconds": null,
+      "request_count": 6
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 454,
+      "retry_delay_seconds": null,
+      "request_count": 7
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1578,
+      "retry_delay_seconds": null,
+      "request_count": 8
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 469,
+      "retry_delay_seconds": null,
+      "request_count": 9
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 10
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 953,
+      "retry_delay_seconds": null,
+      "request_count": 11
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 500,
+      "retry_delay_seconds": null,
+      "request_count": 12
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 13
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1735,
+      "retry_delay_seconds": null,
+      "request_count": 14
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 531,
+      "retry_delay_seconds": null,
+      "request_count": 15
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 16
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1954,
+      "retry_delay_seconds": null,
+      "request_count": 17
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1296,
+      "retry_delay_seconds": null,
+      "request_count": 18
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 19
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1407,
+      "retry_delay_seconds": null,
+      "request_count": 20
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 562,
+      "retry_delay_seconds": null,
+      "request_count": 21
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 22
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1563,
+      "retry_delay_seconds": null,
+      "request_count": 23
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1343,
+      "retry_delay_seconds": null,
+      "request_count": 24
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 437,
+      "retry_delay_seconds": null,
+      "request_count": 25
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 4063,
+      "retry_delay_seconds": null,
+      "request_count": 26
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 750,
+      "retry_delay_seconds": null,
+      "request_count": 27
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 28
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 5656,
+      "retry_delay_seconds": null,
+      "request_count": 29
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1375,
+      "retry_delay_seconds": null,
+      "request_count": 30
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1515,
+      "retry_delay_seconds": null,
+      "request_count": 31
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1344,
+      "retry_delay_seconds": null,
+      "request_count": 32
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1360,
+      "retry_delay_seconds": null,
+      "request_count": 33
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 422,
+      "retry_delay_seconds": null,
+      "request_count": 34
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1312,
+      "retry_delay_seconds": null,
+      "request_count": 35
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 36
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 4546,
+      "retry_delay_seconds": null,
+      "request_count": 37
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 485,
+      "retry_delay_seconds": null,
+      "request_count": 38
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 438,
+      "retry_delay_seconds": null,
+      "request_count": 39
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 2578,
+      "retry_delay_seconds": null,
+      "request_count": 40
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 500,
+      "retry_delay_seconds": null,
+      "request_count": 41
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 437,
+      "retry_delay_seconds": null,
+      "request_count": 42
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1641,
+      "retry_delay_seconds": null,
+      "request_count": 43
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 500,
+      "retry_delay_seconds": null,
+      "request_count": 44
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 437,
+      "retry_delay_seconds": null,
+      "request_count": 45
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1672,
+      "retry_delay_seconds": null,
+      "request_count": 46
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 515,
+      "retry_delay_seconds": null,
+      "request_count": 47
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 48
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1329,
+      "retry_delay_seconds": null,
+      "request_count": 49
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1000,
+      "retry_delay_seconds": null,
+      "request_count": 50
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 438,
+      "retry_delay_seconds": null,
+      "request_count": 51
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1484,
+      "retry_delay_seconds": null,
+      "request_count": 52
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 704,
+      "retry_delay_seconds": null,
+      "request_count": 53
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 406,
+      "retry_delay_seconds": null,
+      "request_count": 54
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1312,
+      "retry_delay_seconds": null,
+      "request_count": 55
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1360,
+      "retry_delay_seconds": null,
+      "request_count": 56
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 422,
+      "retry_delay_seconds": null,
+      "request_count": 57
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1516,
+      "retry_delay_seconds": null,
+      "request_count": 58
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 734,
+      "retry_delay_seconds": null,
+      "request_count": 59
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 9500,
+      "retry_delay_seconds": null,
+      "request_count": 60
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 2031,
+      "retry_delay_seconds": null,
+      "request_count": 61
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1140,
+      "retry_delay_seconds": null,
+      "request_count": 62
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1594,
+      "retry_delay_seconds": null,
+      "request_count": 63
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1344,
+      "retry_delay_seconds": null,
+      "request_count": 64
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 422,
+      "retry_delay_seconds": null,
+      "request_count": 65
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1546,
+      "retry_delay_seconds": null,
+      "request_count": 66
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 422,
+      "retry_delay_seconds": null,
+      "request_count": 67
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1953,
+      "retry_delay_seconds": null,
+      "request_count": 68
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 469,
+      "retry_delay_seconds": null,
+      "request_count": 69
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 422,
+      "retry_delay_seconds": null,
+      "request_count": 70
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1969,
+      "retry_delay_seconds": null,
+      "request_count": 71
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 453,
+      "retry_delay_seconds": null,
+      "request_count": 72
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 421,
+      "retry_delay_seconds": null,
+      "request_count": 73
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1750,
+      "retry_delay_seconds": null,
+      "request_count": 74
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 563,
+      "retry_delay_seconds": null,
+      "request_count": 75
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 438,
+      "retry_delay_seconds": null,
+      "request_count": 76
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1703,
+      "retry_delay_seconds": null,
+      "request_count": 77
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 657,
+      "retry_delay_seconds": null,
+      "request_count": 78
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 406,
+      "retry_delay_seconds": null,
+      "request_count": 79
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 4047,
+      "retry_delay_seconds": null,
+      "request_count": 80
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 12297,
+      "retry_delay_seconds": null,
+      "request_count": 81
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 421,
+      "retry_delay_seconds": null,
+      "request_count": 82
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1719,
+      "retry_delay_seconds": null,
+      "request_count": 83
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 734,
+      "retry_delay_seconds": null,
+      "request_count": 84
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 407,
+      "retry_delay_seconds": null,
+      "request_count": 85
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1859,
+      "retry_delay_seconds": null,
+      "request_count": 86
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1297,
+      "retry_delay_seconds": null,
+      "request_count": 87
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1766,
+      "retry_delay_seconds": null,
+      "request_count": 88
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1312,
+      "retry_delay_seconds": null,
+      "request_count": 89
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 516,
+      "retry_delay_seconds": null,
+      "request_count": 90
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1657,
+      "retry_delay_seconds": null,
+      "request_count": 91
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1015,
+      "retry_delay_seconds": null,
+      "request_count": 92
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 422,
+      "retry_delay_seconds": null,
+      "request_count": 93
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 2031,
+      "retry_delay_seconds": null,
+      "request_count": 94
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1016,
+      "retry_delay_seconds": null,
+      "request_count": 95
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 2203,
+      "retry_delay_seconds": null,
+      "request_count": 96
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1312,
+      "retry_delay_seconds": null,
+      "request_count": 97
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1469,
+      "retry_delay_seconds": null,
+      "request_count": 1
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 468,
+      "retry_delay_seconds": null,
+      "request_count": 2
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1735,
+      "retry_delay_seconds": null,
+      "request_count": 3
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1312,
+      "retry_delay_seconds": null,
+      "request_count": 4
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 579,
+      "retry_delay_seconds": null,
+      "request_count": 5
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 454,
+      "retry_delay_seconds": null,
+      "request_count": 6
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1984,
+      "retry_delay_seconds": null,
+      "request_count": 7
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 860,
+      "retry_delay_seconds": null,
+      "request_count": 8
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1812,
+      "retry_delay_seconds": null,
+      "request_count": 9
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1375,
+      "retry_delay_seconds": null,
+      "request_count": 10
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 437,
+      "retry_delay_seconds": null,
+      "request_count": 11
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1687,
+      "retry_delay_seconds": null,
+      "request_count": 12
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 735,
+      "retry_delay_seconds": null,
+      "request_count": 13
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 4312,
+      "retry_delay_seconds": null,
+      "request_count": 14
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1344,
+      "retry_delay_seconds": null,
+      "request_count": 15
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 421,
+      "retry_delay_seconds": null,
+      "request_count": 16
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1563,
+      "retry_delay_seconds": null,
+      "request_count": 17
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 750,
+      "retry_delay_seconds": null,
+      "request_count": 18
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 4234,
+      "retry_delay_seconds": null,
+      "request_count": 19
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1422,
+      "retry_delay_seconds": null,
+      "request_count": 20
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 422,
+      "retry_delay_seconds": null,
+      "request_count": 21
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1782,
+      "retry_delay_seconds": null,
+      "request_count": 22
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1343,
+      "retry_delay_seconds": null,
+      "request_count": 23
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 9110,
+      "retry_delay_seconds": null,
+      "request_count": 24
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1344,
+      "retry_delay_seconds": null,
+      "request_count": 25
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1453,
+      "retry_delay_seconds": null,
+      "request_count": 1
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 437,
+      "retry_delay_seconds": null,
+      "request_count": 2
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 2360,
+      "retry_delay_seconds": null,
+      "request_count": 3
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1359,
+      "retry_delay_seconds": null,
+      "request_count": 4
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 437,
+      "retry_delay_seconds": null,
+      "request_count": 5
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1578,
+      "retry_delay_seconds": null,
+      "request_count": 6
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1344,
+      "retry_delay_seconds": null,
+      "request_count": 7
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 422,
+      "retry_delay_seconds": null,
+      "request_count": 8
+    },
+    {
+      "endpoint": "generateContent",
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1469,
+      "retry_delay_seconds": null,
+      "request_count": 9
+    },
+    {
+      "endpoint": "batchEmbedContents",
+      "model": "gemini-embedding-001",
+      "status": 200,
+      "error_category": null,
+      "latency_ms": 1375,
+      "retry_delay_seconds": null,
+      "request_count": 10
+    }
+  ],
+  "status": "passed_automated_checks",
+  "quota_events": 0,
+  "phases": [
+    {
+      "resume": false,
+      "questions": 27,
+      "failures": 3,
+      "question_policy_sha256": null,
+      "note": "Initial run retained; policy hash was not recorded at execution time"
+    },
+    {
+      "resume": true,
+      "prior_questions": 27,
+      "question_policy_sha256": "df459fbb80755dc9485368a08e8a9bf928f8cf00e708c23eb395e587df3c2ec4"
+    },
+    {
+      "resume": true,
+      "prior_questions": 29,
+      "question_policy_sha256": "b6546b36162cab515b385c05dd919eef1d57ca374455c7d2e4feb464a06e36ad"
+    }
+  ]
+}

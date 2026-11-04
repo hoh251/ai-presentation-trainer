@@ -1,13 +1,12 @@
 """Only this adapter imports the training team's package. No fallback in real mode."""
 import asyncio
-import hashlib
-import importlib
 import json
 import math
 import threading
 
 from .contract import check, normalize
 from .errors import APIError, unavailable
+from .model_loader import load as load_bundle, ModelLoadError
 
 
 class CoverageService:
@@ -19,6 +18,8 @@ class CoverageService:
         self.predictor = None
         self.ready = False
         self.load_error = None
+        self.load_error_code = None
+        self.validation_thresholds = None
         self.lock = threading.Lock()
         # These thresholds are for deterministic fake tests only.
         self.thresholds = {"coverage": 0.8, "off_topic": 0.8}
@@ -28,41 +29,25 @@ class CoverageService:
             self.ready = True
             return
         try:
-            root = self.settings.artifacts.resolve()
-            manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
-            check(manifest, "manifest", model=True)
-            if manifest.get("example_only"):
-                raise ValueError("Example manifest cannot be used as a trained artifact")
-            checkpoint = (root / manifest.get("checkpoint_file", "checkpoint.bin")).resolve()
-            if not checkpoint.is_relative_to(root) or not checkpoint.is_file():
-                raise ValueError("Invalid checkpoint path")
-            hasher = hashlib.sha256()
-            with checkpoint.open("rb") as stream:
-                for block in iter(lambda: stream.read(1024 * 1024), b""):
-                    hasher.update(block)
-            if hasher.hexdigest() != manifest["checkpoint_sha256"]:
-                raise ValueError("Checkpoint hash mismatch")
-            thresholds = json.loads((root / "thresholds.json").read_text(encoding="utf-8"))
-            for name in ("coverage", "off_topic"):
-                if type(thresholds.get(name)) not in (int, float) or not 0 < thresholds[name] <= 1:
-                    raise ValueError("Missing validation-derived threshold")
-            package = importlib.import_module(self.settings.package_module)
-            predictor = package.load_model(artifact_dir=root)
-            if not callable(getattr(predictor, "predict_attempt", None)) or not callable(getattr(predictor, "validate_attempt", None)):
-                raise ValueError("Package must implement predict_attempt and validate_attempt")
-            if predictor.model_version != manifest["model_version"]:
-                raise ValueError("Loaded model version mismatch")
-            self.predictor, self.version = predictor, manifest["model_version"]
-            self.identity = self.version + ":" + hasher.hexdigest()
-            self.thresholds = thresholds
+            self.ready = False
+            self.predictor = self.version = self.identity = None
+            bundle = load_bundle(self.settings)
+            self.predictor, self.version, self.identity = bundle.predictor, bundle.version, bundle.identity
+            self.thresholds = bundle.agent_gates
+            self.validation_thresholds = bundle.validation_thresholds
             self.ready = True
+            self.load_error = self.load_error_code = None
         except Exception as exc:
             self.ready = False
-            self.load_error = type(exc).__name__  # Do not expose paths, provider keys or package tracebacks.
+            self.load_error_code = (exc.code if isinstance(exc, ModelLoadError) else
+                                    "MODEL_DEPENDENCY_MISSING" if isinstance(exc, ImportError) else
+                                    "MODEL_ARTIFACT_MISSING" if isinstance(exc, FileNotFoundError) else
+                                    "MODEL_MANIFEST_INVALID" if isinstance(exc, (ValueError, KeyError, TypeError)) else "MODEL_LOAD_FAILED")
+            self.load_error = self.load_error_code
 
     def _input(self, question, prompt, answer):
         if not self.ready:
-            raise unavailable()
+            raise unavailable(self.load_error_code or "MODEL_UNAVAILABLE")
         payload = dict(question=question, current_prompt=prompt, criteria=question["criteria"], answer=answer)
         try:
             if self.settings.test_mode:

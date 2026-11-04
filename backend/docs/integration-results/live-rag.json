@@ -1,0 +1,148 @@
+{
+  "mode": "live-gemini-rag-preview",
+  "model_package_required": false,
+  "sessions_created": false,
+  "tokenizer_budget_verified": false,
+  "config": {
+    "api_key_configured": true,
+    "generation_model_configured": true,
+    "retrieval_model_configured": true
+  },
+  "checks": [
+    {
+      "file": "bike_care.pdf",
+      "status": "passed",
+      "pages": 4,
+      "question": {
+        "id": "q1",
+        "text": "การดูแลจักรยานก่อนเดินทางในประเด็นที่ 1 และ 2 มีวิธีการตรวจสอบและข้อสังเกตอย่างไรบ้าง",
+        "source_pages": [
+          1,
+          2
+        ],
+        "topic": "การดูแลจักรยานก่อนเดินทาง",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ตรวจสอบลมยางตามช่วงที่ระบุข้างยางและเปลี่ยนยางเมื่อสึกหรือมีรอยแตก",
+            "source_page": 1,
+            "evidence_quote": "ตรวจลมยาง ตรวจแรงดันลมยางตามช่วงที่ระบุข้างยาง ดูสภาพยาง เปลี่ยนยางเมื่อดอกยางสึกหรือมีรอยแตก"
+          },
+          {
+            "id": "c2",
+            "text": "บีบเบรกก่อนออกเดินทางเพื่อตรวจระยะจับและเปลี่ยนผ้าเบรกเมื่อเนื้อผ้าเหลือน้อย",
+            "source_page": 2,
+            "evidence_quote": "ตรวจเบรก บีบเบรกก่อนออกเดินทางเพื่อตรวจระยะจับ เปลี่ยนผ้าเบรก เปลี่ยนผ้าเบรกเมื่อเนื้อผ้าเหลือน้อย"
+          }
+        ]
+      },
+      "evidence_quotes_verified": true,
+      "tokenizer_budget_verified": false,
+      "answer_coverage_evaluated": false
+    },
+    {
+      "file": "phishing.pdf",
+      "status": "passed",
+      "pages": 4,
+      "question": {
+        "id": "q1",
+        "text": "อีเมลรูปแบบใดที่เป็นสัญญาณเสี่ยงในการรู้ทันอีเมลหลอกลวง และมีวิธีป้องกันเบื้องต้นอย่างไรตามหลักฐาน",
+        "source_pages": [
+          1
+        ],
+        "topic": "อีเมลหลอกลวง",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุว่าอีเมลที่เร่งให้กดลิงก์ทันทีเป็นสัญญาณเสี่ยง",
+            "source_page": 1,
+            "evidence_quote": "อีเมลที่เร่งให้กดลิงก์ทันทีเป็นสัญญาณเสี่ยง"
+          },
+          {
+            "id": "c2",
+            "text": "ระบุว่าต้องตรวจชื่อโดเมนผู้ส่งก่อนเปิดลิงก์",
+            "source_page": 1,
+            "evidence_quote": "ตรวจโดเมน ตรวจชื่อโดเมนผู้ส่งก่อนเปิดลิงก์"
+          }
+        ]
+      },
+      "evidence_quotes_verified": true,
+      "tokenizer_budget_verified": false,
+      "answer_coverage_evaluated": false
+    },
+    {
+      "file": "urban_garden.pdf",
+      "status": "passed",
+      "pages": 4,
+      "question": {
+        "id": "q1",
+        "text": "ในการปลูกผักในพื้นที่เล็ก มีวิธีการเลือกพื้นที่และเตรียมภาชนะอย่างไร และควรดูแลการรดน้ำอย่างไรเพื่อลดโรค",
+        "source_pages": [
+          1,
+          3
+        ],
+        "topic": "การปลูกผักในพื้นที่เล็ก",
+        "judge_role": "concept",
+        "decision_reason": "คำถามนี้ครอบคลุมเนื้อหาสำคัญเกี่ยวกับการเลือกพื้นที่ การเตรียมภาชนะ และการรดน้ำเพื่อลดโรคตามหลักฐานในสไลด์",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุว่าผักใบส่วนใหญ่ต้องได้รับแสงอย่างน้อยครึ่งวันและกระถางต้องมีรูระบายน้ำ",
+            "source_page": 1,
+            "evidence_quote": "ผักใบส่วนใหญ่ต้องได้รับแสงอย่างน้อยครึ่งวัน เตรียมภาชนะ กระถางต้องมีรูระบายน้ำเพื่อลดรากเน่า"
+          },
+          {
+            "id": "c2",
+            "text": "ระบุว่าต้องตรวจความชื้นของดินก่อนรดน้ำและหลีกเลี่ยงน้ำขังในจานรองกระถางเพื่อลดโรค",
+            "source_page": 3,
+            "evidence_quote": "ตรวจความชื้นของดินก่อนรดน้ำแต่ละครั้ง ลดโรค หลีกเลี่ยงน้ำขังในจานรองกระถาง"
+          }
+        ]
+      },
+      "evidence_quotes_verified": true,
+      "tokenizer_budget_verified": false,
+      "answer_coverage_evaluated": false
+    },
+    {
+      "file": "waste_sorting.pdf",
+      "status": "passed",
+      "pages": 4,
+      "question": {
+        "id": "q1",
+        "text": "การแยกขยะในชีวิตประจำวันสำหรับประเด็นการแยกเศษอาหารและประเด็นการลดขยะมีแนวทางปฏิบัติอย่างไรบ้าง",
+        "source_pages": [
+          1,
+          4
+        ],
+        "topic": "การแยกขยะในชีวิตประจำวัน",
+        "judge_role": "concept",
+        "decision_reason": "คำถามถามถึงแนวทางปฏิบัติในการแยกขยะตามที่ระบุไว้ในหลักฐานสไลด์หน้า 1 และ 4",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "ระบุแนวทางปฏิบัติในการแยกเศษอาหาร",
+            "source_page": 1,
+            "evidence_quote": "แยกเศษอาหารออกจากบรรจุภัณฑ์ก่อนทิ้ง ลดกลิ่น เก็บเศษอาหารในภาชนะปิดฝา"
+          },
+          {
+            "id": "c2",
+            "text": "ระบุแนวทางปฏิบัติในการลดขยะ",
+            "source_page": 4,
+            "evidence_quote": "พกขวดน้ำใช้ซ้ำเพื่อลดขวดพลาสติก ติดตามผล ชั่งน้ำหนักขยะแต่ละประเภททุกสัปดาห์"
+          }
+        ]
+      },
+      "evidence_quotes_verified": true,
+      "tokenizer_budget_verified": false,
+      "answer_coverage_evaluated": false
+    }
+  ],
+  "status": "passed",
+  "client_date": "2026-11-05",
+  "generation_model": "gemini-3.5-flash-lite",
+  "embedding_model": "gemini-embedding-001",
+  "criteria_with_verified_quotes": 8,
+  "trained_model_evaluated": false
+}

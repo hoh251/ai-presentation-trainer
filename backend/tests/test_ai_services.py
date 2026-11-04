@@ -93,12 +93,17 @@ def test_package_load_restart_hash_ids_and_length(real_stub):
 def provider_handler(request):
     if request.url.path.endswith(":batchEmbedContents"):
         body = json.loads(request.content)
+        if body["requests"][0].get("taskType") == "SEMANTIC_SIMILARITY":
+            return httpx.Response(200, json=dict(embeddings=[dict(values=[float(i == j) for j in range(len(body["requests"]))]) for i in range(len(body["requests"]))]))
         return httpx.Response(200, json=dict(embeddings=[dict(values=[1., .5, .2]) for _ in body["requests"]]))
     assert request.url.path.endswith(":generateContent")
     assert request.headers["x-goog-api-key"] == "test-key-never-sent"
     data = json.loads(json.loads(request.content)["contents"][0]["parts"][0]["text"])
     question = deepcopy(QUESTION)
-    question["text"] += f" Round {data['round']}"
+    evidence = data["evidence"][0]
+    quote = evidence["text"].split(".")[0]
+    question.update(text=f"Explain page {evidence['source_page']} round {data['round']}", source_pages=[evidence["source_page"]],
+                    criteria=[dict(id="test", text=quote, evidence_quote=quote, source_page=evidence["source_page"])])
     return httpx.Response(200, json=dict(candidates=[dict(finishReason="STOP", content=dict(parts=[dict(text=json.dumps(question))]))]))
 
 
@@ -122,8 +127,8 @@ def test_full_real_service_wiring_with_stub_package_and_mock_provider(real_stub)
             assert response.status_code == 200, response.text
             state = response.json()
         assert state["completed"] is True
-        # One document indexing batch, 3 query embeddings and 3 generated questions.
-        assert sum(path.endswith(":batchEmbedContents") for path in calls) == 4
+        # One index, three retrieval queries, two semantic-dedup checks.
+        assert sum(path.endswith(":batchEmbedContents") for path in calls) == 6
         assert sum(path.endswith(":generateContent") for path in calls) == 3
         assert client.get(f"/api/sessions/{sid}/report").status_code == 200
 

@@ -2,7 +2,7 @@
 
 งานฝั่งคน B ตามเอกสารวันที่ 4 พฤศจิกายน 2569 อยู่ในโฟลเดอร์นี้ ใช้ FastAPI + SQLite + pypdf โดยมี Gemini REST client, RAG และ adapter รับ `model_package` ของคน A ใช้สัญญากลางจาก `contracts/v1/` ที่ราก repository
 
-**สถานะ:** ทดสอบ API/state ด้วย fake model ได้ครบ flow ส่วนโค้ดเชื่อม Gemini และ package ทดสอบด้วย stub/mock แล้ว ยังไม่มี Gemini key, package/checkpoint หรือ metrics จริงจากคน A จึงยังยืนยันการใช้ AI จริงหรือการเชื่อม Frontend/tunnel ไม่ได้ ดูรายละเอียดใน `docs/verification.md`
+**สถานะล่าสุด 5 พฤศจิกายน:** ดึง `model_package` จาก `feat/frontend-v1` commit `fab4331` แล้ว และปรับ loader รองรับ LoRA + Dense v2 แต่ branch ไม่มีน้ำหนัก/base model/Agent gates จริง จึงยังประเมินคำตอบจริงไม่ได้ Backend ผ่าน 54 tests และสัญญากลาง 7 tests; Gemini preview ได้คำถามตรวจ schema/quote ผ่าน 30 ข้อจาก PDF สังเคราะห์ 3 เรื่อง โดยยังรอคนตรวจคุณภาพ Frontend candidate ในโหมด fake ผ่าน 12 จุด ดู [ผลแก้ handoff](docs/handoff-results-2026-11-05.md), [ผล integration](docs/integration-testing.md) และ [วิธีเดโม](docs/demo-runbook.md)
 
 ## เปิดโหมดทดสอบบน Windows
 
@@ -47,7 +47,8 @@ Frontend แสดง `current_prompt` และเก็บ `question.text` เ
 | 413 `PDF_TOO_LARGE` | เลือกไฟล์เล็กลง |
 | 422 `PDF_NO_TEXT/PDF_INVALID/PDF_ENCRYPTED/PDF_PAGE_LIMIT/PDF_TEXT_LIMIT` | แสดงข้อความสาเหตุและให้เลือก PDF ใหม่ |
 | 422 `REQUEST_INVALID` | ตรวจ payload ฝั่ง client |
-| 429 `AI_RATE_LIMIT` | รอแล้ว retry คำขอเดิม |
+| 429 `AI_RATE_LIMIT/AI_GENERATION_RATE_LIMIT/AI_EMBEDDING_RATE_LIMIT` | รอตาม Retry-After แล้ว retry คำขอเดิม |
+| 429 `AI_GENERATION_DAILY_QUOTA/AI_EMBEDDING_DAILY_QUOTA` | โควตารายวันหมด แยกตาม endpoint; ห้าม retry ทันที |
 | 503 `AI_TIMEOUT/AI_UNAVAILABLE/MODEL_BUSY/MODEL_UNAVAILABLE` | เก็บคำตอบแล้ว retry ด้วย ID เดิม |
 | 503 `MODEL_OUTPUT_INVALID/MODEL_INPUT_INVALID` | ทีมตรวจ package/adapter; ไม่มี attempt ใหม่ |
 | 503 `QUESTION_INVALID/PROMPT_TOO_LONG/QUESTION_SERVICE_UNAVAILABLE/AI_OUTPUT_INVALID` | ทีมตรวจ question service/config; state ไม่เปลี่ยน |
@@ -58,7 +59,7 @@ Error ปกติเป็น `{status:"error",error:{code,message}}` ส่ว
 
 ## เปิดโหมดโมเดลจริง
 
-คัดลอก `.env.example` เป็น `.env` แล้วตั้ง `TRAINER_TEST_MODE=false`, `GEMINI_API_KEY`, `GEMINI_MODEL`, `GEMINI_EMBEDDING_MODEL`, `MODEL_PACKAGE_MODULE` และ `MODEL_ARTIFACT_DIR` เป็น absolute path ชื่อ Gemini model ให้ใช้รุ่นที่บัญชีทีมเรียกได้จริง ไม่มีชื่อโมเดลเริ่มต้นหรือการสลับรุ่นเงียบ ๆ
+คัดลอก `.env.example` เป็น `.env` แล้วตั้ง `TRAINER_TEST_MODE=false`, `GEMINI_API_KEY`, ชื่อ Gemini models และ path ของ artifact ให้ตรงเครื่อง ค่า model IDs ใน example เป็นค่าที่ทดสอบเรียกได้กับบัญชีนี้ ไม่มีการสลับรุ่นอัตโนมัติ ตั้ง `MODEL_BASE_PATH`, `MODEL_CHECKPOINT_DIR`, `MODEL_MANIFEST_PATH`, `MODEL_AGENT_GATES_PATH` ตาม [คู่มือ package](docs/model-package-handoff.md)
 
 ติดตั้ง package/dependency lock ที่คน A ส่งใน `.venv` นี้ตามคู่มือของ package แล้วจัด artifact ตาม `docs/model-package-handoff.md` จากนั้นรัน:
 
@@ -79,6 +80,8 @@ Migration เพิ่มตารางชื่อ `trainer_*` โดยไม
 PDF เก็บข้อความทุกหน้าพร้อมเลข 1-based หน้าแรกไม่ถูกตัดทิ้ง PDF ภาพล้วนไม่มี OCR จะได้ error การดึงข้อมูลใช้ Gemini embedding แบ่งข้อความตามตัวอักษร 1,200 ตัว overlap 200 ตัว และ top 2 พร้อม cache ที่ผูก model/index version และ hash ข้อความ ค่าเหล่านี้เป็นค่าตั้งต้นที่ยังต้องประเมินจริง ไม่ใช่ token count 300/50 ที่วัดแล้ว จำกัด 80 chunks โดยส่ง error แทนการทิ้งข้อความส่วนท้ายเงียบ ๆ
 
 Gemini สร้างคำถาม/เกณฑ์และช่วยเขียน probe; Backend ตรวจ quote กับข้อความ PDF จริงและตรวจ token budget ด้วย package ของคน A ก่อนเริ่มคำถาม Retry การสร้างคำถามไม่เกิน 2 ครั้งโดยปริยาย รวมทั้งคำขออยู่ภายใน deadline 115 วินาที ตั้งได้ไม่เกิน 120 วินาที สำหรับ Frontend abort 150 วินาที
+
+Provider แยก generation/embedding RPM และ daily cooldown, อ่าน RetryInfo/Retry-After, retry เฉพาะ minute limit ที่รอสั้น และบันทึก cooldown รายวันข้าม restart ส่ง embeddings เป็น batch 16 ค่า RPM ใน example เป็นการจำกัดฝั่ง client ไม่ใช่โควตาที่ provider รับรอง Logs มีเฉพาะ endpoint/model/status/category/latency/retry delay/call count ไม่มี prompt/key/raw error body Retrieval ให้ความสำคัญกับหน้าที่ยังไม่ใช้และตรวจ semantic duplicate ด้วย cosine threshold .92 ที่ยังเป็น heuristic; เมื่อพบคำถามซ้ำ การลองใหม่เปลี่ยนหน้าหลักฐานด้วย
 
 Agent รวม coverage ตาม criterion ID เฉพาะผลที่มั่นใจ หาก off-topic หรือผลขัดกันจะไม่เพิ่ม/ล้าง covered เดิม กรณีขัดกันหรือ confidence ต่ำจะ clarify และไม่ชม ครบครั้งที่ 3 จะปิด incomplete แม้ยังไม่ชัดเจน Feedback/report สร้างจากผลที่ยืนยันแล้วด้วย template; Gemini ไม่เขียนคำชมอิสระและไม่ตัดสิน coverage
 

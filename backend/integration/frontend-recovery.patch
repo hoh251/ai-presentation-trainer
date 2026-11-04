@@ -1,0 +1,25 @@
+diff --git a/frontend/src/App.jsx b/frontend/src/App.jsx
+index c6434ec..c5d5838 100644
+--- a/frontend/src/App.jsx
++++ b/frontend/src/App.jsx
+@@ -443,9 +443,9 @@ export default function App() {
+       if (data.completed) getReport(saved).then((result) => { if (!cancelled) setReport(result) }).catch(() => {
+         if (!cancelled) setError('โหลดรายงานไม่ได้ กรุณาลองใหม่')
+       })
+-    }).catch(() => {
++    }).catch((caught) => {
+       if (!cancelled) {
+-        localStorage.removeItem(SESSION_KEY)
++        if (caught.httpStatus === 404) localStorage.removeItem(SESSION_KEY)
+         setError('กลับเข้ารอบซ้อมเดิมไม่ได้ กรุณาตรวจ Backend หรือเริ่มซ้อมใหม่')
+       }
+     }).finally(() => { if (!cancelled) setRestoring(false) })
+@@ -568,7 +568,7 @@ export default function App() {
+         } catch { setError('สถานะการซ้อมเปลี่ยนไป แต่โหลดสถานะล่าสุดไม่ได้ กรุณาลองรีเฟรช') }
+       } else {
+         setError(caught.httpStatus === 413 ? 'คำตอบยาวเกินขีดจำกัด กรุณาย่อคำตอบแล้วส่งใหม่' : caught.httpStatus === 429 ? 'ระบบรับคำขอมากเกินไป รอสักครู่แล้วกดส่งอีกครั้ง' : caught.message)
+-        if (caught.httpStatus === 413 || caught.httpStatus === 503) sessionStorage.removeItem(PENDING_KEY)
++        if (caught.httpStatus === 413) sessionStorage.removeItem(PENDING_KEY)
+       }
+     } finally {
+       setBusy(false)

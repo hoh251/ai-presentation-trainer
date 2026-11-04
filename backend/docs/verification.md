@@ -1,5 +1,9 @@
 # ผลตรวจ Backend — 4 พฤศจิกายน 2569
 
+ผลล่าสุดหลังแก้ตาม handoff วันที่ 5 พฤศจิกายน: [handoff-results-2026-11-05.md](handoff-results-2026-11-05.md) ผ่าน Backend 54 tests และสัญญากลาง 7 tests ผลด้านล่างเป็นประวัติการตรวจตั้งต้น
+
+เอกสารนี้เก็บผลตั้งต้นวันที่ 4 พฤศจิกายน ผล integration ที่ทำเพิ่มวันที่ 5 พฤศจิกายนอยู่ใน [integration-testing.md](integration-testing.md) พร้อมเงื่อนไข Frontend candidate และรายการที่ยังไม่ทดสอบจริง
+
 ## ผลที่ยืนยันจากเครื่องนี้
 
 ตรวจ branch `backend-v1` ที่เตรียมจาก `main` commit `3f6a3b1` ด้วย Python 3.12.10 บน Windows ใช้ environment ของงาน Backend เดิมที่ `../backend/.venv` จากราก checkout นี้ Dependencies ล็อกไว้ใน `requirements.lock.txt` การ clone ใหม่ต้องสร้าง environment และติดตั้งตาม README

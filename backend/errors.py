@@ -1,6 +1,7 @@
 class APIError(Exception):
-    def __init__(self, status: int, code: str, message: str):
+    def __init__(self, status: int, code: str, message: str, headers=None):
         self.status, self.code, self.message = status, code, message
+        self.headers = headers or {}
         super().__init__(code)
 
 

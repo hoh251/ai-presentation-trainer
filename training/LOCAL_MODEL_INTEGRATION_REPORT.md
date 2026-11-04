@@ -21,6 +21,7 @@
 - การเริ่ม session อีกครั้งหนึ่งตอบ HTTP 503 `AI_UNAVAILABLE` จากผู้ให้บริการ Gemini แม้ readiness เป็น 200; แสดงว่า readiness ตรวจ config/การโหลดบริการ ไม่รับประกัน availability ระหว่างคำขอ
 - Smoke ใช้ข้อความ criterion เป็นคำตอบเพื่อตรวจเส้นทาง API จึง **ไม่ใช่การวัดคุณภาพคำถามหรือการเข้าใจคำตอบมนุษย์**; ค่า Recall/F1 100 กรณีวัดจาก HTTP adapter แยกด้านบน
 - ผลย่ออยู่ใน `work/local_integration/pr3_live_smoke.json` และ `pr3_continue_smoke.json`; เซิร์ฟเวอร์ทดสอบผูกกับ loopback เท่านั้น
+- Frontend branch คน A เปิดที่ `127.0.0.1:5174` โดย proxy `/api` ไป PR #3 local port 8002; browser smoke ใช้ Deadlocks PDF 10 หน้า ตรวจไฟล์ผ่านและกดเริ่มซ้อมจนหน้า practice เปิดได้ ไม่มี JavaScript page error
 
 ก่อนรวมงานจริง คน A กับ B ต้องเลือก interface/artifact format เดียวกันและกำหนด confidence gates จาก validation ไม่ใช้ bridge/local sidecar นี้เป็น production config
 

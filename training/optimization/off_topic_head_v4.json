@@ -1,0 +1,49 @@
+{
+  "train_rows": 313,
+  "validation_rows": 98,
+  "stress_50_used_for_selection": false,
+  "candidates": {
+    "C=0.03,weight=None": {
+      "validation_f1": 0.836,
+      "validation_false_positives": 6,
+      "threshold": 0.42536
+    },
+    "C=0.3,weight=None": {
+      "validation_f1": 0.836,
+      "validation_false_positives": 6,
+      "threshold": 0.46393
+    },
+    "C=3.0,weight=None": {
+      "validation_f1": 0.868,
+      "validation_false_positives": 4,
+      "threshold": 0.5
+    },
+    "C=0.03,weight=balanced": {
+      "validation_f1": 0.836,
+      "validation_false_positives": 6,
+      "threshold": 0.62418
+    },
+    "C=0.3,weight=balanced": {
+      "validation_f1": 0.836,
+      "validation_false_positives": 6,
+      "threshold": 0.5
+    },
+    "C=3.0,weight=balanced": {
+      "validation_f1": 0.868,
+      "validation_false_positives": 4,
+      "threshold": 0.7319
+    }
+  },
+  "selected_by_validation": "C=3.0,weight=None",
+  "new_test": {
+    "rows": 86,
+    "f1": 0.939
+  },
+  "stress_50": {
+    "cases": 50,
+    "f1": 0.75,
+    "true_positive": 6,
+    "false_positive": 0,
+    "false_negative": 4
+  }
+}

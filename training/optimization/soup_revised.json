@@ -1,0 +1,206 @@
+{
+  "method": "linear average of same-seed LoRA factors and Dense heads",
+  "alphas_predefined": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "selection_data": "validation decks only",
+  "baseline_v2_off_topic_f1": 0.906,
+  "min_validation_off_topic_f1": 0.896,
+  "max_validation_false_praise": 0.03,
+  "candidates": {
+    "soup_25": {
+      "alpha": 0.25,
+      "thresholds": [
+        0.46614,
+        0.70563,
+        0.29418
+      ],
+      "validation": {
+        "rows": 98,
+        "macro_f1": 0.709,
+        "per_class": {
+          "covered": {
+            "precision": 0.947,
+            "recall": 0.6,
+            "f1": 0.735
+          },
+          "partial": {
+            "precision": 0.387,
+            "recall": 0.8,
+            "f1": 0.522
+          },
+          "missing": {
+            "precision": 0.917,
+            "recall": 0.83,
+            "f1": 0.871
+          }
+        },
+        "off_topic_f1": 0.906,
+        "false_praise_rate": 0.015,
+        "confusion": {
+          "covered->covered": 18,
+          "partial->partial": 12,
+          "missing->missing": 44,
+          "partial->missing": 3,
+          "covered->partial": 11,
+          "missing->partial": 8,
+          "missing->covered": 1,
+          "covered->missing": 1
+        }
+      },
+      "test_diagnostic": {
+        "rows": 86,
+        "macro_f1": 0.694,
+        "per_class": {
+          "covered": {
+            "precision": 0.933,
+            "recall": 0.538,
+            "f1": 0.683
+          },
+          "partial": {
+            "precision": 0.346,
+            "recall": 0.75,
+            "f1": 0.474
+          },
+          "missing": {
+            "precision": 0.956,
+            "recall": 0.896,
+            "f1": 0.925
+          }
+        },
+        "off_topic_f1": 0.945,
+        "false_praise_rate": 0.017,
+        "confusion": {
+          "covered->partial": 12,
+          "partial->partial": 9,
+          "missing->partial": 5,
+          "missing->missing": 43,
+          "covered->covered": 14,
+          "partial->covered": 1,
+          "partial->missing": 2
+        }
+      },
+      "stress_50_diagnostic": {
+        "coverage": {
+          "rows": 100,
+          "macro_f1": 0.428,
+          "per_class": {
+            "covered": {
+              "precision": 1.0,
+              "recall": 0.191,
+              "f1": 0.321
+            },
+            "partial": {
+              "precision": 0.095,
+              "recall": 0.571,
+              "f1": 0.163
+            },
+            "missing": {
+              "precision": 0.776,
+              "recall": 0.826,
+              "f1": 0.8
+            }
+          },
+          "off_topic_f1": 0.818,
+          "false_praise_rate": 0.0,
+          "confusion": {
+            "covered->covered": 9,
+            "missing->missing": 38,
+            "covered->partial": 30,
+            "partial->partial": 4,
+            "covered->missing": 8,
+            "missing->partial": 8,
+            "partial->missing": 3
+          }
+        },
+        "covered_recall": 0.191,
+        "off_topic_case_f1": 0.9,
+        "off_topic_case_exact": 48
+      }
+    },
+    "soup_50": {
+      "alpha": 0.5,
+      "thresholds": [
+        0.47105,
+        0.70731,
+        0.2785
+      ],
+      "validation": {
+        "rows": 98,
+        "macro_f1": 0.729,
+        "per_class": {
+          "covered": {
+            "precision": 0.95,
+            "recall": 0.633,
+            "f1": 0.76
+          },
+          "partial": {
+            "precision": 0.414,
+            "recall": 0.8,
+            "f1": 0.545
+          },
+          "missing": {
+            "precision": 0.918,
+            "recall": 0.849,
+            "f1": 0.882
+          }
+        },
+        "off_topic_f1": 0.889,
+        "false_praise_rate": 0.015,
+        "confusion": {
+          "covered->covered": 19,
+          "partial->partial": 12,
+          "missing->missing": 45,
+          "partial->missing": 3,
+          "covered->partial": 10,
+          "missing->partial": 7,
+          "missing->covered": 1,
+          "covered->missing": 1
+        }
+      }
+    },
+    "soup_75": {
+      "alpha": 0.75,
+      "thresholds": [
+        0.48394,
+        0.72499,
+        0.23741
+      ],
+      "validation": {
+        "rows": 98,
+        "macro_f1": 0.73,
+        "per_class": {
+          "covered": {
+            "precision": 1.0,
+            "recall": 0.633,
+            "f1": 0.776
+          },
+          "partial": {
+            "precision": 0.4,
+            "recall": 0.8,
+            "f1": 0.533
+          },
+          "missing": {
+            "precision": 0.918,
+            "recall": 0.849,
+            "f1": 0.882
+          }
+        },
+        "off_topic_f1": 0.863,
+        "false_praise_rate": 0.0,
+        "confusion": {
+          "covered->covered": 19,
+          "partial->partial": 12,
+          "missing->missing": 45,
+          "partial->missing": 3,
+          "covered->partial": 10,
+          "missing->partial": 8,
+          "covered->missing": 1
+        }
+      }
+    }
+  },
+  "selected_by_validation": "soup_25"
+}

@@ -1,6 +1,6 @@
 # ข้อมูลและการฝึกโมเดล coverage
 
-สถานะ: ฝึก LoRA และสร้าง model package v2 จริงแล้ว (`model_package/`) แต่ยังทดสอบกับคำตอบนักศึกษาจริงหลายหัวข้อและต่อ Backend จริงไม่ครบ จึงยังไม่ควรประกาศว่า production ready หรือสรุปความแม่นยำทั่วไปจากตัวเลขนี้ ดูแผนและผลการปรับรุ่นใน `MODEL_IMPROVEMENT_PLAN.md`, `improvement_experiments.json` และงานวิจัยที่เกี่ยวข้องใน `RELATED_RESEARCH.md`
+สถานะ: ฝึก LoRA และสร้าง model package v2 จริงแล้ว (`model_package/`) แต่ยังทดสอบกับคำตอบนักศึกษาจริงหลายหัวข้อและต่อ Backend จริงไม่ครบ จึงยังไม่ควรประกาศว่า production ready หรือสรุปความแม่นยำทั่วไปจากตัวเลขนี้ ดูแผนและผลการปรับรุ่นใน `MODEL_IMPROVEMENT_PLAN.md`, `improvement_experiments.json` และงานวิจัยที่เกี่ยวข้องใน `RELATED_RESEARCH.md` หลังทดสอบคำตอบใหม่ 50 แบบและลองวิธีปรับรุ่นหลายทางแล้ว **ยังคง v2 เป็นรุ่นส่งต่อ** เพราะรุ่นทดลองที่ coverage ดีขึ้นยังมีข้อเสียด้าน off-topic หรือการให้ `covered` ผิด อ่านผลและเหตุผลใน `OPTIMIZATION_AUDIT.md`
 
 ## เป้าหมาย
 

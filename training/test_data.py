@@ -36,6 +36,20 @@ class TrainingDataChecks(unittest.TestCase):
         self.assertTrue(all(row["status"] in {"covered", "partial", "missing"} and
                             row["off_topic"] is False for row in rows))
 
+    def test_diverse_splits_have_no_topic_or_off_topic_answer_leakage(self):
+        groups = []
+        for name, expected_count in (("train", 176), ("validation", 44), ("test", 44)):
+            rows = [json.loads(line) for line in (ROOT / f"diverse_{name}.jsonl").read_text(encoding="utf-8").splitlines()]
+            self.assertEqual(len(rows), expected_count)
+            groups.append(({row["deck_id"] for row in rows},
+                           {row["answer"] for row in rows if row["off_topic"]}))
+        for index, (decks, off_answers) in enumerate(groups):
+            for other_decks, other_off_answers in groups[index + 1:]:
+                self.assertFalse(decks & other_decks)
+                self.assertFalse(off_answers & other_off_answers)
+        stress_topics = set(json.loads((ROOT / "robustness_50.json").read_text(encoding="utf-8"))["topics"])
+        self.assertFalse(stress_topics & {deck.removeprefix("diverse_") for group, _ in groups for deck in group})
+
 
 if __name__ == "__main__":
     unittest.main()

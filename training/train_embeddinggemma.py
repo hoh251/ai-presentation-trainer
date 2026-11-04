@@ -44,6 +44,11 @@ def read_augmented_split(name: str, include_hard: bool = False) -> list[dict]:
     return rows
 
 
+def read_diverse_split(name: str) -> list[dict]:
+    path = ROOT / f"diverse_{name}.jsonl"
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
 def load_model(model_path: Path, max_length: int) -> SentenceTransformer:
     if not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
         raise RuntimeError("This training run requires a CUDA GPU with bfloat16 support")
@@ -216,6 +221,8 @@ def main() -> None:
     parser.add_argument("--max-length", type=int, default=512)
     parser.add_argument("--learning-rate", type=float, default=1e-4)
     parser.add_argument("--include-hard", action="store_true")
+    parser.add_argument("--include-diverse", action="store_true",
+                        help="Add the separately authored multi-topic train/validation split")
     parser.add_argument("--ranking-weight", type=float, default=0.0)
     parser.add_argument("--ranking-margin", type=float, default=0.15)
     parser.add_argument("--validation-only", action="store_true")
@@ -226,6 +233,9 @@ def main() -> None:
     torch.cuda.manual_seed_all(2026)
     train_rows = read_augmented_split("train", include_hard=args.include_hard)
     validation = read_augmented_split("validation", include_hard=args.include_hard)
+    if args.include_diverse:
+        train_rows += read_diverse_split("train")
+        validation += read_diverse_split("validation")
     model = load_model(args.model_path, args.max_length)
     print("base_validation_embedding", flush=True)
     base_validation = similarities(model, validation, args.batch_size)
@@ -242,6 +252,7 @@ def main() -> None:
     report = {
         "model": "google/embeddinggemma-300m", "method": "LoRA q_proj/v_proj + cosine MSE + optional ranking",
         "synthetic_data_only": True, "split_by_deck": True,
+        "include_diverse": args.include_diverse,
         "train_rows": len(train_rows), "validation_rows": len(validation), "test_rows": 0,
         "stress_answer_rows": {"train": sum("edge_case" in row for row in train_rows),
                                "validation": sum("edge_case" in row for row in validation),

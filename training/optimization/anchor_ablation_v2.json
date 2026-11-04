@@ -1,0 +1,316 @@
+{
+  "selection_data": "waste_sorting validation only",
+  "stress_set_used_for_selection": false,
+  "weight_changes": false,
+  "variants": {
+    "full": {
+      "thresholds": [
+        0.5145,
+        0.70459,
+        0.30743
+      ],
+      "validation": {
+        "rows": 54,
+        "macro_f1": 0.762,
+        "per_class": {
+          "covered": {
+            "precision": 0.889,
+            "recall": 0.667,
+            "f1": 0.762
+          },
+          "partial": {
+            "precision": 0.529,
+            "recall": 0.818,
+            "f1": 0.643
+          },
+          "missing": {
+            "precision": 0.929,
+            "recall": 0.839,
+            "f1": 0.881
+          }
+        },
+        "off_topic_f1": 0.919,
+        "false_praise_rate": 0.024,
+        "confusion": {
+          "covered->covered": 8,
+          "partial->partial": 9,
+          "missing->missing": 26,
+          "partial->missing": 2,
+          "covered->partial": 4,
+          "missing->partial": 4,
+          "missing->covered": 1
+        }
+      },
+      "stress_50": {
+        "coverage": {
+          "rows": 100,
+          "macro_f1": 0.42,
+          "per_class": {
+            "covered": {
+              "precision": 1.0,
+              "recall": 0.17,
+              "f1": 0.291
+            },
+            "partial": {
+              "precision": 0.111,
+              "recall": 0.571,
+              "f1": 0.186
+            },
+            "missing": {
+              "precision": 0.714,
+              "recall": 0.87,
+              "f1": 0.784
+            }
+          },
+          "off_topic_f1": 0.9,
+          "false_praise_rate": 0.0,
+          "confusion": {
+            "covered->covered": 8,
+            "missing->missing": 40,
+            "covered->partial": 26,
+            "partial->partial": 4,
+            "covered->missing": 13,
+            "missing->partial": 6,
+            "partial->missing": 3
+          }
+        },
+        "covered_recall": 0.17,
+        "off_topic_case_f1": 0.947,
+        "off_topic_case_exact": 49
+      }
+    },
+    "question_criterion": {
+      "thresholds": [
+        0.36481,
+        0.59735,
+        0.27482
+      ],
+      "validation": {
+        "rows": 54,
+        "macro_f1": 0.595,
+        "per_class": {
+          "covered": {
+            "precision": 0.667,
+            "recall": 0.333,
+            "f1": 0.444
+          },
+          "partial": {
+            "precision": 0.538,
+            "recall": 0.636,
+            "f1": 0.583
+          },
+          "missing": {
+            "precision": 0.714,
+            "recall": 0.806,
+            "f1": 0.758
+          }
+        },
+        "off_topic_f1": 0.8,
+        "false_praise_rate": 0.048,
+        "confusion": {
+          "covered->covered": 4,
+          "partial->covered": 1,
+          "missing->partial": 5,
+          "missing->missing": 25,
+          "covered->missing": 7,
+          "partial->missing": 3,
+          "partial->partial": 7,
+          "missing->covered": 1,
+          "covered->partial": 1
+        }
+      },
+      "stress_50": {
+        "coverage": {
+          "rows": 100,
+          "macro_f1": 0.514,
+          "per_class": {
+            "covered": {
+              "precision": 0.862,
+              "recall": 0.532,
+              "f1": 0.658
+            },
+            "partial": {
+              "precision": 0.095,
+              "recall": 0.571,
+              "f1": 0.163
+            },
+            "missing": {
+              "precision": 0.931,
+              "recall": 0.587,
+              "f1": 0.72
+            }
+          },
+          "off_topic_f1": 0.923,
+          "false_praise_rate": 0.075,
+          "confusion": {
+            "covered->covered": 25,
+            "missing->partial": 18,
+            "partial->partial": 4,
+            "covered->partial": 20,
+            "missing->missing": 27,
+            "covered->missing": 2,
+            "missing->covered": 1,
+            "partial->covered": 3
+          }
+        },
+        "covered_recall": 0.532,
+        "off_topic_case_f1": 0.947,
+        "off_topic_case_exact": 49
+      }
+    },
+    "criterion_evidence": {
+      "thresholds": [
+        0.52269,
+        0.72402,
+        0.26187
+      ],
+      "validation": {
+        "rows": 54,
+        "macro_f1": 0.784,
+        "per_class": {
+          "covered": {
+            "precision": 1.0,
+            "recall": 0.667,
+            "f1": 0.8
+          },
+          "partial": {
+            "precision": 0.562,
+            "recall": 0.818,
+            "f1": 0.667
+          },
+          "missing": {
+            "precision": 0.9,
+            "recall": 0.871,
+            "f1": 0.885
+          }
+        },
+        "off_topic_f1": 0.944,
+        "false_praise_rate": 0.0,
+        "confusion": {
+          "covered->covered": 8,
+          "partial->partial": 9,
+          "missing->missing": 27,
+          "partial->missing": 2,
+          "covered->missing": 1,
+          "covered->partial": 3,
+          "missing->partial": 4
+        }
+      },
+      "stress_50": {
+        "coverage": {
+          "rows": 100,
+          "macro_f1": 0.366,
+          "per_class": {
+            "covered": {
+              "precision": 1.0,
+              "recall": 0.085,
+              "f1": 0.157
+            },
+            "partial": {
+              "precision": 0.111,
+              "recall": 0.429,
+              "f1": 0.176
+            },
+            "missing": {
+              "precision": 0.638,
+              "recall": 0.957,
+              "f1": 0.765
+            }
+          },
+          "off_topic_f1": 0.791,
+          "false_praise_rate": 0.0,
+          "confusion": {
+            "covered->covered": 4,
+            "covered->partial": 22,
+            "missing->missing": 44,
+            "partial->partial": 3,
+            "covered->missing": 21,
+            "partial->missing": 4,
+            "missing->partial": 2
+          }
+        },
+        "covered_recall": 0.085,
+        "off_topic_case_f1": 0.889,
+        "off_topic_case_exact": 48
+      }
+    },
+    "criterion_only": {
+      "thresholds": [
+        0.38068,
+        0.6574,
+        0.29632
+      ],
+      "validation": {
+        "rows": 54,
+        "macro_f1": 0.57,
+        "per_class": {
+          "covered": {
+            "precision": 0.5,
+            "recall": 0.25,
+            "f1": 0.333
+          },
+          "partial": {
+            "precision": 0.471,
+            "recall": 0.727,
+            "f1": 0.571
+          },
+          "missing": {
+            "precision": 0.806,
+            "recall": 0.806,
+            "f1": 0.806
+          }
+        },
+        "off_topic_f1": 0.857,
+        "false_praise_rate": 0.071,
+        "confusion": {
+          "covered->partial": 4,
+          "partial->covered": 2,
+          "missing->partial": 5,
+          "missing->missing": 25,
+          "covered->missing": 5,
+          "partial->partial": 8,
+          "covered->covered": 3,
+          "partial->missing": 1,
+          "missing->covered": 1
+        }
+      },
+      "stress_50": {
+        "coverage": {
+          "rows": 100,
+          "macro_f1": 0.482,
+          "per_class": {
+            "covered": {
+              "precision": 1.0,
+              "recall": 0.319,
+              "f1": 0.484
+            },
+            "partial": {
+              "precision": 0.127,
+              "recall": 1.0,
+              "f1": 0.226
+            },
+            "missing": {
+              "precision": 0.933,
+              "recall": 0.609,
+              "f1": 0.737
+            }
+          },
+          "off_topic_f1": 0.818,
+          "false_praise_rate": 0.0,
+          "confusion": {
+            "covered->covered": 15,
+            "missing->missing": 28,
+            "covered->partial": 30,
+            "partial->partial": 7,
+            "missing->partial": 18,
+            "covered->missing": 2
+          }
+        },
+        "covered_recall": 0.319,
+        "off_topic_case_f1": 0.947,
+        "off_topic_case_exact": 49
+      }
+    }
+  },
+  "selected_by_validation": "criterion_evidence"
+}

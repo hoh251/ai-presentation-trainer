@@ -1,0 +1,286 @@
+{
+  "pairs": 12,
+  "selection_used_this_probe": false,
+  "models": {
+    "v2": {
+      "rank_correct": 12,
+      "positive_covered": 6,
+      "negative_covered_wrong": 0,
+      "both_exact": 1,
+      "pairs": [
+        {
+          "id": 1,
+          "criterion": "ล็อกประตูก่อนออกจากบ้าน",
+          "positive": "ล็อกประตูก่อนออก",
+          "negative": "ไม่ต้องล็อกประตูก่อนออก",
+          "positive_score": 0.66057,
+          "negative_score": 0.48323,
+          "positive_status": "partial",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 2,
+          "criterion": "ตรวจคุณภาพเสียงก่อนเผยแพร่",
+          "positive": "ฟังเช็กเสียงก่อนปล่อยตอน",
+          "negative": "ไม่ต้องตรวจเสียงก่อนเผยแพร่",
+          "positive_score": 0.62675,
+          "negative_score": 0.48974,
+          "positive_status": "partial",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 3,
+          "criterion": "เช็ดโต๊ะให้สะอาดก่อนวางอาหาร",
+          "positive": "เช็ดโต๊ะก่อนเอาอาหารมาวาง",
+          "negative": "ไม่ต้องเช็ดโต๊ะก่อนวางอาหาร",
+          "positive_score": 0.91467,
+          "negative_score": 0.67405,
+          "positive_status": "covered",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 4,
+          "criterion": "คัดลอกภาพเก็บไว้อีกที่ก่อนลบ",
+          "positive": "ย้ายรูปไปเก็บที่อื่นก่อนลบจากกล้อง",
+          "negative": "ลบรูปจากกล้องทันทีโดยไม่คัดลอกเก็บ",
+          "positive_score": 0.76932,
+          "negative_score": 0.60299,
+          "positive_status": "covered",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 5,
+          "criterion": "อ่านกติกาก่อนเริ่มเล่น",
+          "positive": "ดูวิธีเล่นให้เข้าใจก่อนเริ่ม",
+          "negative": "ไม่ต้องอ่านกติกาก่อนเล่น",
+          "positive_score": 0.74108,
+          "negative_score": 0.52348,
+          "positive_status": "covered",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 6,
+          "criterion": "นับจำนวนสินค้าคงเหลือก่อนสั่ง",
+          "positive": "เช็กสต็อกก่อนสั่งของเพิ่ม",
+          "negative": "ไม่ต้องนับของในสต็อกก่อนสั่ง",
+          "positive_score": 0.64648,
+          "negative_score": 0.58256,
+          "positive_status": "partial",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 7,
+          "criterion": "ตรวจหมายเลขขบวนบนตั๋ว",
+          "positive": "ดูเลขขบวนให้ตรงกับตั๋ว",
+          "negative": "ขึ้นรถโดยไม่ดูเลขขบวนบนตั๋ว",
+          "positive_score": 0.76801,
+          "negative_score": 0.54159,
+          "positive_status": "covered",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 8,
+          "criterion": "ตรวจระดับความร้อนให้เหมาะกับผ้า",
+          "positive": "ปรับไฟเตารีดตามชนิดผ้า",
+          "negative": "ไม่ต้องดูระดับความร้อนของเตารีด",
+          "positive_score": 0.65702,
+          "negative_score": 0.45416,
+          "positive_status": "partial",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 9,
+          "criterion": "เตรียมอุปกรณ์วาดภาพให้ครบ",
+          "positive": "จัดดินสอและกระดาษไว้ให้พร้อม",
+          "negative": "ไม่ต้องเตรียมอุปกรณ์วาดภาพ",
+          "positive_score": 0.63743,
+          "negative_score": 0.53101,
+          "positive_status": "partial",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 10,
+          "criterion": "จอดรถในช่องที่กำหนด",
+          "positive": "นำรถเข้าช่องจอดที่ระบุ",
+          "negative": "จอดรถนอกช่องที่กำหนด",
+          "positive_score": 0.80456,
+          "negative_score": 0.69581,
+          "positive_status": "covered",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 11,
+          "criterion": "ตรวจหน้าตัวอย่างก่อนสั่งพิมพ์",
+          "positive": "ดูพรีวิวหน้าเอกสารก่อนกดพิมพ์",
+          "negative": "กดพิมพ์โดยไม่ดูหน้าตัวอย่าง",
+          "positive_score": 0.79678,
+          "negative_score": 0.40334,
+          "positive_status": "covered",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 12,
+          "criterion": "ตรวจป้ายราคาสินค้าให้ตรงกับระบบ",
+          "positive": "เทียบราคาหน้าชั้นกับราคาในเครื่อง",
+          "negative": "ไม่ต้องตรวจว่าป้ายราคาตรงกับระบบ",
+          "positive_score": 0.52614,
+          "negative_score": 0.47585,
+          "positive_status": "partial",
+          "negative_status": "missing",
+          "rank_correct": true
+        }
+      ]
+    },
+    "soup_50": {
+      "rank_correct": 12,
+      "positive_covered": 7,
+      "negative_covered_wrong": 0,
+      "both_exact": 4,
+      "pairs": [
+        {
+          "id": 1,
+          "criterion": "ล็อกประตูก่อนออกจากบ้าน",
+          "positive": "ล็อกประตูก่อนออก",
+          "negative": "ไม่ต้องล็อกประตูก่อนออก",
+          "positive_score": 0.68405,
+          "negative_score": 0.401,
+          "positive_status": "partial",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 2,
+          "criterion": "ตรวจคุณภาพเสียงก่อนเผยแพร่",
+          "positive": "ฟังเช็กเสียงก่อนปล่อยตอน",
+          "negative": "ไม่ต้องตรวจเสียงก่อนเผยแพร่",
+          "positive_score": 0.72763,
+          "negative_score": 0.38576,
+          "positive_status": "covered",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 3,
+          "criterion": "เช็ดโต๊ะให้สะอาดก่อนวางอาหาร",
+          "positive": "เช็ดโต๊ะก่อนเอาอาหารมาวาง",
+          "negative": "ไม่ต้องเช็ดโต๊ะก่อนวางอาหาร",
+          "positive_score": 0.93295,
+          "negative_score": 0.57138,
+          "positive_status": "covered",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 4,
+          "criterion": "คัดลอกภาพเก็บไว้อีกที่ก่อนลบ",
+          "positive": "ย้ายรูปไปเก็บที่อื่นก่อนลบจากกล้อง",
+          "negative": "ลบรูปจากกล้องทันทีโดยไม่คัดลอกเก็บ",
+          "positive_score": 0.76444,
+          "negative_score": 0.49458,
+          "positive_status": "covered",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 5,
+          "criterion": "อ่านกติกาก่อนเริ่มเล่น",
+          "positive": "ดูวิธีเล่นให้เข้าใจก่อนเริ่ม",
+          "negative": "ไม่ต้องอ่านกติกาก่อนเล่น",
+          "positive_score": 0.75952,
+          "negative_score": 0.41679,
+          "positive_status": "covered",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 6,
+          "criterion": "นับจำนวนสินค้าคงเหลือก่อนสั่ง",
+          "positive": "เช็กสต็อกก่อนสั่งของเพิ่ม",
+          "negative": "ไม่ต้องนับของในสต็อกก่อนสั่ง",
+          "positive_score": 0.66333,
+          "negative_score": 0.48269,
+          "positive_status": "partial",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 7,
+          "criterion": "ตรวจหมายเลขขบวนบนตั๋ว",
+          "positive": "ดูเลขขบวนให้ตรงกับตั๋ว",
+          "negative": "ขึ้นรถโดยไม่ดูเลขขบวนบนตั๋ว",
+          "positive_score": 0.80771,
+          "negative_score": 0.45603,
+          "positive_status": "covered",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 8,
+          "criterion": "ตรวจระดับความร้อนให้เหมาะกับผ้า",
+          "positive": "ปรับไฟเตารีดตามชนิดผ้า",
+          "negative": "ไม่ต้องดูระดับความร้อนของเตารีด",
+          "positive_score": 0.6201,
+          "negative_score": 0.33786,
+          "positive_status": "partial",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 9,
+          "criterion": "เตรียมอุปกรณ์วาดภาพให้ครบ",
+          "positive": "จัดดินสอและกระดาษไว้ให้พร้อม",
+          "negative": "ไม่ต้องเตรียมอุปกรณ์วาดภาพ",
+          "positive_score": 0.65331,
+          "negative_score": 0.40058,
+          "positive_status": "partial",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 10,
+          "criterion": "จอดรถในช่องที่กำหนด",
+          "positive": "นำรถเข้าช่องจอดที่ระบุ",
+          "negative": "จอดรถนอกช่องที่กำหนด",
+          "positive_score": 0.828,
+          "negative_score": 0.64951,
+          "positive_status": "covered",
+          "negative_status": "partial",
+          "rank_correct": true
+        },
+        {
+          "id": 11,
+          "criterion": "ตรวจหน้าตัวอย่างก่อนสั่งพิมพ์",
+          "positive": "ดูพรีวิวหน้าเอกสารก่อนกดพิมพ์",
+          "negative": "กดพิมพ์โดยไม่ดูหน้าตัวอย่าง",
+          "positive_score": 0.80757,
+          "negative_score": 0.3129,
+          "positive_status": "covered",
+          "negative_status": "missing",
+          "rank_correct": true
+        },
+        {
+          "id": 12,
+          "criterion": "ตรวจป้ายราคาสินค้าให้ตรงกับระบบ",
+          "positive": "เทียบราคาหน้าชั้นกับราคาในเครื่อง",
+          "negative": "ไม่ต้องตรวจว่าป้ายราคาตรงกับระบบ",
+          "positive_score": 0.55757,
+          "negative_score": 0.37063,
+          "positive_status": "partial",
+          "negative_status": "missing",
+          "rank_correct": true
+        }
+      ]
+    }
+  }
+}

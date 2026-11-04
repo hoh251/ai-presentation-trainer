@@ -1,0 +1,236 @@
+{
+  "selection": "validation macro F1 subject to false-praise cap",
+  "max_validation_false_praise": 0.03,
+  "validation_decks": [
+    "diverse_attendance",
+    "diverse_cinema",
+    "waste_sorting"
+  ],
+  "stress_50_used_for_selection": false,
+  "candidates": {
+    "v2": {
+      "thresholds": [
+        0.51374,
+        0.70459,
+        0.30767
+      ],
+      "validation": {
+        "rows": 98,
+        "macro_f1": 0.69,
+        "per_class": {
+          "covered": {
+            "precision": 0.944,
+            "recall": 0.567,
+            "f1": 0.708
+          },
+          "partial": {
+            "precision": 0.367,
+            "recall": 0.733,
+            "f1": 0.489
+          },
+          "missing": {
+            "precision": 0.9,
+            "recall": 0.849,
+            "f1": 0.874
+          }
+        },
+        "off_topic_f1": 0.906,
+        "false_praise_rate": 0.015,
+        "confusion": {
+          "covered->covered": 17,
+          "partial->partial": 11,
+          "missing->missing": 45,
+          "partial->missing": 4,
+          "covered->partial": 12,
+          "missing->partial": 7,
+          "missing->covered": 1,
+          "covered->missing": 1
+        }
+      },
+      "new_test": {
+        "rows": 86,
+        "macro_f1": 0.659,
+        "per_class": {
+          "covered": {
+            "precision": 0.929,
+            "recall": 0.5,
+            "f1": 0.65
+          },
+          "partial": {
+            "precision": 0.304,
+            "recall": 0.583,
+            "f1": 0.4
+          },
+          "missing": {
+            "precision": 0.918,
+            "recall": 0.938,
+            "f1": 0.928
+          }
+        },
+        "off_topic_f1": 0.945,
+        "false_praise_rate": 0.017,
+        "confusion": {
+          "covered->partial": 13,
+          "partial->partial": 7,
+          "missing->missing": 45,
+          "covered->covered": 13,
+          "partial->covered": 1,
+          "partial->missing": 4,
+          "missing->partial": 3
+        }
+      },
+      "stress_50_diagnostic": {
+        "coverage": {
+          "rows": 100,
+          "macro_f1": 0.42,
+          "per_class": {
+            "covered": {
+              "precision": 1.0,
+              "recall": 0.17,
+              "f1": 0.291
+            },
+            "partial": {
+              "precision": 0.111,
+              "recall": 0.571,
+              "f1": 0.186
+            },
+            "missing": {
+              "precision": 0.714,
+              "recall": 0.87,
+              "f1": 0.784
+            }
+          },
+          "off_topic_f1": 0.9,
+          "false_praise_rate": 0.0,
+          "confusion": {
+            "covered->covered": 8,
+            "missing->missing": 40,
+            "covered->partial": 26,
+            "partial->partial": 4,
+            "covered->missing": 13,
+            "missing->partial": 6,
+            "partial->missing": 3
+          }
+        },
+        "covered_recall": 0.17,
+        "off_topic_case_f1": 0.947,
+        "off_topic_case_exact": 49
+      }
+    },
+    "v3_diverse": {
+      "thresholds": [
+        0.50645,
+        0.73443,
+        0.22878
+      ],
+      "validation": {
+        "rows": 98,
+        "macro_f1": 0.732,
+        "per_class": {
+          "covered": {
+            "precision": 1.0,
+            "recall": 0.633,
+            "f1": 0.776
+          },
+          "partial": {
+            "precision": 0.407,
+            "recall": 0.733,
+            "f1": 0.524
+          },
+          "missing": {
+            "precision": 0.904,
+            "recall": 0.887,
+            "f1": 0.895
+          }
+        },
+        "off_topic_f1": 0.824,
+        "false_praise_rate": 0.0,
+        "confusion": {
+          "covered->covered": 19,
+          "partial->partial": 11,
+          "missing->missing": 47,
+          "partial->missing": 4,
+          "covered->partial": 10,
+          "missing->partial": 6,
+          "covered->missing": 1
+        }
+      },
+      "new_test": {
+        "rows": 86,
+        "macro_f1": 0.705,
+        "per_class": {
+          "covered": {
+            "precision": 0.882,
+            "recall": 0.577,
+            "f1": 0.698
+          },
+          "partial": {
+            "precision": 0.364,
+            "recall": 0.667,
+            "f1": 0.471
+          },
+          "missing": {
+            "precision": 0.957,
+            "recall": 0.938,
+            "f1": 0.947
+          }
+        },
+        "off_topic_f1": 0.868,
+        "false_praise_rate": 0.033,
+        "confusion": {
+          "covered->partial": 11,
+          "partial->partial": 8,
+          "missing->missing": 45,
+          "covered->covered": 15,
+          "partial->covered": 2,
+          "partial->missing": 2,
+          "missing->partial": 3
+        }
+      },
+      "stress_50_diagnostic": {
+        "coverage": {
+          "rows": 100,
+          "macro_f1": 0.485,
+          "per_class": {
+            "covered": {
+              "precision": 0.938,
+              "recall": 0.319,
+              "f1": 0.476
+            },
+            "partial": {
+              "precision": 0.088,
+              "recall": 0.429,
+              "f1": 0.146
+            },
+            "missing": {
+              "precision": 0.8,
+              "recall": 0.87,
+              "f1": 0.833
+            }
+          },
+          "off_topic_f1": 0.732,
+          "false_praise_rate": 0.019,
+          "confusion": {
+            "covered->covered": 15,
+            "missing->missing": 40,
+            "covered->partial": 25,
+            "partial->partial": 3,
+            "covered->missing": 7,
+            "missing->partial": 6,
+            "partial->missing": 3,
+            "partial->covered": 1
+          }
+        },
+        "covered_recall": 0.319,
+        "off_topic_case_f1": 0.706,
+        "off_topic_case_exact": 45
+      }
+    }
+  },
+  "selected_by_validation": "v3_diverse",
+  "test_decks": [
+    "bike_care",
+    "diverse_printer",
+    "diverse_sports_booking"
+  ]
+}

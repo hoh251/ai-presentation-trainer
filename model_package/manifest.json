@@ -1,0 +1,20 @@
+{
+  "contract_version": 1,
+  "model_version": "embeddinggemma-coverage-lora-v1",
+  "base_model": "google/embeddinggemma-300m",
+  "fine_tuned": true,
+  "checkpoint_sha256": "29da954340ad2964f8fce81983dd4cad471b052f293dbde73d87ab74e727c10e",
+  "dense_sha256": {
+    "2_Dense": "3702505ec09eb4c1ad4211558bbfe8448c4b1a777f86229065df9fa13a578bb0",
+    "3_Dense": "2167aaf4e0407d8c580040d9ddd54d29281a7a9434fae30447e1d9c6a1464487"
+  },
+  "max_input_tokens": 512,
+  "training_max_length_tokens": 512,
+  "validation_thresholds": [
+    0.6037,
+    0.70046,
+    0.30697
+  ],
+  "torch_dtype": "bfloat16 on supported CUDA, float32 on CPU",
+  "checkpoint_distribution": "external; never committed to the public repository"
+}

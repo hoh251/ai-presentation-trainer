@@ -1,0 +1,10 @@
+{
+  "description": "Unseen user-provided slide topic; 24 author-written question/criterion/answer labels, not student responses",
+  "source_pdf_committed": false,
+  "raw_examples_committed": false,
+  "threshold_selection": "synthetic validation deck only; no tuning on this probe",
+  "rows": 24,
+  "base": {"macro_f1": 0.670, "off_topic_f1": 0.737, "false_praise_rate": 0.062},
+  "finetuned": {"macro_f1": 0.670, "off_topic_f1": 0.778, "false_praise_rate": 0.062},
+  "interpretation": "LoRA improved off-topic detection slightly on this tiny probe but did not improve coverage macro F1; collect independently labeled answers from more real presentations before a general accuracy claim."
+}

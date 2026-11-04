@@ -1,0 +1,162 @@
+{
+  "model": "google/embeddinggemma-300m",
+  "method": "LoRA q_proj/v_proj + cosine MSE",
+  "synthetic_data_only": true,
+  "split_by_deck": true,
+  "train_rows": 107,
+  "validation_rows": 42,
+  "test_rows": 42,
+  "stress_answer_rows": {
+    "train": 30,
+    "validation": 10,
+    "test": 10
+  },
+  "epochs": 3,
+  "batch_size": 4,
+  "max_length_tokens": 512,
+  "learning_rate": 0.0001,
+  "train_loss_by_epoch": [
+    0.05338,
+    0.03648,
+    0.02942
+  ],
+  "base": {
+    "validation_thresholds": [
+      0.70423,
+      0.75585,
+      0.56263
+    ],
+    "validation": {
+      "rows": 42,
+      "macro_f1": 0.7,
+      "per_class": {
+        "covered": {
+          "precision": 0.8,
+          "recall": 0.5,
+          "f1": 0.615
+        },
+        "partial": {
+          "precision": 0.667,
+          "recall": 0.5,
+          "f1": 0.571
+        },
+        "missing": {
+          "precision": 0.839,
+          "recall": 1.0,
+          "f1": 0.912
+        }
+      },
+      "off_topic_f1": 0.944,
+      "false_praise_rate": 0.029,
+      "confusion": {
+        "covered->covered": 4,
+        "partial->partial": 4,
+        "missing->missing": 26,
+        "partial->missing": 3,
+        "covered->partial": 2,
+        "covered->missing": 2,
+        "partial->covered": 1
+      }
+    },
+    "test_synthetic": {
+      "rows": 42,
+      "macro_f1": 0.634,
+      "per_class": {
+        "covered": {
+          "precision": 0.714,
+          "recall": 0.625,
+          "f1": 0.667
+        },
+        "partial": {
+          "precision": 0.4,
+          "recall": 0.25,
+          "f1": 0.308
+        },
+        "missing": {
+          "precision": 0.867,
+          "recall": 1.0,
+          "f1": 0.929
+        }
+      },
+      "off_topic_f1": 0.947,
+      "false_praise_rate": 0.059,
+      "confusion": {
+        "covered->partial": 3,
+        "partial->covered": 2,
+        "missing->missing": 26,
+        "covered->covered": 5,
+        "partial->partial": 2,
+        "partial->missing": 4
+      }
+    }
+  },
+  "finetuned": {
+    "validation_thresholds": [
+      0.6037,
+      0.70046,
+      0.30697
+    ],
+    "validation": {
+      "rows": 42,
+      "macro_f1": 0.772,
+      "per_class": {
+        "covered": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.667
+        },
+        "partial": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "f1": 0.769
+        },
+        "missing": {
+          "precision": 0.788,
+          "recall": 1.0,
+          "f1": 0.881
+        }
+      },
+      "off_topic_f1": 0.944,
+      "false_praise_rate": 0.0,
+      "confusion": {
+        "covered->covered": 4,
+        "partial->partial": 5,
+        "missing->missing": 26,
+        "partial->missing": 3,
+        "covered->missing": 4
+      }
+    },
+    "test_synthetic": {
+      "rows": 42,
+      "macro_f1": 0.648,
+      "per_class": {
+        "covered": {
+          "precision": 0.833,
+          "recall": 0.625,
+          "f1": 0.714
+        },
+        "partial": {
+          "precision": 0.5,
+          "recall": 0.25,
+          "f1": 0.333
+        },
+        "missing": {
+          "precision": 0.812,
+          "recall": 1.0,
+          "f1": 0.897
+        }
+      },
+      "off_topic_f1": 0.947,
+      "false_praise_rate": 0.029,
+      "confusion": {
+        "covered->partial": 2,
+        "partial->partial": 2,
+        "missing->missing": 26,
+        "covered->covered": 5,
+        "partial->covered": 1,
+        "covered->missing": 1,
+        "partial->missing": 5
+      }
+    }
+  }
+}

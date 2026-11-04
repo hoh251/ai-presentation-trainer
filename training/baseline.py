@@ -25,6 +25,16 @@ def read_rows(name: str) -> list[dict]:
     return [json.loads(line) for line in (ROOT / "splits" / f"{name}.jsonl").read_text(encoding="utf-8").splitlines()]
 
 
+def read_augmented_rows(name: str) -> list[dict]:
+    rows = read_rows(name)
+    edge_path = ROOT / "edge_cases.jsonl"
+    if edge_path.exists():
+        decks = {row["deck_id"] for row in rows}
+        edges = [json.loads(line) for line in edge_path.read_text(encoding="utf-8").splitlines()]
+        rows.extend(row for row in edges if row["deck_id"] in decks)
+    return rows
+
+
 def context(rows: list[dict]) -> dict[tuple[str, int], set[str]]:
     grouped = defaultdict(set)
     for row in rows:
@@ -70,11 +80,11 @@ def score(rows: list[dict], thresholds: tuple[float, float, float]) -> dict:
 
 
 if __name__ == "__main__":
-    validation = read_rows("validation")
+    validation = read_augmented_rows("validation")
     candidates = ((low, high, off) for low, high, off in product([i / 20 for i in range(1, 9)], [i / 20 for i in range(5, 16)], [i / 20 for i in range(1, 7)]) if low < high)
     best = max(candidates, key=lambda item: (score(validation, item)["macro_f1"] + score(validation, item)["off_topic_f1"], -score(validation, item)["false_praise_rate"]))
     result = {"method": "character_bigram_rule_baseline", "synthetic_data_only": True,
               "threshold_selection": "validation deck only", "validation": score(validation, best),
-              "test_synthetic": score(read_rows("test_synthetic"), best)}
+              "test_synthetic": score(read_augmented_rows("test_synthetic"), best)}
     (ROOT / "baseline_results.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))

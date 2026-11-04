@@ -1,6 +1,6 @@
 # ข้อมูลและการฝึกโมเดล coverage
 
-สถานะ: เริ่ม M0 แล้ว ยังไม่มี checkpoint หรือผลวัดจากการ fine-tune จริง ห้ามเปิด `model_source: local_finetuned` จนกว่า M2–M4 จะผ่าน
+สถานะ: ฝึก LoRA และสร้าง model package จริงแล้ว (`model_package/`) แต่ยังทดสอบกับสไลด์จริงหลายหัวข้อและต่อ Backend จริงไม่ครบ จึงยังไม่ควรประกาศว่า production ready หรือสรุปความแม่นยำทั่วไปจากตัวเลขนี้
 
 ## เป้าหมาย
 
@@ -24,7 +24,9 @@ python training/split_data.py
 
 `split_data.py` แยกตาม deck: train = แมว/อีเมลหลอกลวง/สวนในเมือง, validation = การแยกขยะ, test_synthetic = การดูแลจักรยาน ผล test สังเคราะห์เป็นเพียงการตรวจระบบวัดผล ห้ามใช้แทนผลบน PDF จริงที่ไม่เคยเห็น
 
-`baseline.py` เป็นกติกาจับข้อความซ้ำด้วย character bigram ใช้เป็นจุดเปรียบเทียบ M1 ไม่ใช่ EmbeddingGemma และไม่ได้เทรน เลือก threshold จาก validation เท่านั้นแล้วเขียนผลที่ `baseline_results.json` บน test สังเคราะห์ได้ macro F1 0.569 และ false praise rate 0.25; ตัวเลขนี้แสดงว่ากติกาง่ายยังให้คำชมเกินจริงได้ จึงต้องเทียบกับโมเดลจริงบนชุดทดสอบเดียวกันก่อนสรุปว่า AI ช่วยได้
+`generate_edge_cases.py` เพิ่มคำตอบทดสอบ 50 แบบ เช่น คำแสลง คำมั่ว คำด่า คำสั่งหลอกโมเดล โดยแยก 30/10/10 ตาม deck ของ train/validation/test ไม่มีคำตอบ stress เดียวกันข้าม split ตัวอย่างนี้ยังเป็นข้อมูลสร้างขึ้นและติดป้ายโดยผู้พัฒนา ไม่ใช่คำตอบจากผู้ใช้จริง
+
+`baseline.py` เป็นกติกาจับข้อความซ้ำด้วย character bigram ใช้เป็นจุดเปรียบเทียบ M1 ไม่ใช่ EmbeddingGemma และไม่ได้เทรน เลือก threshold จาก validation เท่านั้นแล้วเขียนผลที่ `baseline_results.json` หลังเพิ่ม stress answers ชุด test 42 แถว baseline ได้ macro F1 0.590, off-topic F1 0.860 และ false praise rate 0.180
 
 สคริปต์สร้าง PDF ใช้ฟอนต์ Tahoma บน Windows หากรันบนระบบอื่น ให้ตั้ง `TRAINING_THAI_FONT` และ `TRAINING_THAI_BOLD_FONT` เป็นไฟล์ TTF ภาษาไทยที่มีบนเครื่อง PDF ที่สร้างแล้วอยู่ใน `synthetic_decks/` และมีข้อความจริงที่ดึงได้ ไม่ใช่ภาพล้วน
 
@@ -32,7 +34,25 @@ python training/split_data.py
 
 แบ่ง train/validation/test ตาม `deck_id` ก่อนสร้างคู่คำตอบ เพื่อไม่ให้คำถามและถ้อยคำจากสไลด์เดียวกันรั่วข้ามชุด ใช้ validation เลือก checkpoint และ threshold แล้วเปิด test เพียงครั้งเดียว รายงาน precision/recall/F1 ราย class, macro F1, off-topic F1, confusion matrix และ false praise rate โดยเทียบ baseline กับโมเดลที่เทรนต่อบน test เดียวกัน
 
-ก่อน M2 ต้องมี PDF หลายเรื่องและตัวอย่างเพียงพอในทุก label รวมคำตอบสั้น แสลง คำมั่ว คำถามเจาะ และคำสั่งหลอก ต้องตรวจจำนวนและความสมดุลของแต่ละ class จริงก่อนสรุปว่าพอหรือไม่ PDF C07 ที่ผู้ใช้ส่งมาถูกเก็บเป็นไฟล์ภายนอก repo สำหรับการประเมินบนเอกสารจริงและไม่ได้เผยแพร่ใน repo สาธารณะ เครื่องที่ตรวจล่าสุดมี RTX 3050 Laptop GPU 4 GB และพื้นที่ C ว่างราว 14.6 GB; ยังไม่มี PyTorch/Transformers/PEFT ใน Python runtime ที่ใช้ จึงยังไม่ได้เริ่ม fine-tune
+การฝึกจริง: ดาวน์โหลด `google/embeddinggemma-300m` ไปไว้ใน `work/models/` ภายนอก Git, ใช้ PyTorch 2.11.0+cu128 บน RTX 3050 Laptop 4 GB, `bfloat16`, LoRA rank 4 บน `q_proj`/`v_proj`, batch 4, 3 epochs และความยาวสูงสุด 512 tokens VRAM สูงสุดที่วัดได้ประมาณ 963 MB ตัวอย่างฝึก 107 แถว (รวม stress 30), validation 42, test อีกหัวข้อ 42 เลือก threshold เฉพาะจาก validation เท่านั้น แล้วบันทึก checkpoint ใน `work/experiments/embeddinggemma-lora-v2/checkpoint/` ภายนอก repo สาธารณะ
+
+บน test สังเคราะห์ 42 แถว โมเดลก่อน fine-tune ได้ macro F1 0.634, off-topic F1 0.947, false praise 0.059; หลัง fine-tune ได้ 0.648, 0.947, 0.029 ตามลำดับ รายละเอียดอยู่ใน `experiment_results.json` โมเดลที่เทรนแล้วทำได้ดีกว่า baseline และโมเดลก่อนเทรนบนชุดนี้เล็กน้อย แต่ตัวอย่างมีน้อยและสร้างจาก pattern เดียวกันมาก จึงยังสรุปไม่ได้ว่าจะดีขึ้นกับ PDF ของคนอื่น
+
+PDF C07 ที่ผู้ใช้ส่งมาถูกเก็บภายนอก repo สำหรับประเมินเอกสารจริงและไม่ได้เผยแพร่ใน repo สาธารณะ ต้องเพิ่มตัวอย่างที่คนตรวจ label จากสไลด์จริงหลายหัวข้อก่อนอ้างความแม่นยำ งานด้าน Backend ยังต้องทดสอบ package ใน environment ใหม่พร้อม API/DB/Agent จริง
+
+การลองกับหัวข้อที่ไม่เคยฝึกจาก PDF จริง 24 คำตอบที่ผู้พัฒนาร่างและติดป้ายเอง โดยใช้ threshold เดิมจาก validation: macro F1 ของ base และ fine-tuned เท่ากันที่ 0.670, off-topic F1 จาก 0.737 เป็น 0.778 และ false praise เท่ากันที่ 0.062 (`unseen_topic_probe_results.json`) ผลนี้ชี้ว่าต้องหาข้อมูลคำตอบจริงหลายเรื่องเพิ่มก่อนสรุปประโยชน์ของการ fine-tune ต่อความแม่นยำทั่วไป ตัวอย่างและ PDF ต้นฉบับไม่อยู่ใน repo
+
+## วิธีฝึกและตรวจซ้ำ
+
+```powershell
+python training/generate_edge_cases.py
+python training/baseline.py
+python training/train_embeddinggemma.py --model-path <local-base-model-dir> --output-dir <private-experiment-dir> --epochs 3 --batch-size 4 --max-length 512
+python training/export_model_manifest.py --experiment-dir <private-experiment-dir> --manifest model_package/manifest.json --public-results training/experiment_results.json
+python training/smoke_model_package.py --base-model <local-base-model-dir> --checkpoint <private-experiment-dir>/checkpoint
+```
+
+ใช้ checkpoint, tokenizer และตัว Dense heads ใน directory เดียวกันตาม `model_package/README.md` ห้าม commit โมเดลฐาน, checkpoint, HF token หรือ PDF C07 ลง repo สาธารณะ
 
 ## สิทธิ์ดาวน์โหลด EmbeddingGemma
 

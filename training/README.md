@@ -2,6 +2,8 @@
 
 สถานะ: ฝึก LoRA และสร้าง model package v2 จริงแล้ว (`model_package/`) แต่ยังทดสอบกับคำตอบนักศึกษาจริงหลายหัวข้อและต่อ Backend จริงไม่ครบ จึงยังไม่ควรประกาศว่า production ready หรือสรุปความแม่นยำทั่วไปจากตัวเลขนี้ ดูแผนและผลการปรับรุ่นใน `MODEL_IMPROVEMENT_PLAN.md`, `improvement_experiments.json` และงานวิจัยที่เกี่ยวข้องใน `RELATED_RESEARCH.md` หลังทดสอบคำตอบใหม่ 50 แบบและลองวิธีปรับรุ่นหลายทางแล้ว **ยังคง v2 เป็นรุ่นส่งต่อ** เพราะรุ่นทดลองที่ coverage ดีขึ้นยังมีข้อเสียด้าน off-topic หรือการให้ `covered` ผิด อ่านผลและเหตุผลใน `OPTIMIZATION_AUDIT.md`
 
+ผลทดลองระบบสองด่าน `v2` ตรวจนอกเรื่อง + `v4` จับประเด็น อยู่ใน [`HYBRID_EVALUATION.md`](HYBRID_EVALUATION.md) และยังไม่เปลี่ยน package ที่ Backend ใช้
+
 ## เป้าหมาย
 
 โมเดลรับ `(question, current_prompt, criterion, answer)` แล้วจำแนกแต่ละ criterion เป็น `covered`, `partial`, `missing` และตรวจ `off_topic` แยกต่างหาก Backend เป็นผู้รวมผลหลาย attempts และตัดสินใจถามเจาะ/เปลี่ยนคำถาม โมเดลไม่สร้างคำชมเอง
@@ -32,7 +34,7 @@ python training/split_data.py
 
 ## การแบ่งข้อมูลและประเมินผล
 
-แบ่ง train/validation/test ตาม `deck_id` ก่อนสร้างคู่คำตอบ เพื่อไม่ให้คำถามและถ้อยคำจากสไลด์เดียวกันรั่วข้ามชุด ใช้ validation เลือก checkpoint และ threshold แล้วเปิด test เพียงครั้งเดียว รายงาน precision/recall/F1 ราย class, macro F1, off-topic F1, confusion matrix และ false praise rate โดยเทียบ baseline กับโมเดลที่เทรนต่อบน test เดียวกัน
+แบ่ง train/validation/test ตาม `deck_id` ก่อนสร้างคู่คำตอบ เพื่อไม่ให้คำถามและถ้อยคำจากสไลด์เดียวกันรั่วข้ามชุด การทดลองแรกใช้ validation เลือก checkpoint และ threshold ก่อนเปิด test แต่หลังจากนั้นมีการตรวจ test ซ้ำหลายรอบแล้ว จึงไม่ใช่ holdout อิสระสำหรับเลือกโมเดลรุ่นถัดไป รายงาน precision/recall/F1 ราย class, macro F1, off-topic F1, confusion matrix และ false praise rate โดยเทียบ baseline กับโมเดลที่เทรนต่อบน test เดียวกัน
 
 การฝึกจริง: ดาวน์โหลด `google/embeddinggemma-300m` ไปไว้ใน `work/models/` ภายนอก Git, ใช้ PyTorch 2.11.0+cu128 บน RTX 3050 Laptop 4 GB, `bfloat16`, LoRA rank 4 บน `q_proj`/`v_proj`, batch 4, 3 epochs และความยาวสูงสุด 512 tokens รุ่น v2 เพิ่ม hard cases เป็น train 137 แถว, validation 54, test อีกหัวข้อ 42 เลือก threshold เฉพาะจาก validation เท่านั้น แล้วบันทึก checkpoint ใน `work/experiments/improve-mse-hard/checkpoint/` ภายนอก repo สาธารณะ
 

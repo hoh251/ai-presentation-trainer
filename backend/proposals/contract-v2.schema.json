@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "backend-contract-v2-proposal",
+  "title": "Proposal only; not the active HTTP contract",
+  "$defs": {
+    "region": {
+      "type": "object", "required": ["x", "y", "width", "height"], "additionalProperties": false,
+      "properties": {"x": {"type": "number", "minimum": 0, "maximum": 1}, "y": {"type": "number", "minimum": 0, "maximum": 1}, "width": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}, "height": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}}
+    },
+    "evidence": {
+      "oneOf": [
+        {"type": "object", "required": ["modality", "page", "literal_text", "verification_status", "usable_for_questions"], "additionalProperties": false,
+         "properties": {"modality": {"const": "text"}, "page": {"type": "integer", "minimum": 1}, "literal_text": {"type": "string", "minLength": 1}, "verification_status": {"const": "verified_literal"}, "usable_for_questions": {"const": true}}},
+        {"type": "object", "required": ["modality", "page", "region", "observed_fact", "verification_status", "usable_for_questions"], "additionalProperties": false,
+         "properties": {"modality": {"const": "visual"}, "page": {"type": "integer", "minimum": 1}, "region": {"$ref": "#/$defs/region"}, "observed_fact": {"type": "string", "minLength": 1}, "verification_status": {"enum": ["reviewed_visual", "uncertain"]}, "usable_for_questions": {"type": "boolean"}},
+         "allOf": [{"if": {"properties": {"verification_status": {"const": "uncertain"}}}, "then": {"properties": {"usable_for_questions": {"const": false}}}}]}
+      ]
+    },
+    "criterion": {"type": "object", "required": ["id", "text", "evidence"], "properties": {"id": {"type": "string", "minLength": 1}, "text": {"type": "string", "minLength": 1}, "evidence": {"$ref": "#/$defs/evidence"}}},
+    "ingestion": {
+      "type": "object", "required": ["contract_version", "deck_id", "page_count", "selected_pages", "state", "progress", "classification"],
+      "properties": {"contract_version": {"const": 2}, "deck_id": {"type": "string", "minLength": 1}, "page_count": {"type": "integer", "minimum": 1, "maximum": 100}, "selected_pages": {"type": "array", "minItems": 1, "maxItems": 100, "uniqueItems": true, "items": {"type": "integer", "minimum": 1, "maximum": 100}}, "state": {"enum": ["queued", "extracting", "indexing", "ready", "failed"]}, "progress": {"type": "number", "minimum": 0, "maximum": 1}, "classification": {"enum": ["slide", "document", "uncertain"]}, "error": {"type": ["object", "null"]}}
+    },
+    "quota_error": {
+      "type": "object", "required": ["status", "error"],
+      "properties": {"status": {"const": "error"}, "error": {"type": "object", "required": ["code", "message", "stage", "quota_scope"], "properties": {"code": {"type": "string"}, "message": {"type": "string"}, "stage": {"enum": ["embedding", "generation"]}, "quota_scope": {"enum": ["minute", "day", "unknown"]}, "retry_after_seconds": {"type": ["integer", "null"], "minimum": 0}, "retry_at": {"type": ["string", "null"], "format": "date-time"}}}}
+    }
+  }
+}

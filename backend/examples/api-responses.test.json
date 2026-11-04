@@ -1,0 +1,1268 @@
+{
+  "note": "Actual Backend test_fake responses; not trained model results.",
+  "readiness": {
+    "status": "ok",
+    "contract_version": 1,
+    "database_ready": true,
+    "model_ready": true,
+    "question_service_ready": true,
+    "model_source": "test_fake",
+    "model_version": "test-fake-v1"
+  },
+  "deck_upload": {
+    "status": "ok",
+    "contract_version": 1,
+    "deck_id": "97069bef-20d3-467d-8076-3f856e1ea6b9",
+    "filename": "cats.pdf",
+    "page_count": 3
+  },
+  "session_start": {
+    "status": "ok",
+    "contract_version": 1,
+    "session_id": "aafbade3-70f9-4a1d-b541-6616dd2ca4a2",
+    "round": 1,
+    "question": {
+      "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+      "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+      "source_pages": [
+        1
+      ],
+      "topic": "test-page-1",
+      "judge_role": "concept",
+      "criteria": [
+        {
+          "id": "c1",
+          "text": "Quiet corner",
+          "source_page": 1,
+          "evidence_quote": "Quiet corner"
+        },
+        {
+          "id": "c2",
+          "text": "Hiding place",
+          "source_page": 1,
+          "evidence_quote": "Hiding place"
+        }
+      ]
+    },
+    "current_prompt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+    "state_version": 0,
+    "model_source": "test_fake",
+    "test_mode": true
+  },
+  "responses": {
+    "probe": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 1,
+      "round": 1,
+      "next_question": {
+        "criteria": [
+          {
+            "evidence_quote": "Quiet corner",
+            "id": "c1",
+            "source_page": 1,
+            "text": "Quiet corner"
+          },
+          {
+            "evidence_quote": "Hiding place",
+            "id": "c2",
+            "source_page": 1,
+            "text": "Hiding place"
+          }
+        ],
+        "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+        "judge_role": "concept",
+        "source_pages": [
+          1
+        ],
+        "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+        "topic": "test-page-1"
+      },
+      "current_prompt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place",
+      "attempts": [
+        {
+          "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+          "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+          "answer": "Quiet corner",
+          "agent_action": "probe"
+        }
+      ],
+      "history": [],
+      "coverage": [
+        {
+          "confidence": 0.99,
+          "criterion_id": "c1",
+          "status": "covered"
+        },
+        {
+          "confidence": 0.99,
+          "criterion_id": "c2",
+          "status": "missing"
+        }
+      ],
+      "model_version": "test-fake-v1",
+      "off_topic": {
+        "value": false,
+        "confidence": 0.99
+      },
+      "agent_action": "probe",
+      "agent_reason": "ยังมีเกณฑ์ที่ตอบไม่ครบ",
+      "counted_round": false,
+      "feedback": {
+        "relevance": "partial",
+        "strengths": [
+          "ตอบครอบคลุม: Quiet corner"
+        ],
+        "improvements": [
+          "อธิบายเพิ่มเรื่อง: Hiding place"
+        ],
+        "source_pages": [
+          1
+        ]
+      },
+      "completed": false,
+      "model_source": "test_fake",
+      "test_mode": true
+    },
+    "next": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 2,
+      "round": 2,
+      "next_question": {
+        "id": "90400ade-7562-4c1d-ae30-7d9ccb1ebd9f",
+        "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+        "source_pages": [
+          2
+        ],
+        "topic": "test-page-2",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "Clean water",
+            "source_page": 2,
+            "evidence_quote": "Clean water"
+          }
+        ]
+      },
+      "current_prompt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+      "attempts": [],
+      "history": [
+        {
+          "round": 1,
+          "question": {
+            "criteria": [
+              {
+                "evidence_quote": "Quiet corner",
+                "id": "c1",
+                "source_page": 1,
+                "text": "Quiet corner"
+              },
+              {
+                "evidence_quote": "Hiding place",
+                "id": "c2",
+                "source_page": 1,
+                "text": "Hiding place"
+              }
+            ],
+            "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+            "judge_role": "concept",
+            "source_pages": [
+              1
+            ],
+            "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+            "topic": "test-page-1"
+          },
+          "outcome": "complete",
+          "attempts": [
+            {
+              "agent_action": "probe",
+              "answer": "Quiet corner",
+              "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1"
+            },
+            {
+              "attempt_id": "82b69763-185e-4cd6-8cd0-83e7255b2a63",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place",
+              "answer": "Hiding place",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "Quiet corner\nHiding place",
+          "coverage": [
+            {
+              "confidence": 0.99,
+              "criterion_id": "c1",
+              "status": "covered"
+            },
+            {
+              "confidence": 0.99,
+              "criterion_id": "c2",
+              "status": "covered"
+            }
+          ],
+          "feedback": {
+            "relevance": "relevant",
+            "strengths": [
+              "ตอบครอบคลุม: Quiet corner",
+              "ตอบครอบคลุม: Hiding place"
+            ],
+            "improvements": [],
+            "source_pages": [
+              1
+            ]
+          },
+          "source_pages": [
+            1
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "criterion_id": "c1",
+          "status": "missing",
+          "confidence": 0.0
+        }
+      ],
+      "model_version": "test-fake-v1",
+      "off_topic": {
+        "value": false,
+        "confidence": 0.99
+      },
+      "agent_action": "next",
+      "agent_reason": "ครอบคลุมเกณฑ์ที่ตรวจยืนยันแล้ว",
+      "counted_round": true,
+      "feedback": {
+        "relevance": "relevant",
+        "strengths": [
+          "ตอบครอบคลุม: Quiet corner",
+          "ตอบครอบคลุม: Hiding place"
+        ],
+        "improvements": [],
+        "source_pages": [
+          1
+        ]
+      },
+      "completed": false,
+      "model_source": "test_fake",
+      "test_mode": true
+    },
+    "retry": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 3,
+      "round": 2,
+      "next_question": {
+        "criteria": [
+          {
+            "evidence_quote": "Clean water",
+            "id": "c1",
+            "source_page": 2,
+            "text": "Clean water"
+          }
+        ],
+        "id": "90400ade-7562-4c1d-ae30-7d9ccb1ebd9f",
+        "judge_role": "concept",
+        "source_pages": [
+          2
+        ],
+        "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+        "topic": "test-page-2"
+      },
+      "current_prompt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+      "attempts": [
+        {
+          "attempt_id": "0cae781f-99d3-47cf-9299-ed8a2037966a",
+          "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+          "answer": "Unrelated socks",
+          "agent_action": "retry"
+        }
+      ],
+      "history": [
+        {
+          "answer": "Quiet corner\nHiding place",
+          "attempts": [
+            {
+              "agent_action": "probe",
+              "answer": "Quiet corner",
+              "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1"
+            },
+            {
+              "agent_action": "next",
+              "answer": "Hiding place",
+              "attempt_id": "82b69763-185e-4cd6-8cd0-83e7255b2a63",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place"
+            }
+          ],
+          "coverage": [
+            {
+              "confidence": 0.99,
+              "criterion_id": "c1",
+              "status": "covered"
+            },
+            {
+              "confidence": 0.99,
+              "criterion_id": "c2",
+              "status": "covered"
+            }
+          ],
+          "feedback": {
+            "improvements": [],
+            "relevance": "relevant",
+            "source_pages": [
+              1
+            ],
+            "strengths": [
+              "ตอบครอบคลุม: Quiet corner",
+              "ตอบครอบคลุม: Hiding place"
+            ]
+          },
+          "outcome": "complete",
+          "question": {
+            "criteria": [
+              {
+                "evidence_quote": "Quiet corner",
+                "id": "c1",
+                "source_page": 1,
+                "text": "Quiet corner"
+              },
+              {
+                "evidence_quote": "Hiding place",
+                "id": "c2",
+                "source_page": 1,
+                "text": "Hiding place"
+              }
+            ],
+            "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+            "judge_role": "concept",
+            "source_pages": [
+              1
+            ],
+            "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+            "topic": "test-page-1"
+          },
+          "round": 1,
+          "source_pages": [
+            1
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "confidence": 0.0,
+          "criterion_id": "c1",
+          "status": "missing"
+        }
+      ],
+      "model_version": "test-fake-v1",
+      "off_topic": {
+        "value": true,
+        "confidence": 0.99
+      },
+      "agent_action": "retry",
+      "agent_reason": "คำตอบยังไม่เกี่ยวข้องกับคำถาม",
+      "counted_round": false,
+      "feedback": {
+        "relevance": "unrelated",
+        "strengths": [],
+        "improvements": [
+          "อธิบายเพิ่มเรื่อง: Clean water"
+        ],
+        "source_pages": [
+          2
+        ]
+      },
+      "completed": false,
+      "model_source": "test_fake",
+      "test_mode": true
+    },
+    "retry_again": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 4,
+      "round": 2,
+      "next_question": {
+        "criteria": [
+          {
+            "evidence_quote": "Clean water",
+            "id": "c1",
+            "source_page": 2,
+            "text": "Clean water"
+          }
+        ],
+        "id": "90400ade-7562-4c1d-ae30-7d9ccb1ebd9f",
+        "judge_role": "concept",
+        "source_pages": [
+          2
+        ],
+        "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+        "topic": "test-page-2"
+      },
+      "current_prompt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+      "attempts": [
+        {
+          "agent_action": "retry",
+          "answer": "Unrelated socks",
+          "attempt_id": "0cae781f-99d3-47cf-9299-ed8a2037966a",
+          "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+        },
+        {
+          "attempt_id": "109f289b-4122-4be9-bc57-5071111a5491",
+          "prompt_at_attempt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+          "answer": "Unrelated socks",
+          "agent_action": "retry"
+        }
+      ],
+      "history": [
+        {
+          "answer": "Quiet corner\nHiding place",
+          "attempts": [
+            {
+              "agent_action": "probe",
+              "answer": "Quiet corner",
+              "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1"
+            },
+            {
+              "agent_action": "next",
+              "answer": "Hiding place",
+              "attempt_id": "82b69763-185e-4cd6-8cd0-83e7255b2a63",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place"
+            }
+          ],
+          "coverage": [
+            {
+              "confidence": 0.99,
+              "criterion_id": "c1",
+              "status": "covered"
+            },
+            {
+              "confidence": 0.99,
+              "criterion_id": "c2",
+              "status": "covered"
+            }
+          ],
+          "feedback": {
+            "improvements": [],
+            "relevance": "relevant",
+            "source_pages": [
+              1
+            ],
+            "strengths": [
+              "ตอบครอบคลุม: Quiet corner",
+              "ตอบครอบคลุม: Hiding place"
+            ]
+          },
+          "outcome": "complete",
+          "question": {
+            "criteria": [
+              {
+                "evidence_quote": "Quiet corner",
+                "id": "c1",
+                "source_page": 1,
+                "text": "Quiet corner"
+              },
+              {
+                "evidence_quote": "Hiding place",
+                "id": "c2",
+                "source_page": 1,
+                "text": "Hiding place"
+              }
+            ],
+            "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+            "judge_role": "concept",
+            "source_pages": [
+              1
+            ],
+            "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+            "topic": "test-page-1"
+          },
+          "round": 1,
+          "source_pages": [
+            1
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "confidence": 0.0,
+          "criterion_id": "c1",
+          "status": "missing"
+        }
+      ],
+      "model_version": "test-fake-v1",
+      "off_topic": {
+        "value": true,
+        "confidence": 0.99
+      },
+      "agent_action": "retry",
+      "agent_reason": "คำตอบยังไม่เกี่ยวข้องกับคำถาม",
+      "counted_round": false,
+      "feedback": {
+        "relevance": "unrelated",
+        "strengths": [],
+        "improvements": [
+          "อธิบายเพิ่มเรื่อง: Clean water"
+        ],
+        "source_pages": [
+          2
+        ]
+      },
+      "completed": false,
+      "model_source": "test_fake",
+      "test_mode": true
+    },
+    "incomplete": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 5,
+      "round": 3,
+      "next_question": {
+        "id": "177a51e9-6317-4f4d-a0f2-88fa284a6c1e",
+        "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 3",
+        "source_pages": [
+          3
+        ],
+        "topic": "test-page-3",
+        "judge_role": "concept",
+        "criteria": [
+          {
+            "id": "c1",
+            "text": "Tail communication",
+            "source_page": 3,
+            "evidence_quote": "Tail communication"
+          }
+        ]
+      },
+      "current_prompt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 3",
+      "attempts": [],
+      "history": [
+        {
+          "answer": "Quiet corner\nHiding place",
+          "attempts": [
+            {
+              "agent_action": "probe",
+              "answer": "Quiet corner",
+              "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1"
+            },
+            {
+              "agent_action": "next",
+              "answer": "Hiding place",
+              "attempt_id": "82b69763-185e-4cd6-8cd0-83e7255b2a63",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place"
+            }
+          ],
+          "coverage": [
+            {
+              "confidence": 0.99,
+              "criterion_id": "c1",
+              "status": "covered"
+            },
+            {
+              "confidence": 0.99,
+              "criterion_id": "c2",
+              "status": "covered"
+            }
+          ],
+          "feedback": {
+            "improvements": [],
+            "relevance": "relevant",
+            "source_pages": [
+              1
+            ],
+            "strengths": [
+              "ตอบครอบคลุม: Quiet corner",
+              "ตอบครอบคลุม: Hiding place"
+            ]
+          },
+          "outcome": "complete",
+          "question": {
+            "criteria": [
+              {
+                "evidence_quote": "Quiet corner",
+                "id": "c1",
+                "source_page": 1,
+                "text": "Quiet corner"
+              },
+              {
+                "evidence_quote": "Hiding place",
+                "id": "c2",
+                "source_page": 1,
+                "text": "Hiding place"
+              }
+            ],
+            "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+            "judge_role": "concept",
+            "source_pages": [
+              1
+            ],
+            "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+            "topic": "test-page-1"
+          },
+          "round": 1,
+          "source_pages": [
+            1
+          ]
+        },
+        {
+          "round": 2,
+          "question": {
+            "criteria": [
+              {
+                "evidence_quote": "Clean water",
+                "id": "c1",
+                "source_page": 2,
+                "text": "Clean water"
+              }
+            ],
+            "id": "90400ade-7562-4c1d-ae30-7d9ccb1ebd9f",
+            "judge_role": "concept",
+            "source_pages": [
+              2
+            ],
+            "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+            "topic": "test-page-2"
+          },
+          "outcome": "incomplete",
+          "attempts": [
+            {
+              "agent_action": "retry",
+              "answer": "Unrelated socks",
+              "attempt_id": "0cae781f-99d3-47cf-9299-ed8a2037966a",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+            },
+            {
+              "agent_action": "retry",
+              "answer": "Unrelated socks",
+              "attempt_id": "109f289b-4122-4be9-bc57-5071111a5491",
+              "prompt_at_attempt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+            },
+            {
+              "attempt_id": "0d122e50-3917-4f82-b5b4-baf7af12c3e5",
+              "prompt_at_attempt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+              "answer": "Unrelated socks",
+              "agent_action": "next"
+            }
+          ],
+          "answer": "Unrelated socks\nUnrelated socks\nUnrelated socks",
+          "coverage": [
+            {
+              "confidence": 0.0,
+              "criterion_id": "c1",
+              "status": "missing"
+            }
+          ],
+          "feedback": {
+            "relevance": "unrelated",
+            "strengths": [],
+            "improvements": [
+              "อธิบายเพิ่มเรื่อง: Clean water"
+            ],
+            "source_pages": [
+              2
+            ]
+          },
+          "source_pages": [
+            2
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "criterion_id": "c1",
+          "status": "missing",
+          "confidence": 0.0
+        }
+      ],
+      "model_version": "test-fake-v1",
+      "off_topic": {
+        "value": true,
+        "confidence": 0.99
+      },
+      "agent_action": "next",
+      "agent_reason": "คำตอบยังไม่เกี่ยวข้องกับคำถาม และครบโอกาสตอบ 3 ครั้งแล้ว",
+      "counted_round": true,
+      "feedback": {
+        "relevance": "unrelated",
+        "strengths": [],
+        "improvements": [
+          "อธิบายเพิ่มเรื่อง: Clean water"
+        ],
+        "source_pages": [
+          2
+        ]
+      },
+      "completed": false,
+      "model_source": "test_fake",
+      "test_mode": true
+    },
+    "finish": {
+      "status": "ok",
+      "contract_version": 1,
+      "state_version": 6,
+      "round": 3,
+      "next_question": null,
+      "current_prompt": null,
+      "attempts": [],
+      "history": [
+        {
+          "answer": "Quiet corner\nHiding place",
+          "attempts": [
+            {
+              "agent_action": "probe",
+              "answer": "Quiet corner",
+              "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1"
+            },
+            {
+              "agent_action": "next",
+              "answer": "Hiding place",
+              "attempt_id": "82b69763-185e-4cd6-8cd0-83e7255b2a63",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place"
+            }
+          ],
+          "coverage": [
+            {
+              "confidence": 0.99,
+              "criterion_id": "c1",
+              "status": "covered"
+            },
+            {
+              "confidence": 0.99,
+              "criterion_id": "c2",
+              "status": "covered"
+            }
+          ],
+          "feedback": {
+            "improvements": [],
+            "relevance": "relevant",
+            "source_pages": [
+              1
+            ],
+            "strengths": [
+              "ตอบครอบคลุม: Quiet corner",
+              "ตอบครอบคลุม: Hiding place"
+            ]
+          },
+          "outcome": "complete",
+          "question": {
+            "criteria": [
+              {
+                "evidence_quote": "Quiet corner",
+                "id": "c1",
+                "source_page": 1,
+                "text": "Quiet corner"
+              },
+              {
+                "evidence_quote": "Hiding place",
+                "id": "c2",
+                "source_page": 1,
+                "text": "Hiding place"
+              }
+            ],
+            "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+            "judge_role": "concept",
+            "source_pages": [
+              1
+            ],
+            "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+            "topic": "test-page-1"
+          },
+          "round": 1,
+          "source_pages": [
+            1
+          ]
+        },
+        {
+          "answer": "Unrelated socks\nUnrelated socks\nUnrelated socks",
+          "attempts": [
+            {
+              "agent_action": "retry",
+              "answer": "Unrelated socks",
+              "attempt_id": "0cae781f-99d3-47cf-9299-ed8a2037966a",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+            },
+            {
+              "agent_action": "retry",
+              "answer": "Unrelated socks",
+              "attempt_id": "109f289b-4122-4be9-bc57-5071111a5491",
+              "prompt_at_attempt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+            },
+            {
+              "agent_action": "next",
+              "answer": "Unrelated socks",
+              "attempt_id": "0d122e50-3917-4f82-b5b4-baf7af12c3e5",
+              "prompt_at_attempt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+            }
+          ],
+          "coverage": [
+            {
+              "confidence": 0.0,
+              "criterion_id": "c1",
+              "status": "missing"
+            }
+          ],
+          "feedback": {
+            "improvements": [
+              "อธิบายเพิ่มเรื่อง: Clean water"
+            ],
+            "relevance": "unrelated",
+            "source_pages": [
+              2
+            ],
+            "strengths": []
+          },
+          "outcome": "incomplete",
+          "question": {
+            "criteria": [
+              {
+                "evidence_quote": "Clean water",
+                "id": "c1",
+                "source_page": 2,
+                "text": "Clean water"
+              }
+            ],
+            "id": "90400ade-7562-4c1d-ae30-7d9ccb1ebd9f",
+            "judge_role": "concept",
+            "source_pages": [
+              2
+            ],
+            "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+            "topic": "test-page-2"
+          },
+          "round": 2,
+          "source_pages": [
+            2
+          ]
+        },
+        {
+          "round": 3,
+          "question": {
+            "criteria": [
+              {
+                "evidence_quote": "Tail communication",
+                "id": "c1",
+                "source_page": 3,
+                "text": "Tail communication"
+              }
+            ],
+            "id": "177a51e9-6317-4f4d-a0f2-88fa284a6c1e",
+            "judge_role": "concept",
+            "source_pages": [
+              3
+            ],
+            "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 3",
+            "topic": "test-page-3"
+          },
+          "outcome": "complete",
+          "attempts": [
+            {
+              "attempt_id": "d6aefd7f-b5e4-4a7d-a6c2-a8db4cf774d3",
+              "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 3",
+              "answer": "Tail communication",
+              "agent_action": "finish"
+            }
+          ],
+          "answer": "Tail communication",
+          "coverage": [
+            {
+              "confidence": 0.99,
+              "criterion_id": "c1",
+              "status": "covered"
+            }
+          ],
+          "feedback": {
+            "relevance": "relevant",
+            "strengths": [
+              "ตอบครอบคลุม: Tail communication"
+            ],
+            "improvements": [],
+            "source_pages": [
+              3
+            ]
+          },
+          "source_pages": [
+            3
+          ]
+        }
+      ],
+      "coverage": [],
+      "model_version": "test-fake-v1",
+      "off_topic": {
+        "value": false,
+        "confidence": 0.99
+      },
+      "agent_action": "finish",
+      "agent_reason": "ครอบคลุมเกณฑ์ที่ตรวจยืนยันแล้ว",
+      "counted_round": true,
+      "feedback": {
+        "relevance": "relevant",
+        "strengths": [
+          "ตอบครอบคลุม: Tail communication"
+        ],
+        "improvements": [],
+        "source_pages": [
+          3
+        ]
+      },
+      "completed": true,
+      "model_source": "test_fake",
+      "test_mode": true
+    }
+  },
+  "errors": {
+    "conflict": {
+      "http_status": 409,
+      "body": {
+        "status": "error",
+        "error": {
+          "code": "STATE_CONFLICT",
+          "message": "สถานะรอบซ้อมเปลี่ยนไป กรุณาโหลดใหม่"
+        }
+      }
+    },
+    "too_long": {
+      "http_status": 413,
+      "body": {
+        "status": "error",
+        "error": {
+          "code": "ANSWER_TOO_LONG",
+          "message": "กรุณาย่อคำตอบแล้วลองใหม่"
+        }
+      }
+    }
+  },
+  "session_state_after_probe": {
+    "attempts": [
+      {
+        "agent_action": "probe",
+        "answer": "Quiet corner",
+        "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+        "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1"
+      }
+    ],
+    "completed": false,
+    "contract_version": 1,
+    "coverage": [
+      {
+        "confidence": 0.99,
+        "criterion_id": "c1",
+        "status": "covered"
+      },
+      {
+        "confidence": 0.99,
+        "criterion_id": "c2",
+        "status": "missing"
+      }
+    ],
+    "current_prompt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place",
+    "deck_id": "97069bef-20d3-467d-8076-3f856e1ea6b9",
+    "difficulty": "standard",
+    "filename": "cats.pdf",
+    "history": [],
+    "model_source": "test_fake",
+    "page_count": 3,
+    "question": {
+      "criteria": [
+        {
+          "evidence_quote": "Quiet corner",
+          "id": "c1",
+          "source_page": 1,
+          "text": "Quiet corner"
+        },
+        {
+          "evidence_quote": "Hiding place",
+          "id": "c2",
+          "source_page": 1,
+          "text": "Hiding place"
+        }
+      ],
+      "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+      "judge_role": "concept",
+      "source_pages": [
+        1
+      ],
+      "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+      "topic": "test-page-1"
+    },
+    "round": 1,
+    "state_version": 1,
+    "status": "ok",
+    "test_mode": true
+  },
+  "idempotent_replay": {
+    "agent_action": "probe",
+    "agent_reason": "ยังมีเกณฑ์ที่ตอบไม่ครบ",
+    "attempts": [
+      {
+        "agent_action": "probe",
+        "answer": "Quiet corner",
+        "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+        "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1"
+      }
+    ],
+    "completed": false,
+    "contract_version": 1,
+    "counted_round": false,
+    "coverage": [
+      {
+        "confidence": 0.99,
+        "criterion_id": "c1",
+        "status": "covered"
+      },
+      {
+        "confidence": 0.99,
+        "criterion_id": "c2",
+        "status": "missing"
+      }
+    ],
+    "current_prompt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place",
+    "feedback": {
+      "improvements": [
+        "อธิบายเพิ่มเรื่อง: Hiding place"
+      ],
+      "relevance": "partial",
+      "source_pages": [
+        1
+      ],
+      "strengths": [
+        "ตอบครอบคลุม: Quiet corner"
+      ]
+    },
+    "history": [],
+    "model_source": "test_fake",
+    "model_version": "test-fake-v1",
+    "next_question": {
+      "criteria": [
+        {
+          "evidence_quote": "Quiet corner",
+          "id": "c1",
+          "source_page": 1,
+          "text": "Quiet corner"
+        },
+        {
+          "evidence_quote": "Hiding place",
+          "id": "c2",
+          "source_page": 1,
+          "text": "Hiding place"
+        }
+      ],
+      "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+      "judge_role": "concept",
+      "source_pages": [
+        1
+      ],
+      "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+      "topic": "test-page-1"
+    },
+    "off_topic": {
+      "confidence": 0.99,
+      "value": false
+    },
+    "round": 1,
+    "state_version": 1,
+    "status": "ok",
+    "test_mode": true
+  },
+  "report": {
+    "status": "ok",
+    "contract_version": 1,
+    "rounds": [
+      {
+        "answer": "Quiet corner\nHiding place",
+        "attempts": [
+          {
+            "agent_action": "probe",
+            "answer": "Quiet corner",
+            "attempt_id": "23f04484-42e8-4bbf-865e-b8c4ab222f8c",
+            "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1"
+          },
+          {
+            "agent_action": "next",
+            "answer": "Hiding place",
+            "attempt_id": "82b69763-185e-4cd6-8cd0-83e7255b2a63",
+            "prompt_at_attempt": "[ทดสอบ] อธิบายเพิ่มเรื่อง: Hiding place"
+          }
+        ],
+        "coverage": [
+          {
+            "confidence": 0.99,
+            "criterion_id": "c1",
+            "status": "covered"
+          },
+          {
+            "confidence": 0.99,
+            "criterion_id": "c2",
+            "status": "covered"
+          }
+        ],
+        "feedback": {
+          "improvements": [],
+          "relevance": "relevant",
+          "source_pages": [
+            1
+          ],
+          "strengths": [
+            "ตอบครอบคลุม: Quiet corner",
+            "ตอบครอบคลุม: Hiding place"
+          ]
+        },
+        "outcome": "complete",
+        "question": {
+          "criteria": [
+            {
+              "evidence_quote": "Quiet corner",
+              "id": "c1",
+              "source_page": 1,
+              "text": "Quiet corner"
+            },
+            {
+              "evidence_quote": "Hiding place",
+              "id": "c2",
+              "source_page": 1,
+              "text": "Hiding place"
+            }
+          ],
+          "id": "4b227f3c-7258-462a-a38a-c1b352d04724",
+          "judge_role": "concept",
+          "source_pages": [
+            1
+          ],
+          "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 1",
+          "topic": "test-page-1"
+        },
+        "round": 1,
+        "source_pages": [
+          1
+        ]
+      },
+      {
+        "answer": "Unrelated socks\nUnrelated socks\nUnrelated socks",
+        "attempts": [
+          {
+            "agent_action": "retry",
+            "answer": "Unrelated socks",
+            "attempt_id": "0cae781f-99d3-47cf-9299-ed8a2037966a",
+            "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+          },
+          {
+            "agent_action": "retry",
+            "answer": "Unrelated socks",
+            "attempt_id": "109f289b-4122-4be9-bc57-5071111a5491",
+            "prompt_at_attempt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+          },
+          {
+            "agent_action": "next",
+            "answer": "Unrelated socks",
+            "attempt_id": "0d122e50-3917-4f82-b5b4-baf7af12c3e5",
+            "prompt_at_attempt": "กรุณาตอบให้ตรงกับคำถาม: [ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2"
+          }
+        ],
+        "coverage": [
+          {
+            "confidence": 0.0,
+            "criterion_id": "c1",
+            "status": "missing"
+          }
+        ],
+        "feedback": {
+          "improvements": [
+            "อธิบายเพิ่มเรื่อง: Clean water"
+          ],
+          "relevance": "unrelated",
+          "source_pages": [
+            2
+          ],
+          "strengths": []
+        },
+        "outcome": "incomplete",
+        "question": {
+          "criteria": [
+            {
+              "evidence_quote": "Clean water",
+              "id": "c1",
+              "source_page": 2,
+              "text": "Clean water"
+            }
+          ],
+          "id": "90400ade-7562-4c1d-ae30-7d9ccb1ebd9f",
+          "judge_role": "concept",
+          "source_pages": [
+            2
+          ],
+          "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 2",
+          "topic": "test-page-2"
+        },
+        "round": 2,
+        "source_pages": [
+          2
+        ]
+      },
+      {
+        "answer": "Tail communication",
+        "attempts": [
+          {
+            "agent_action": "finish",
+            "answer": "Tail communication",
+            "attempt_id": "d6aefd7f-b5e4-4a7d-a6c2-a8db4cf774d3",
+            "prompt_at_attempt": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 3"
+          }
+        ],
+        "coverage": [
+          {
+            "confidence": 0.99,
+            "criterion_id": "c1",
+            "status": "covered"
+          }
+        ],
+        "feedback": {
+          "improvements": [],
+          "relevance": "relevant",
+          "source_pages": [
+            3
+          ],
+          "strengths": [
+            "ตอบครอบคลุม: Tail communication"
+          ]
+        },
+        "outcome": "complete",
+        "question": {
+          "criteria": [
+            {
+              "evidence_quote": "Tail communication",
+              "id": "c1",
+              "source_page": 3,
+              "text": "Tail communication"
+            }
+          ],
+          "id": "177a51e9-6317-4f4d-a0f2-88fa284a6c1e",
+          "judge_role": "concept",
+          "source_pages": [
+            3
+          ],
+          "text": "[ทดสอบ] อธิบายประเด็นในสไลด์หน้า 3",
+          "topic": "test-page-3"
+        },
+        "round": 3,
+        "source_pages": [
+          3
+        ]
+      }
+    ],
+    "overall": {
+      "summary": "ตอบครบเกณฑ์ 2 จาก 3 คำถามหลัก",
+      "strengths": [
+        "คำถามที่ 1: ตอบครบเกณฑ์",
+        "คำถามที่ 3: ตอบครบเกณฑ์"
+      ],
+      "improvements": [
+        "คำถามที่ 2: ยังตอบไม่ครบหรือผลไม่ชัดเจน"
+      ]
+    },
+    "model_source": "test_fake",
+    "test_mode": true
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "client_date": "2026-11-05",
+  "mode": "vite-proxy",
+  "model_source": "test_fake",
+  "trained_model_used": false,
+  "fixture_api_used": false,
+  "injected_faults": [
+    "503 before commit",
+    "browser offline",
+    "backend process stopped"
+  ],
+  "frontend_commit": "133b2a8e9d2821c2233f35bed5adb382b62af10d",
+  "frontend_local_changes": "",
+  "passed": 9,
+  "failed": 2,
+  "checks": [
+    {
+      "name": "Upload actual PDF, start session and render PDF canvas",
+      "status": "passed"
+    },
+    {
+      "name": "Double click records one attempt; partial answer probes in round 1",
+      "status": "passed"
+    },
+    {
+      "name": "Exact duplicate POST replays and changed payload returns 409",
+      "status": "passed"
+    },
+    {
+      "name": "Refresh restores actual DB session, attempts and probe",
+      "status": "passed"
+    },
+    {
+      "name": "Long answer returns 413, retains text and consumes no attempt",
+      "status": "passed"
+    },
+    {
+      "name": "Offline submission preserves pending text and recovers after refresh",
+      "status": "passed"
+    },
+    {
+      "name": "503 preserves exact pending request and DB state",
+      "status": "failed",
+      "error": "503 discarded the pending request"
+    },
+    {
+      "name": "Refresh while Backend is down retains saved session ID",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ null\n- 'a1b9c8a6-34aa-4695-913a-e4d0c5a83e05'\n"
+    },
+    {
+      "name": "Restart restores state; 503 retry uses original ID/version/answer",
+      "status": "passed"
+    },
+    {
+      "name": "Three rounds produce actual report with complete/incomplete and six attempts",
+      "status": "passed"
+    },
+    {
+      "name": "Browser API requests use the UI origin and no JavaScript errors",
+      "status": "passed"
+    }
+  ]
+}

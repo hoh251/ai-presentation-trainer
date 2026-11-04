@@ -1,0 +1,14 @@
+{
+  "status_code": 503,
+  "model_error": "MODEL_ARTIFACT_MISSING",
+  "body": {
+    "status": "unavailable",
+    "contract_version": 1,
+    "database_ready": true,
+    "model_ready": false,
+    "question_service_ready": true,
+    "model_source": "local_finetuned",
+    "model_version": null
+  },
+  "trained_model_used": false
+}

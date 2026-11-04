@@ -1,0 +1,172 @@
+{
+  "synthetic": true,
+  "fictional_facts": true,
+  "human_question_review_required": true,
+  "decks": [
+    {
+      "file": "library_pilot.pdf",
+      "pages": [
+        {
+          "page": 1,
+          "topic": "Booking",
+          "facts": "Readers reserve one seat for 90 minutes. Unclaimed seats are released after 10 minutes."
+        },
+        {
+          "page": 2,
+          "topic": "Check-in",
+          "facts": "A desk code confirms arrival. Staff use a paper register when the reader is offline."
+        },
+        {
+          "page": 3,
+          "topic": "Quiet room",
+          "facts": "Calls take place outside the quiet room. Group discussions use the collaboration zone."
+        },
+        {
+          "page": 4,
+          "topic": "Book returns",
+          "facts": "Returned books go into a separate tray. Staff scan each book before shelving it."
+        },
+        {
+          "page": 5,
+          "topic": "Overdue reminders",
+          "facts": "A reminder is sent two days before the due date. A renewal is blocked when another reader reserved the book."
+        },
+        {
+          "page": 6,
+          "topic": "Device lending",
+          "facts": "A laptop loan lasts four hours. Staff record the device condition at checkout and return."
+        },
+        {
+          "page": 7,
+          "topic": "Accessibility",
+          "facts": "The pilot keeps two adjustable desks near the entrance. Readers can request large-print instructions."
+        },
+        {
+          "page": 8,
+          "topic": "Privacy",
+          "facts": "Visit counts are stored without names. Booking details are removed after seven days."
+        },
+        {
+          "page": 9,
+          "topic": "Outage",
+          "facts": "Staff record seat assignments on numbered cards during an outage. Cards are reconciled before the online schedule reopens."
+        },
+        {
+          "page": 10,
+          "topic": "Evaluation",
+          "facts": "The team counts occupied seats every hour. Reader feedback is collected separately from booking records."
+        }
+      ]
+    },
+    {
+      "file": "repair_cafe.pdf",
+      "pages": [
+        {
+          "page": 1,
+          "topic": "Intake",
+          "facts": "Visitors describe one fault per item. The intake volunteer records the item type and visible damage."
+        },
+        {
+          "page": 2,
+          "topic": "Triage",
+          "facts": "Items with cracked power cables are isolated. Volunteers discuss other faults at the assessment desk."
+        },
+        {
+          "page": 3,
+          "topic": "Consent",
+          "facts": "Visitors approve the proposed repair before work begins. A volunteer records any limits on the requested work."
+        },
+        {
+          "page": 4,
+          "topic": "Parts",
+          "facts": "Spare parts are labeled by item type. An unavailable part is listed on a follow-up card."
+        },
+        {
+          "page": 5,
+          "topic": "Workstations",
+          "facts": "Each workbench serves one repair at a time. Small loose parts stay in a numbered tray."
+        },
+        {
+          "page": 6,
+          "topic": "Buddy checks",
+          "facts": "A second volunteer checks the repair notes before the item is returned. Unresolved issues are written on the return card."
+        },
+        {
+          "page": 7,
+          "topic": "Tool tracking",
+          "facts": "Shared tools have numbered tags. A volunteer checks the tool board at the end of each session."
+        },
+        {
+          "page": 8,
+          "topic": "Visitor learning",
+          "facts": "Visitors may observe the repair from the marked area. Volunteers explain the recorded fault after the work is complete."
+        },
+        {
+          "page": 9,
+          "topic": "Waste separation",
+          "facts": "Removed batteries go into a dedicated collection box. Other replaced parts are sorted by material."
+        },
+        {
+          "page": 10,
+          "topic": "Pilot measures",
+          "facts": "The pilot counts completed and unresolved repairs separately. Time spent waiting for parts is excluded from active repair time."
+        }
+      ]
+    },
+    {
+      "file": "campus_delivery.pdf",
+      "pages": [
+        {
+          "page": 1,
+          "topic": "Order windows",
+          "facts": "The pilot accepts orders before noon. Orders received later are assigned to the next working day."
+        },
+        {
+          "page": 2,
+          "topic": "Pickup labels",
+          "facts": "Each parcel receives a short pickup code. The public label excludes the recipient phone number."
+        },
+        {
+          "page": 3,
+          "topic": "Route planning",
+          "facts": "The morning route visits three campus zones. A closed path is replaced by the signed accessible route."
+        },
+        {
+          "page": 4,
+          "topic": "Pickup confirmation",
+          "facts": "The rider scans the parcel at pickup. An unreadable code is entered manually with a second check."
+        },
+        {
+          "page": 5,
+          "topic": "Handover",
+          "facts": "The recipient provides the pickup code at handover. The rider records completion without taking a face photo."
+        },
+        {
+          "page": 6,
+          "topic": "Missed delivery",
+          "facts": "A missed parcel returns to the service desk. The recipient receives a new pickup window."
+        },
+        {
+          "page": 7,
+          "topic": "Weather changes",
+          "facts": "Heavy rain pauses the pilot route. The desk updates recipients before the route restarts."
+        },
+        {
+          "page": 8,
+          "topic": "Capacity",
+          "facts": "A rider carries at most six parcels on one trip. Remaining parcels wait for the next scheduled trip."
+        },
+        {
+          "page": 9,
+          "topic": "Damaged packaging",
+          "facts": "Damaged outer packaging is recorded before pickup. The desk confirms whether the parcel should continue."
+        },
+        {
+          "page": 10,
+          "topic": "Evaluation",
+          "facts": "The team reports completed trips and missed deliveries separately. Waiting time at a closed path is recorded as a route delay."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "client_date": "2026-11-05",
+  "mode": "vite-proxy",
+  "model_source": "test_fake",
+  "trained_model_used": false,
+  "fixture_api_used": false,
+  "injected_faults": [
+    "503 before commit",
+    "browser offline",
+    "backend process stopped"
+  ],
+  "frontend_commit": "133b2a8e9d2821c2233f35bed5adb382b62af10d",
+  "frontend_local_changes": "frontend/src/App.jsx | 6 +++---\n 1 file changed, 3 insertions(+), 3 deletions(-)",
+  "passed": 12,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Upload actual PDF, start session and render PDF canvas",
+      "status": "passed"
+    },
+    {
+      "name": "Double click records one attempt; partial answer probes in round 1",
+      "status": "passed"
+    },
+    {
+      "name": "Exact duplicate POST replays and changed payload returns 409",
+      "status": "passed"
+    },
+    {
+      "name": "Refresh restores actual DB session, attempts and probe",
+      "status": "passed"
+    },
+    {
+      "name": "Long answer returns 413, retains text and consumes no attempt",
+      "status": "passed"
+    },
+    {
+      "name": "Offline submission preserves pending text and recovers after refresh",
+      "status": "passed"
+    },
+    {
+      "name": "503 preserves exact pending request and DB state",
+      "status": "passed"
+    },
+    {
+      "name": "Refresh while Backend is down retains saved session ID",
+      "status": "passed"
+    },
+    {
+      "name": "Restart restores state; 503 retry uses original ID/version/answer",
+      "status": "passed"
+    },
+    {
+      "name": "Three rounds produce actual report with complete/incomplete and six attempts",
+      "status": "passed"
+    },
+    {
+      "name": "Report source link opens and renders the correct PDF page",
+      "status": "passed"
+    },
+    {
+      "name": "Browser API requests use the UI origin and no JavaScript errors",
+      "status": "passed"
+    }
+  ],
+  "frontend_patch_file": "backend/integration/frontend-recovery.patch",
+  "frontend_patch_file_sha256": "f2f79cb08d66c7e811605c8ce2cae09c99f4b91a63324b9fd7f3e43a7d68c015",
+  "metadata_note": "Candidate patch metadata added after run; check results and source code unchanged."
+}
